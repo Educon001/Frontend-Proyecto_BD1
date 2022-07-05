@@ -1,0 +1,9 @@
+.contenedorBarra{
+
+    width: 15%;
+    min-width: 250px;
+    height: 100%;
+    background: #b1c2e0;
+    position: inherit;
+
+}
