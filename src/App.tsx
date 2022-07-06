@@ -3,6 +3,8 @@ import BarraSuperior from "./BarraSuperior";
 import './App.css';
 import BarraLateral from "./BarraLateral";
 import FormularioPersona from "./componentes/FormularioPersona";
+import FormularioVacunada from "./componentes/FormularioVacunada"
+import FormularioCentroVacunacion from "./componentes/FormularioCentroVacunacion";
 function App() {
 
     const [barraLateral,setBarraLateral]=useState(false)
@@ -44,7 +46,9 @@ function App() {
         <div className="App">
             <BarraSuperior />
             <BarraLateral actiDesacHosp={handleFormularioHosp} actiDesacPer={handleFormularioPer}/>
-            {formularioPer ? <FormularioPersona/>:null}
+            {/*<FormularioPersona/>*/}
+            {/*<FormularioVacunada/>*/}
+            <FormularioCentroVacunacion/>
         </div>
 
     </>
