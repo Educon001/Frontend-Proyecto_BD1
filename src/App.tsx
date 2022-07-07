@@ -5,7 +5,7 @@ import BarraLateral from "./BarraLateral";
 import FormularioPersona from "./componentes/Formularios/FormularioPersona";
 import FormularioVacunada from "./componentes/Formularios/FormularioVacunada"
 import FormularioCentroVacunacion from "./componentes/Formularios/FormularioCentroVacunacion";
-import TablaPaciente from "./componentes/Tablas/TablaPaciente";
+import TablaPersonas from "./componentes/Tablas/TablaPersonas";
 import TablaCentroSalud from "./componentes/Tablas/TablaCentro_Salud";
 function App() {
 
@@ -33,15 +33,15 @@ function App() {
 
     }
 
-
-    useEffect(()=>{
-        if((formularioPer==false) ){
-            console.log("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-        }
-
-
-    },[formularioPer])
+    //
+    // useEffect(()=>{
+    //     if((formularioPer==false) ){
+    //         console.log("holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    //
+    //     }
+    //
+    //
+    // },[formularioPer])
 
   return (
     <>
@@ -51,10 +51,14 @@ function App() {
             {/*<FormularioPersona/>*/}
             {/*<FormularioVacunada/>*/}
             {/*<FormularioCentroVacunacion/>*/}
-            <div className='contenedor'>
-                {/*<TablaPaciente/>*/}
-                <TablaCentroSalud/>
-            </div>
+            {/*<div className='contenedor'>*/}
+            <TablaPersonas/>
+            {/*    <TablaCentroSalud/>*/}
+            {/*</div>*/}
+            <form action="../../post" method="post"
+                  className="form">
+                <button type="submit">Connected?</button>
+            </form>
 
         </div>
 
