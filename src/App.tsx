@@ -77,12 +77,12 @@ function App() {
         <div className="App">
             <BarraSuperior />
             <BarraLateral actiDesacPer={()=>setActiPer(true)} actiDesacHosp={()=>setActiHosp(true)}/>
-            {/*<FormularioPersona/>*/}
+            <FormularioPersona/>
             {/*<FormularioVacunada/>*/}
             {/*<FormularioCentroVacunacion/>*/}
             {/*<div className='contenedor'>*/}
-            <TablaPersonas/>
-            {/*    <TablaCentroSalud/>*/}
+            {/*<TablaPersonas/>*/}
+            {/*<TablaCentroSalud/>*/}
             {/*</div>*/}
             {/*<form action="../../post" method="post"*/}
             {/*      className="form">*/}

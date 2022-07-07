@@ -9,6 +9,10 @@ const FormularioPersona = () => {
                         <h3>REGISTER PERSON</h3>
                         <form id="reg-form">
                             <div>
+                                <label htmlFor="cedula">Cedula</label>
+                                <input type="text" id="cedula" spellCheck="false" placeholder="Escriba su Cedula"/>
+                            </div>
+                            <div>
                                 <label htmlFor="Name">Nombre</label>
                                 <input type="text" id="name" spellCheck="false" placeholder="Escriba su nombre"/>
                             </div>
