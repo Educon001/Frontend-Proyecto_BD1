@@ -2,9 +2,11 @@ import {useEffect, useState} from "react"
 import BarraSuperior from "./BarraSuperior";
 import './App.css';
 import BarraLateral from "./BarraLateral";
-import FormularioPersona from "./componentes/FormularioPersona";
-import FormularioVacunada from "./componentes/FormularioVacunada"
-import FormularioCentroVacunacion from "./componentes/FormularioCentroVacunacion";
+import FormularioPersona from "./componentes/Formularios/FormularioPersona";
+import FormularioVacunada from "./componentes/Formularios/FormularioVacunada"
+import FormularioCentroVacunacion from "./componentes/Formularios/FormularioCentroVacunacion";
+import TablaPaciente from "./componentes/Tablas/TablaPaciente";
+import TablaCentroSalud from "./componentes/Tablas/TablaCentro_Salud";
 function App() {
 
     const [barraLateral,setBarraLateral]=useState(false)
@@ -48,7 +50,12 @@ function App() {
             <BarraLateral actiDesacHosp={handleFormularioHosp} actiDesacPer={handleFormularioPer}/>
             {/*<FormularioPersona/>*/}
             {/*<FormularioVacunada/>*/}
-            <FormularioCentroVacunacion/>
+            {/*<FormularioCentroVacunacion/>*/}
+            <div className='contenedor'>
+                {/*<TablaPaciente/>*/}
+                <TablaCentroSalud/>
+            </div>
+
         </div>
 
     </>

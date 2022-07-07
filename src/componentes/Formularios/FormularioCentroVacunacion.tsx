@@ -37,7 +37,7 @@ function FormularioCentroVacunacion() {
                     </div>
                     <div>
                         <input type="radio" name="HospVacu" value="Hospitalizacion" checked/>Hospitalizacion
-                        <input type="radio" name="HospVacu" value="Vacunacion" checked/>Vacunacion
+                         <input type="radio" name="HospVacu" value="Vacunacion" checked/>Vacunacion
                     </div>
                     <div>
                         <label></label>
