@@ -81,8 +81,8 @@ function App() {
             {/*<FormularioVacunada/>*/}
             {/*<FormularioCentroVacunacion/>*/}
             {/*<div className='contenedor'>*/}
-            <TablaPersonas/>
-            {/*    <TablaCentroSalud/>*/}
+            {/*<TablaPersonas/>*/}
+                <TablaCentroSalud/>
             {/*</div>*/}
             {/*<form action="../../post" method="post"*/}
             {/*      className="form">*/}

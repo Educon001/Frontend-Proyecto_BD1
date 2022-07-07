@@ -9,11 +9,11 @@ const FormularioPersona = () => {
                         <h3>REGISTER PERSON</h3>
                         <form id="reg-form">
                             <div>
-                                <label htmlFor="Name">Name</label>
+                                <label htmlFor="Name">Nombre</label>
                                 <input type="text" id="name" spellCheck="false" placeholder="Escriba su nombre"/>
                             </div>
                             <div>
-                                <label htmlFor="Last Name">Email</label>
+                                <label htmlFor="Last Name">Apellido</label>
                                 <input type="text" id="Last Name" spellCheck="false"
                                        placeholder="Escriba su Apellido"/>
                             </div>
