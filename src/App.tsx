@@ -7,6 +7,8 @@ import FormularioVacunada from "./componentes/Formularios/FormularioVacunada"
 import FormularioCentroVacunacion from "./componentes/Formularios/FormularioCentroVacunacion";
 import TablaPersonas from "./componentes/Tablas/TablaPersonas";
 import TablaCentroSalud from "./componentes/Tablas/TablaCentro_Salud";
+import TablaVacunada from "./componentes/Tablas/TablaVacunada";
+
 function App() {
 
     const [barraLateral,setBarraLateral]=useState(false)
@@ -77,7 +79,8 @@ function App() {
         <div className="App">
             <BarraSuperior />
             <BarraLateral actiDesacPer={()=>setActiPer(true)} actiDesacHosp={()=>setActiHosp(true)}/>
-            <FormularioPersona/>
+            {/*<FormularioPersona/>*/}
+            <TablaVacunada/>
             {/*<FormularioVacunada/>*/}
             {/*<FormularioCentroVacunacion/>*/}
             {/*<div className='contenedor'>*/}

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import Vacuna from '@mui/icons-material/Vaccines';
 
 
 const BarraSuperior = () => {
@@ -28,7 +28,8 @@ const BarraSuperior = () => {
 
                         </IconButton>
                         <Typography variant="h6" component="div" backgraund-color="black" sx={{ flexGrow: 1 }}>
-                            News
+                            COVID SHIELD
+                            <Vacuna/>
                         </Typography>
                         <Button color="inherit">Login</Button>
                     </Toolbar>
