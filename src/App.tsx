@@ -43,11 +43,40 @@ function App() {
     //
     // },[formularioPer])
 
-  return (
+
+    const [actiHosp,setActiHosp]=useState(false)
+
+    useEffect(()=>{
+        if(formularioHosp==false){
+        //     setFormularioHosp(true)
+        //     setFormularioPer(false)
+            setActiHosp(false)
+            console.log('ESTA EN EL FORMULARIO DE HOSPITAL')
+        }
+
+
+    },[actiHosp]);
+
+
+    const [actiPer,setActiPer]=useState(false)
+    useEffect(()=>{
+        if(formularioPer==false){
+            setFormularioPer(true)
+            setFormularioHosp(false)
+            setActiPer(false)
+            console.log('ESTA EN EL FORMULARIO DE PERSONA')
+
+        }
+
+
+
+    },[actiPer]);
+
+    return (
     <>
         <div className="App">
             <BarraSuperior />
-            <BarraLateral actiDesacHosp={handleFormularioHosp} actiDesacPer={handleFormularioPer}/>
+            <BarraLateral actiDesacPer={()=>setActiPer(true)} actiDesacHosp={()=>setActiHosp(true)}/>
             {/*<FormularioPersona/>*/}
             {/*<FormularioVacunada/>*/}
             {/*<FormularioCentroVacunacion/>*/}
@@ -55,10 +84,10 @@ function App() {
             <TablaPersonas/>
             {/*    <TablaCentroSalud/>*/}
             {/*</div>*/}
-            <form action="../../post" method="post"
-                  className="form">
-                <button type="submit">Connected?</button>
-            </form>
+            {/*<form action="../../post" method="post"*/}
+            {/*      className="form">*/}
+            {/*    <button type="submit">Connected?</button>*/}
+            {/*</form>*/}
 
         </div>
 
