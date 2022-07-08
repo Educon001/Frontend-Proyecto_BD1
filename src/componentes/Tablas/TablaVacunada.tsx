@@ -2,88 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "../../css/Tablas/Tablas.css"
 
 const TablaVacunada = () => {
-//     var pacientes:any=[
-//     {
-//         "id": "1",
-//         "name": "Juan",
-//         "lastname": "Perez",
-//         "sex": "M",
-//         "birthdate": 'null',
-//         "highrisk": 'null'
-//     },
-//     {
-//         "id": '2',
-//         "name": 'Juana',
-//         "lastname": "Perez",
-//         "sex": "F",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "3",
-//         "name": "Jose",
-//         "lastname": "Perez",
-//         "sex": "M",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "4",
-//         "name": "Joselu",
-//         "lastname": "Perez",
-//         "sex": "M",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "5",
-//         "name": "Joselu",
-//         "lastname": "Martinez",
-//         "sex": "M",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "6",
-//         "name": "steiker",
-//         "lastname": "Martinez",
-//         "sex": "M",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "7",
-//         "name": "steiker",
-//         "lastname": "Mieles",
-//         "sex": "F",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "8",
-//         "name": "sleiker",
-//         "lastname": "Mieles",
-//         "sex": "N/A",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "9",
-//         "name": "sneiker",
-//         "lastname": "Mieles",
-//         "sex": "M",
-//         "birthdate": null,
-//         "highrisk": null
-//     },
-//     {
-//         "id": "10",
-//         "name": "Marco",
-//         "lastname": "Castro",
-//         "sex": "M",
-//         "birthdate": null,
-//         "highrisk": null
-//     }
-// ]
+
 
     const [datos,setDatos]=useState([])
 
@@ -117,7 +36,7 @@ const TablaVacunada = () => {
                         <tr>
                             <th>{ dato['idpersona'] }</th>
                             <th>{ dato['codevacuna'] }</th>
-                            <th>{ dato['codecv'] }</th>
+                            <th>{ dato['codecentrov'] }</th>
                             <th>{ dato['idpersonal'] }</th>
                             <th>{ dato['datevacuna'] }</th>
                             <th>{ dato['dosis'] }</th>

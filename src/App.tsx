@@ -8,6 +8,7 @@ import FormularioCentroVacunacion from "./componentes/Formularios/FormularioCent
 import TablaPersonas from "./componentes/Tablas/TablaPersonas";
 import TablaCentroSalud from "./componentes/Tablas/TablaCentro_Salud";
 import TablaVacunada from "./componentes/Tablas/TablaVacunada";
+import TablaVacuna from './componentes/Tablas/TablaVacunas';
 
 function App() {
 
@@ -79,18 +80,20 @@ function App() {
         <div className="App">
             <BarraSuperior />
             <BarraLateral actiDesacPer={()=>setActiPer(true)} actiDesacHosp={()=>setActiHosp(true)}/>
-            {/*<FormularioPersona/>*/}
-            <TablaVacunada/>
+            <FormularioPersona/>
+            {/*<TablaVacunada/>*/}
             {/*<FormularioVacunada/>*/}
             {/*<FormularioCentroVacunacion/>*/}
             {/*<div className='contenedor'>*/}
             {/*<TablaPersonas/>*/}
             {/*<TablaCentroSalud/>*/}
+            {/*<TablaVacuna/>*/}
             {/*</div>*/}
             {/*<form action="../../post" method="post"*/}
             {/*      className="form">*/}
             {/*    <button type="submit">Connected?</button>*/}
             {/*</form>*/}
+
 
         </div>
 
