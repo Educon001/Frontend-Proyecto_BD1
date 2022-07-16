@@ -1,0 +1,173 @@
+
+.pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(../imagenes/FondoLogueo.jpeg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+}
+#contenedor{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    height: auto;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.418);
+    border-radius: 15px;
+    
+}
+#conte{
+    display: inline-flexbox;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    min-width: 200px;
+
+
+
+}
+#sigInOrRegister{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin: 5px;
+    display: flex;
+    background-color: #ffffff;
+   
+    justify-content: center;
+    align-items: center;
+    border-radius:15em;
+
+}
+
+.Formulario{
+    width: 100%;
+    
+    
+    background-color: #ffffff;
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 15px;
+
+}
+#login {
+    width: 100%;
+    height: auto;
+
+    align-items: center;
+    justify-content: center;
+  
+    
+    box-sizing: border-box;
+    
+    opacity: 1;
+    filter: alpha(opacity=1);
+    
+    
+}
+#login label {
+    display: block;
+    font-family: 'Overpass', sans-serif;
+    font-size: 120%;
+    color:#000000;
+    align-items: center;
+    
+    margin: 15px;
+    border-radius: 10%;
+    
+}
+#email,#password,#name{
+    font-size: 70%;
+    display: flex;
+    height: 30px;
+    width: 95%;
+    border-radius: 10rem;
+    padding: 5px;
+    margin: 2px;
+
+}
+
+#botonRegistrarse{
+    background-color: white;
+    border-color: white;
+    margin: 15px;
+}
+  
+
+
+
+#facebookButton{
+    width: 50%;
+    background: #3d68c0; 
+    display:block;
+    cursor:pointer
+
+}
+#githubButton{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    cursor:pointer
+    
+
+}
+.iniciar{
+    border-radius:15em;
+    display: block;
+    height: 30px;
+    width: 100%;
+    color: #ffffff;
+    background-color:#3b5998;
+    font-size: large;
+    margin-top: 30px;
+    align-items: center;
+
+
+}
+
+
+.modosDeInicio{
+    height: auto;
+    width: auto;
+    display: flex;
+}
+.cBoton{
+    display: flex;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.boton{
+    /* background-image:url("../imagenes/GitHub-Logo.png"); */
+    /* background-repeat:no-repeat; */
+    height:80px;
+    width:80px;
+    background-size: 50px 50px;
+    background-position:center;
+    display: flex;
+    border-radius: 100rem;
+    padding: 5px;
+    cursor: pointer;
+}
+.boton:hover{
+    height:90px;
+    width:90px;
+    position: absolute;
+
+}
+
