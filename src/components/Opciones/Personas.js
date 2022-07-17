@@ -120,7 +120,7 @@ function Personas() {
                                         <th>{persona['lastname']}</th>
                                         <th>{persona['sex']}</th>
                                         <th>{persona['birthdate']}</th>
-                                        <th>{persona['highrisk']}</th>
+                                        <th>{persona['highrisk']?'Si':'No'}</th>
                                         <th className='acciones'>
                                             <Button
                                                 variant="contained"
