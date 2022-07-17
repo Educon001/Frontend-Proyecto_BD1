@@ -25,14 +25,14 @@ const style = {
     p: 4,
 };
 
-function Personas() {
+function Vacunada() {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const imagenes = [paciente, paciente2]
     const [personas, setPersonas] = useState([])
-    let url = 'http://localhost:4000/personas'
+    let url = 'http://localhost:4000/vacunada'
     const showData = async () => {
         const response = await fetch(url)
         const data = await response.json()
@@ -75,7 +75,7 @@ function Personas() {
                     </ CardMedia>
                     <CardContent>
                         <Typography gutterBottom variant="h3" component="div">
-                            Personas
+                            Vacunados
                         </Typography>
                         <Typography gutterBottom variant="h4" component="div">
                             <Button
@@ -103,24 +103,27 @@ function Personas() {
                     <div className="contenedorTabla">
                         <table>
                             <tr>
-                                <th>Cedula</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Sexo</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Alto Riesgo</th>
+                                <th>Cedula de Vacunado</th>
+                                <th>Codigo Vacuna</th>
+                                <th>Codigo Centro De Vacunacion</th>
+                                <th>Cedula Personal De Salud</th>
+                                <th>Fecha de Vacunacion</th>
+                                <th>Dosis</th>
                                 <th>Acciones</th>
 
                             </tr>
                             {personas.map((persona) => {
                                 return (
+
+
                                     <tr>
-                                        <th>{persona['id']}</th>
-                                        <th>{persona['name']}</th>
-                                        <th>{persona['lastname']}</th>
-                                        <th>{persona['sex']}</th>
-                                        <th>{persona['birthdate']}</th>
-                                        <th>{persona['highrisk']}</th>
+                                        <th>{persona['idpersona']}</th>
+                                        <th>{persona['codevacuna']}</th>
+                                        <th>{persona['codecentrov']}</th>
+                                        <th>{persona['idpersonal']}</th>
+                                        <th>{persona['datevacuna']}</th>
+                                        <th>{persona['dosis']}</th>
+
                                         <th className='acciones'>
                                             <Button
                                                 variant="contained"
@@ -157,4 +160,4 @@ function Personas() {
         </>);
 }
 
-export default Personas;
+export default Vacunada;

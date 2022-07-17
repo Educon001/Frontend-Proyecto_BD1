@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom"
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Box, Grid } from '@mui/material'
 
-function Ciudad(props) {
+function Carta(props) {
     
     const { Tipo,aux,imagen } = props
      
@@ -40,4 +40,4 @@ function Ciudad(props) {
 
 }
 
-export default Ciudad;
+export default Carta;

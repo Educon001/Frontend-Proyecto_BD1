@@ -25,7 +25,7 @@ const style = {
     p: 4,
 };
 
-function Personas() {
+function CentroDeSalud() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -169,4 +169,4 @@ function Personas() {
         </>);
 }
 
-export default Personas;
+export default CentroDeSalud;
