@@ -13,6 +13,11 @@ import NotFound from './components/NotFound/NotFound';
 import OpcionesPage from './pages/OpcionesPage'
 import Vacuna from './components/Opciones/Vacuna'
 import Vacunada from './components/Opciones/Vacunada'
+import Consulta9 from './../src/components/Opciones/Consulta9'
+import Consulta2 from './../src/components/Opciones/Consulta2'
+import Consulta6 from './../src/components/Opciones/Consulta6'
+
+
 function App() {
 
 
@@ -30,7 +35,13 @@ function App() {
         <Route path="/opciones/cs" element={<CentrosDeSalud />} />
         <Route path="/opciones/vacuna" element={<Vacuna />} />
         <Route path="/opciones/vacunada" element={<Vacunada />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/opciones/consulta9" element={<Consulta9 />} />
+        <Route path="/opciones/consulta2" element={<Consulta2 />} />
+        <Route path="/opciones/consulta6" element={<Consulta6 />} />
+
+
+
+          <Route path="*" element={<NotFound />} />
       </Routes>
 
     </BrowserRouter>

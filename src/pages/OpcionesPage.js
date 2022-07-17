@@ -21,6 +21,7 @@ function OpcionesPage() {
                             <h1>OPCIONES</h1>
                         </div>
                         <OpcionesLista  />
+
                     </div>}
 
             </div>
