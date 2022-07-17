@@ -36,7 +36,8 @@ const Personas = () => {
 
         setPS({
             ...PS,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            id_persona: persona.id
 
 
         })
@@ -46,43 +47,48 @@ const Personas = () => {
         e.preventDefault()
         console.log(persona)
         let url = 'http://localhost:4000/personas';
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(persona),
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(persona),
 
-        }).
-        then(res =>  res.json()).
-        catch(error => console.error('Error', error)).
-        then(response => console.log('Succes: ', response));
-
-        if(personSalud==true){
-            setPS({
-                ...PS,
-                id_persona:persona.id,
             })
-            cargarDatos2()
+            const data = await response.json();
+            const newPS = {id_persona: persona.id};
+            console.log(newPS);
+            if(personSalud==true){
+                setPS(newPS);
+                console.log(PS);
+                await cargarDatos2();
+            }
+            console.log('Success: ', data);
+            return data;
+        }catch (e) {
+            console.error(e);
         }
-
-
     }
-    async function cargarDatos2(){
 
+    async function cargarDatos2(){
         console.log(PS)
         let url2 = 'http://localhost:4000/personas/ps';
-         fetch(url2, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(PS),
+        try {
+            const response = await fetch(url2, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(PS),
 
-        }).
-        then(res => res.json()).
-        catch(error => console.error('Error', error)).
-        then(response => console.log('Succes: ', response));
+            })
+            const data = await response.json()
+            console.log('Success: ', data);
+            return data;
+        }catch (e) {
+            console.error(e);
+        }
 
     }
 
