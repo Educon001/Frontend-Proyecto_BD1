@@ -10,8 +10,8 @@ const HomePage = () => {
   return (
     <>
       <>
-        <div>
-          <Banner />
+        <div className="Body">
+          <Banner/>
         </div>
         <br />
         <Grid container justifyContent="center">
