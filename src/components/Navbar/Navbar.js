@@ -5,32 +5,76 @@ import Search from "../Search/Search"
 import MenuIcon from "@material-ui/icons/Menu"
 import { amber } from "@mui/material/colors"
 import { Link } from "react-router-dom"
+import Logo from "../../imagenes/Logo.jpeg";
+import SearchRounded from "@material-ui/icons/SearchRounded";
+import "../../css/Banner.css"
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
 
 const Navbar = () => {
   
-    const [tablet,setTablet]=useState(true)
-    const [drawerOpen,setDrawerOpen]=useState(false)
     const classes=useStyle()
-    useEffect(()=>{
-      const responsive = () => window.innerWidth < 900 ? setTablet(true): setTablet(false)
-      responsive();
-      window.addEventListener('resize',()=>responsive());
-    },[])
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
       
 
   
     const displayDesktop=()=>( 
       <Toolbar className={classes.toolbar}>
-        <Link to="/">
-          <img src={logo} className={classes.logo} alt="logo"/>
-        </Link>
-        {/* <div className={classes.center}>
-            <InputBase fullWidth inputProps={{className: classes.input}} placeholder="Buscar ciudad..."/>
-            <SearchIcon/>
-        </div> */}
-        <div>
-          <Search/>
-        </div>
+          <nav className="nav-main">
+              <Link to="/">
+                  <img src={logo} className={classes.logo} alt="logo"/>
+              </Link>              <ul className="nav-menu">
+                  <li>
+                      <a href="/personas">Persona</a>
+                  </li>
+                  <li>
+                      <a href="/cs" >Centros de salud</a>
+                  </li>
+                  <li>
+                      <a href="/vacunas" >Vacunas</a>
+                  </li>
+                  <li>
+                      <a href="/vacunados">Vacunacion</a>
+                  </li>
+
+                  <Menu
+                      id="fade-menu"
+                      MenuListProps={{
+                          'aria-labelledby': 'fade-button',
+                      }}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      TransitionComponent={Fade}
+                  >
+                      <li><MenuItem  onClick={handleClose}><a href="/consulta2">Consulta 2</a></MenuItem></li>
+                      <li><MenuItem  onClick={handleClose}><a href="/consulta6">Consulta 6</a></MenuItem></li>
+                      <li><MenuItem  onClick={handleClose}><a href="/consulta7">Consulta 7</a></MenuItem></li>
+                      <li><MenuItem  onClick={handleClose}><a href="/consulta8">Consulta 8</a></MenuItem></li>
+                      <li><MenuItem  onClick={handleClose}><a href="/consulta9">Consulta 9</a></MenuItem></li>
+
+                  </Menu>
+                  <li onClick={handleClick}>
+                      <a href="#">Reporte</a>
+                  </li>
+              </ul>
+              <ul className="nav-menu-right">
+                  <li>
+                      <a href="#">
+                          <SearchRounded/>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
 
       </Toolbar>
     )

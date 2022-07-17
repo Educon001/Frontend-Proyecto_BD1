@@ -23,33 +23,7 @@ const Banner = () => {
 
       <div className="body">
        <div className="container">
-        <nav className="nav-main">
-          <img src={Logo} alt="logo" className="nav-brand"/>
-          <ul className="nav-menu">
-            <li>
-              <a href="#">Persona</a>
-            </li>
-            <li>
-              <a href="#">Centros de salud</a>
-            </li>
-            <li>
-              <a href="#">Vacunas</a>
-            </li>
-            <li>
-              <a href="#">Vacunacion</a>
-            </li>
-            <li>
-              <a href="#">Reporte</a>
-            </li>
-          </ul>
-          <ul className="nav-menu-right">
-            <li>
-              <a href="#">
-                <SearchRounded/>
-              </a>
-            </li>
-          </ul>
-        </nav>
+
          <div style={{ borderTop: "2px solid #5ce7d4 ", marginLeft: 20, marginRight: 20 }} className="hr"></div>
          <header className="showcase">
            <h2>Covi Shield</h2>

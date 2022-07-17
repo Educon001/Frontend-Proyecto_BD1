@@ -25,14 +25,14 @@ const style = {
     p: 4,
 };
 
-function Consulta6() {
+function Consulta7() {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const imagenes = [paciente, paciente2]
     const [datos, setDatos] = useState([])
-    let url = 'http://localhost:4000/reportes/6'
+    let url = 'http://localhost:4000/reportes/7'
     const showData = async () => {
         const response = await fetch(url)
         const data = await response.json()
@@ -65,7 +65,7 @@ function Consulta6() {
                 <br/>
                 <div style={{display: 'block', paddingInline: '100px',}/*paddingInline: '15px'*/}>
                     <Card sx={{width: '100% '}}>
-
+                        
                         <CardContent>
                             <Typography gutterBottom variant="h3" component="div">
                                 Consulta 1
@@ -96,16 +96,20 @@ function Consulta6() {
                         <div className="contenedorTabla">
                             <table>
                                 <tr className="tableHeader">
-                                    <th>Variante</th>
-                                    <th>Numero de Contagios</th>
+                                    <th>Centro de Salud</th>
+                                    <th>Tipo</th>
+                                    <th>Cantidad de Pacientes Vacunados</th>
                                     <th>Acciones</th>
 
                                 </tr>
                                 {datos.map((dato) => {
                                     return (
                                         <tr>
-                                            <th>{dato['variante']}</th>
-                                            <th>{dato['n_contagios']}</th>
+                                            <th>{dato['name']}</th>
+                                            <th>{dato['tipo']}</th>
+                                            <th>{dato['cant_pacientes_vacunados']}</th>
+
+
 
                                             <th className='acciones'>
                                                 <Button
@@ -143,4 +147,4 @@ function Consulta6() {
         </>);
 }
 
-export default Consulta6;
+export default Consulta7;

@@ -25,14 +25,14 @@ const style = {
     p: 4,
 };
 
-function Consulta6() {
+function Consulta8() {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const imagenes = [paciente, paciente2]
     const [datos, setDatos] = useState([])
-    let url = 'http://localhost:4000/reportes/6'
+    let url = 'http://localhost:4000/reportes/8'
     const showData = async () => {
         const response = await fetch(url)
         const data = await response.json()
@@ -49,26 +49,15 @@ function Consulta6() {
     return (
         <>
             <div className='diseno'>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
 
-                >
-                    <Box sx={style}>
-
-                        <FormularioPersona cerrarAbrir={() =>setAux(!aux)}/>
-
-                    </Box>
-                </Modal>
                 <br/>
                 <div style={{display: 'block', paddingInline: '100px',}/*paddingInline: '15px'*/}>
                     <Card sx={{width: '100% '}}>
-
+                        
                         <CardContent>
                             <Typography gutterBottom variant="h3" component="div">
-                                Consulta 1
+                                Síntomas asociados a cada uno de los
+                                virus-variante y vacuna más eficaz para ese virus.
                             </Typography>
                             <Typography gutterBottom variant="h4" component="div">
                                 <Button
@@ -95,9 +84,10 @@ function Consulta6() {
                     <div>
                         <div className="contenedorTabla">
                             <table>
-                                <tr className="tableHeader">
+                                <tr className='tableHeader'>
                                     <th>Variante</th>
-                                    <th>Numero de Contagios</th>
+                                    <th>Sintoma</th>
+                                    <th>Vacuna mas efectiva</th>
                                     <th>Acciones</th>
 
                                 </tr>
@@ -105,7 +95,10 @@ function Consulta6() {
                                     return (
                                         <tr>
                                             <th>{dato['variante']}</th>
-                                            <th>{dato['n_contagios']}</th>
+                                            <th>{dato['sintoma']}</th>
+                                            <th>{dato['vacuna_mas_efectiva']}</th>
+
+
 
                                             <th className='acciones'>
                                                 <Button
@@ -143,4 +136,4 @@ function Consulta6() {
         </>);
 }
 
-export default Consulta6;
+export default Consulta8;

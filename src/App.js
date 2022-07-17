@@ -16,6 +16,10 @@ import Vacunada from './components/Opciones/Vacunada'
 import Consulta9 from './../src/components/Opciones/Consulta9'
 import Consulta2 from './../src/components/Opciones/Consulta2'
 import Consulta6 from './../src/components/Opciones/Consulta6'
+import Consulta7 from './../src/components/Opciones/Consulta7'
+import Consulta8 from './../src/components/Opciones/Consulta8'
+import TablaPrueba from './services/TablaPrueba'
+
 
 
 function App() {
@@ -23,28 +27,33 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-
-      <Navbar />
-
-      <Routes>
-
-        <Route index element={<HomePage />} />
-        <Route path="/opciones" element={<OpcionesPage />} />
-        <Route path="/opciones/personas" element={<Personas />} />
-        <Route path="/opciones/cs" element={<CentrosDeSalud />} />
-        <Route path="/opciones/vacuna" element={<Vacuna />} />
-        <Route path="/opciones/vacunada" element={<Vacunada />} />
-        <Route path="/opciones/consulta9" element={<Consulta9 />} />
-        <Route path="/opciones/consulta2" element={<Consulta2 />} />
-        <Route path="/opciones/consulta6" element={<Consulta6 />} />
-
-
-
-          <Route path="*" element={<NotFound />} />
-      </Routes>
-
-    </BrowserRouter>
+    // <BrowserRouter>
+    //
+    //   <Navbar />
+    //
+    //   <Routes>
+    //
+    //     <Route index element={<HomePage />} />
+    //     <Route path="/opciones" element={<OpcionesPage />} />
+    //     <Route path="/personas" element={<Personas />} />
+    //     <Route path="/cs" element={<CentrosDeSalud />} />
+    //     <Route path="/vacunas" element={<Vacuna />} />
+    //     <Route path="/vacunados" element={<Vacunada />} />
+    //     <Route path="/consulta9" element={<Consulta9 />} />
+    //     <Route path="/consulta2" element={<Consulta2 />} />
+    //     <Route path="/consulta6" element={<Consulta6 />} />
+    //     <Route path="/consulta7" element={<Consulta7 />} />
+    //     <Route path="/consulta8" element={<Consulta8 />} />
+    //
+    //
+    //
+    //
+    //
+    //     <Route path="*" element={<NotFound />} />
+    //   </Routes>
+    //
+    // </BrowserRouter>
+      <TablaPrueba/>
   );
 }
 

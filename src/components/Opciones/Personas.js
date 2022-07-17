@@ -65,14 +65,7 @@ function Personas() {
             <br/>
             <div style={{display: 'block', paddingInline: '100px',}/*paddingInline: '15px'*/}>
                 <Card sx={{width: '100% '}}>
-                    <CardMedia>
-                        <Carousel variant="dark">
-                            {/*<Carousel.Item><img src={paciente} className="d-block w-80 mx-auto" alt='Fotos mostrando la ciudad'></img></Carousel.Item>*/}
-                            {imagenes.map(imagen => <Carousel.Item><img src={imagen}
-                                                                        className="d-block w-80 h-100% mx-auto"
-                                                                        alt='Fotos mostrando la ciudad'></img></Carousel.Item>)}
-                        </Carousel>
-                    </ CardMedia>
+
                     <CardContent>
                         <Typography gutterBottom variant="h3" component="div">
                             Personas
@@ -102,7 +95,7 @@ function Personas() {
                 <div>
                     <div className="contenedorTabla">
                         <table>
-                            <tr>
+                            <tr className="tableHeader">
                                 <th>Cedula</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>

@@ -45,7 +45,19 @@ function Vacunada() {
         showData()
     }, [aux])
 
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
 
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
     return (
         <>
         <div className='diseno'>
@@ -65,14 +77,7 @@ function Vacunada() {
             <br/>
             <div style={{display: 'block', paddingInline: '100px',}/*paddingInline: '15px'*/}>
                 <Card sx={{width: '100% '}}>
-                    <CardMedia>
-                        <Carousel variant="dark">
-                            {/*<Carousel.Item><img src={paciente} className="d-block w-80 mx-auto" alt='Fotos mostrando la ciudad'></img></Carousel.Item>*/}
-                            {imagenes.map(imagen => <Carousel.Item><img src={imagen}
-                                                                        className="d-block w-80 h-100% mx-auto"
-                                                                        alt='Fotos mostrando la ciudad'></img></Carousel.Item>)}
-                        </Carousel>
-                    </ CardMedia>
+
                     <CardContent>
                         <Typography gutterBottom variant="h3" component="div">
                             Vacunados
@@ -102,7 +107,7 @@ function Vacunada() {
                 <div>
                     <div className="contenedorTabla">
                         <table>
-                            <tr>
+                            <tr className="tableHeader">
                                 <th>Cedula de Vacunado</th>
                                 <th>Codigo Vacuna</th>
                                 <th>Codigo Centro De Vacunacion</th>
@@ -121,7 +126,7 @@ function Vacunada() {
                                         <th>{persona['codevacuna']}</th>
                                         <th>{persona['codecentrov']}</th>
                                         <th>{persona['idpersonal']}</th>
-                                        <th>{persona['datevacuna']}</th>
+                                        <th>{formatDate(persona['datevacuna'])}</th>
                                         <th>{persona['dosis']}</th>
 
                                         <th className='acciones'>
