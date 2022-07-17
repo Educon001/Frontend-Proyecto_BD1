@@ -31,13 +31,13 @@ function Vacuna() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const imagenes = [paciente, paciente2]
-    const [personas, setPersonas] = useState([])
+    const [datos, setDatos] = useState([])
     let url = 'http://localhost:4000/vacuna'
     const showData = async () => {
         const response = await fetch(url)
         const data = await response.json()
         console.log(data)
-        setPersonas(data)
+        setDatos(data)
     }
     const [aux, setAux] = useState(false)
 
@@ -113,16 +113,16 @@ function Vacuna() {
                                 <th>Acciones</th>
 
                             </tr>
-                            {personas.map((persona) => {
+                            {datos.map((dato) => {
                                 return (
                                     <tr>
-                                        <th>{persona['code']}</th>
-                                        <th>{persona['name']}</th>
-                                        <th>{persona['lote']}</th>
-                                        <th>{persona['cantdosis']}</th>
-                                        <th>{persona['type']}</th>
-                                        <th>{persona['laboratory']}</th>
-                                        <th>{persona['code_pais']}</th>
+                                        <th>{dato['code']}</th>
+                                        <th>{dato['name']}</th>
+                                        <th>{dato['lote']}</th>
+                                        <th>{dato['cantdosis']}</th>
+                                        <th>{dato['type']}</th>
+                                        <th>{dato['laboratory']}</th>
+                                        <th>{dato['code_pais']}</th>
                                         <th className='acciones'>
                                             <Button
                                                 variant="contained"

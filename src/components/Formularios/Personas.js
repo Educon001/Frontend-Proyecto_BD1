@@ -42,7 +42,7 @@ const Personas = () => {
         })
     }
 
-    const cargarDatos=(e)=>{
+    async function cargarDatos(e){
         e.preventDefault()
         console.log(persona)
         let url = 'http://localhost:4000/personas';
@@ -54,7 +54,7 @@ const Personas = () => {
             body: JSON.stringify(persona),
 
         }).
-        then(res => res.json()).
+        then(res =>  res.json()).
         catch(error => console.error('Error', error)).
         then(response => console.log('Succes: ', response));
 
@@ -64,15 +64,15 @@ const Personas = () => {
                 id_persona:persona.id,
             })
             cargarDatos2()
-
         }
 
+
     }
-    const cargarDatos2=()=>{
+    async function cargarDatos2(){
 
         console.log(PS)
         let url2 = 'http://localhost:4000/personas/ps';
-        fetch(url2, {
+         fetch(url2, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
