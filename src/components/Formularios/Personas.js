@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
+import '../../css/Formularios.css';
+
 const Personas = () => {
 
     const [personSalud,setPersonSalud]=useState(false)
@@ -121,7 +123,7 @@ const Personas = () => {
                 <h3>Registro De Personas</h3>
                 <form id="reg-form" onSubmit={cargarDatos}>
                     <div>
-                        <label htmlFor="cedula">Cedula:     ㅤ</label>
+                        <label style={{color: 'black'}}  htmlFor="cedula">Cedula:     ㅤ</label>
                         <input type="text" id="cedula" spellCheck="false"
                                placeholder="Escriba su Cedula" onChange={handleInputChange} name='id'/>
                     </div>
