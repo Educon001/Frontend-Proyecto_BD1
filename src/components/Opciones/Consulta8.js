@@ -69,24 +69,6 @@ function Consulta8() {
                          virus-variante y vacuna más eficaz para ese
                          virus.
                       </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         <Button
-                             variant="contained"
-                             color="primary"
-                             className="button"
-                             startIcon={<BorderColorSharpIcon/>}
-                             onClick={handleOpen}
-
-                         >
-                            Agregar
-                         </Button>
-                      </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-                      </Typography>
-
 
                       <br/>
 

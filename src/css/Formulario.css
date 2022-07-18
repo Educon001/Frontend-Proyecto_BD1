@@ -10,7 +10,6 @@
 .formulario {
     flex-wrap: wrap;
     display: flex;
-    overflow-y: scroll;
 }
 
 .formulario .form .form-header .form-tittle {

@@ -77,29 +77,9 @@ function Consulta6() {
                    <CardContent>
                       <Typography gutterBottom variant="h3"
                                   component="div">
-                         Consulta 1
+                         Top 3 de variantes con mas contagios
                       </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         <Button
-                             variant="contained"
-                             color="primary"
-                             className="button"
-                             startIcon={<BorderColorSharpIcon/>}
-                             onClick={handleOpen}
-
-                         >
-                            Agregar
-                         </Button>
-                      </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-                      </Typography>
-
-
                       <br/>
-
                    </CardContent>
                 </Card>
 

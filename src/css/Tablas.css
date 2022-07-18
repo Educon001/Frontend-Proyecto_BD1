@@ -11,7 +11,9 @@ Generic Styling, for Desktops/Laptops
 table {
     width: 100%;
     float: right;
-
+    border: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 /* Zebra striping */
 tr:nth-of-type(odd) {
@@ -21,11 +23,13 @@ th {
     background: #ffffff;
     color: #000000;
     font-weight: bold;
+    font-family: Roboto;
+    font-size: 18px;
 }
 td, th {
     padding: 6px;
-    border: 3px solid #ccc;
-    text-align: left;
+    border: 5px solid #ACBAB9;
+    text-align:center;
 }
 .acciones{
     width: 20%;
@@ -37,7 +41,5 @@ td, th {
     font-size: 20px;
     background: #000000;
     color: #ffffff;
-
-
 
 }

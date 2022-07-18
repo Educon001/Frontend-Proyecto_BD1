@@ -20,8 +20,9 @@ import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas';
 import * as funciones from '../General/Functions';
 import '../../css/Formulario.css';
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+import AddIcon from '@mui/icons-material/Add';
 
 const style = {
    position: 'absolute',
@@ -36,7 +37,7 @@ const style = {
 
 function Personas() {
    const [modifi, setModifi] = useState({});
-   const [modificable, setModificable]=useState(
+   const [modificable, setModificable] = useState(
        {
           name: '',
           lastname: '',
@@ -44,8 +45,7 @@ function Personas() {
           birthdate: '',
           highrisk: '',
 
-
-       })
+       });
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -64,33 +64,30 @@ function Personas() {
       showData();
    }, [aux]);
 
-   const eliminar=async(dat)=>{
+   const eliminar = async (dat) => {
 
-      let result=await funciones.eliminarFila('personas/'+dat.id)
-      return result
-   }
-
+      let result = await funciones.eliminarFila('personas/' + dat.id);
+      return result;
+   };
 
    const modificar = async (dat) => {
-      let result = await funciones.modificarFila('personas/'+dat.id,modificable)
-      return result
+      let result = await funciones.modificarFila('personas/' + dat.id,
+          modificable);
+      return result;
 
+   };
 
+   const handleChangeModifi = (e) => {
+      e.preventDefault();
 
-
-   }
-
-   const handleChangeModifi=(e)=>{
-      e.preventDefault()
-
-      if (e.target.value!=null && e.target.value!='') {
+      if (e.target.value != null && e.target.value != '') {
          setModificable({
                 ...modificable,
                 [e.target.name]: e.target.value,
-             }
-         )
+             },
+         );
       }
-   }
+   };
    return (
        <>
           <div>
@@ -125,20 +122,13 @@ function Personas() {
                              variant="contained"
                              color="primary"
                              className="button"
-                             startIcon={<BorderColorSharpIcon/>}
+                             startIcon={<AddIcon/>}
                              onClick={handleOpen}
 
                          >
                             Agregar
                          </Button>
                       </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-
-                      </Typography>
-
-
                       <br/>
 
                    </CardContent>
@@ -162,52 +152,75 @@ function Personas() {
                                 <tr>
                                    <th>{persona['id']}</th>
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="name" spellCheck="false"
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="text" id="name"
+                                                 spellCheck="false"
                                                  placeholder={persona['name']}
-                                                 name="name"/> : persona['name']}
+                                                 name="name"/> :
+                                          persona['name']}
                                    </th>
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="lastname" spellCheck="false"
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="text" id="lastname"
+                                                 spellCheck="false"
                                                  placeholder={persona['lastname']}
-                                                 name="lastname"/> : persona['lastname']}
+                                                 name="lastname"/> :
+                                          persona['lastname']}
                                    </th>
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="sex" spellCheck="false"
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="text" id="sex"
+                                                 spellCheck="false"
                                                  placeholder={persona['sex']}
                                                  name="sex"/> : persona['sex']}
                                    </th>
 
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi} type="date" id="birthdate" min="1900-01-01"
-                                                 max="now"placeholder="MM/DD/YYYY" onFocus={persona['birthdate']}
-                                                 name="birthdate"/> : funciones.formatDate(
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="date" id="birthdate"
+                                                 min="1900-01-01"
+                                                 max="now"
+                                                 placeholder="MM/DD/YYYY"
+                                                 onFocus={persona['birthdate']}
+                                                 name="birthdate"/> :
+                                          funciones.formatDate(
                                               persona['birthdate'])}
                                    </th>
 
 
-
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="highrisk" spellCheck="false"
-                                                 placeholder={persona['highrisk']? 'Si' :
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="text" id="highrisk"
+                                                 spellCheck="false"
+                                                 placeholder={persona['highrisk'] ?
+                                                     'Si' :
                                                      'No'}
-                                                 name="highrisk"/> : persona['highrisk'] ?
+                                                 name="highrisk"/> :
+                                          persona['highrisk'] ?
                                               'Si' :
                                               'No'}
                                    </th>
 
                                    <th className="acciones">
-                                      {modifi!=null && modifi.id==persona.id ? <>
+                                      {modifi != null && modifi.id ==
+                                      persona.id ? <>
                                          <Button
                                              variant="contained"
                                              color="primary"
                                              className="button"
-                                             startIcon={<CloudUploadIcon/>}
-                                             onClick={() => modificar(modificable)}
+                                             startIcon={<CheckIcon/>}
+                                             onClick={() => modificar(
+                                                 modificable)}
                                          >
                                             Aceptar
                                          </Button>
@@ -216,14 +229,13 @@ function Personas() {
                                              variant="contained"
                                              color="secondary"
                                              className="button"
-                                             startIcon={<DeleteIcon/>}
+                                             startIcon={<CloseIcon/>}
                                              onClick={() => setModifi({
                                                 name: '',
                                                 lastname: '',
                                                 sex: '',
                                                 birthdate: '',
                                                 highrisk: '',
-
 
                                              })}
                                          >
@@ -234,10 +246,10 @@ function Personas() {
                                              variant="contained"
                                              color="primary"
                                              className="button"
-                                             startIcon={<CloudUploadIcon/>}
+                                             startIcon={<BorderColorSharpIcon/>}
                                              onClick={() => {
                                                 setModifi(persona);
-                                                setModificable(persona)
+                                                setModificable(persona);
                                              }}
                                          >
                                             Update

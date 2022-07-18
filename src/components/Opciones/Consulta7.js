@@ -77,27 +77,10 @@ function Consulta7() {
                    <CardContent>
                       <Typography gutterBottom variant="h3"
                                   component="div">
-                         Consulta 1
+                         Por centros de salud, su tipo, y dependiendo del tipo,
+                         la cantidad de personas vacunadas o la cantidad de
+                         pacientes
                       </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         <Button
-                             variant="contained"
-                             color="primary"
-                             className="button"
-                             startIcon={<BorderColorSharpIcon/>}
-                             onClick={handleOpen}
-
-                         >
-                            Agregar
-                         </Button>
-                      </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-                      </Typography>
-
-
                       <br/>
 
                    </CardContent>

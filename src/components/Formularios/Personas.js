@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import '../../css/Formularios.css';
 import '../../css/Formulario.css';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 
 const Personas = () => {
-
    const [personSalud, setPersonSalud] = useState(false);
 
    const [PS, setPS] = useState({
@@ -96,23 +96,22 @@ const Personas = () => {
 
       return (
           <>
-             <br/>
              <div className="form-header">
                 <label className="form-label" htmlFor="email">Email</label>
-                <input type="email" id="email" spellCheck="false"
+                <input className="form-input" type="email" id="email" spellCheck="false"
                        placeholder="Escriba su correo"
                        onChange={handleInputChange2}
                        name="email"/>
              </div>
-             <br/>
              <div className="form-header" onChange={handleInputChange2}>
                 <h4 className="form-label">Profesion</h4>
-                <input className="form-radio" type="radio" value="Asistente medico"
-                       name="type"/> Asistente
-                medico
-                <input className="form-radio" type="radio" value="Enfermeria"
-                       name="type"/> Enfermeria
-                <input className="form-radio" type="radio" value="Medico" name="type"/> Medico
+                <p>
+                <input type="radio" value="Asistente medico" name="type"/> Asistente medico
+                &emsp; &ensp;
+                <input type="radio" value="Enfermeria" name="type"/> Enfermeria
+                &emsp; &ensp;
+                <input type="radio" value="Medico" name="type"/> Medico
+                </p>
              </div>
           </>
       );
@@ -121,74 +120,86 @@ const Personas = () => {
    return (
        <>
           <div className="body">
-             <meta name='viewport' content=' width=device-width, initial-scale=0.1, maximum-scale=1, user-scalable=1'  />
+             <meta name="viewport"
+                   content=" width=device-width, initial-scale=0.1, maximum-scale=1, user-scalable=1"/>
 
-            <div className="formulario">
-             <form className="form" id="reg-form" onSubmit={cargarDatos}>
-                <div className="form-header">
-                   <h1 className="form-tittle">R<span>egistro de persona</span></h1>
-                </div>
-                <div className="form-header">
-                   <label className="form-label" htmlFor="cedula">Cedula:
-                      ㅤ</label>
-                   <input input className="form-input"  type="text" id="cedula" spellCheck="false"
-                          placeholder="Escriba su Cedula"
-                          onChange={handleInputChange} name="id"/>
-                </div>
-                <div className="form-header">
-                   <label className="form-label" htmlFor="Name">Nombre: ㅤ</label>
-                   <input input className="form-input" type="text" id="name" spellCheck="false"
-                          placeholder="Escriba su nombre"
-                          onChange={handleInputChange} name="name"/>
-                </div>
-                <div className="form-header">
-                   <label className="form-label" htmlFor="Name">Apellido: ㅤ</label>
-                   <input input className="form-input" type="text" id="LastName" spellCheck="false"
-                          placeholder="Escriba su Apellido"
-                          onChange={handleInputChange} name="lastname"/>
-                </div>
-                <div className="form-header" onChange={handleInputChange} >
-                   <h4 className="form-label">Sexo </h4>
-                   <input type="radio" value="M" name="sex"/> Male
+             <div className="formulario">
+                <form className="form" id="reg-form" onSubmit={cargarDatos}>
+                   <div className="form-header">
+                      <h1 className="form-tittle">R<span>egistro de persona</span>
+                      </h1>
+                   </div>
+                   <div className="form-header">
+                      <label className="form-label" htmlFor="cedula">Cedula:
+                         ㅤ</label>
+                      <input input className="form-input" type="text"
+                             id="cedula" spellCheck="false"
+                             placeholder="Escriba su Cedula"
+                             onChange={handleInputChange} name="id"/>
+                   </div>
+                   <div className="form-header">
+                      <label className="form-label" htmlFor="Name">Nombre:
+                         ㅤ</label>
+                      <input input className="form-input" type="text" id="name"
+                             spellCheck="false"
+                             placeholder="Escriba su nombre"
+                             onChange={handleInputChange} name="name"/>
+                   </div>
+                   <div className="form-header">
+                      <label className="form-label" htmlFor="Name">Apellido:
+                         ㅤ</label>
+                      <input input className="form-input" type="text"
+                             id="LastName" spellCheck="false"
+                             placeholder="Escriba su Apellido"
+                             onChange={handleInputChange} name="lastname"/>
+                   </div>
+                   <div className="form-header" onChange={handleInputChange}>
+                      <h4 className="form-label">Sexo </h4>
+                      <p>
+                         <input type="radio" value="M" name="sex"/> Male
+                         &emsp; &ensp;
+                         <input type="radio" value="F" name="sex"/> Female
+                         &emsp; &ensp;
+                         <input type="radio" value="N/A" name="sex"/> Other
+                      </p>
+                   </div>
+                   <div className="form-header" onChange={handleInputChange}>
+                      <h4 className="form-label">Alto riesgo</h4>
+                      <p>
+                         <input type="radio" value="true" name="highrisk"/> True
+                         &emsp; &ensp;
+                         <input type="radio" value="false" name="highrisk"/> False
+                      </p>
+                   </div>
+                   <div className="form-header">
+                      <h4 className="form-label">Fecha de Nacimiento</h4>
+                      <input className="form-input" type="date" id="fechaNac"
+                             min="1900-01-01"
+                             max="2022-08-31" onChange={handleInputChange}
+                             name="birthdate"/>
+                   </div>
                    <br/>
-                   <input type="radio" value="F" name="sex"/> Female
+                   <Button
+                       variant="contained"
+                       color="default"
+                       startIcon={<LocalHospitalIcon/>}
+                       onClick={() => setPersonSalud(!personSalud)}
+                   >
+                      Personal De Salud?
+                   </Button>
                    <br/>
-                   <input type="radio" value="N/A" name="sex"/> Other
-                </div>
-                <div className="form-header" onChange={handleInputChange}>
-                   <h4 className="form-label">Alto riesgo</h4>
+                   <br/>
+                   {personSalud ?
+                       datosPersonalSalud() :
+                       console.log('Probando')}
+                   <input className="form-button" type="submit"
+                          value="Registrar" id="create-account"
+                   />
 
-                   <input type="radio" value="true" name="highrisk"/> True
-                   <input type="radio" value="false"
-                          name="highrisk"/> False
+                </form>
+             </div>
 
-                </div>
-                <div className="form-header">
-                   <h4 className="form-label">Fecha de Nacimiento</h4>
-                   <input className="form-input" type="date" id="fechaNac" min="1900-01-01"
-                          max="2018-12-31" onChange={handleInputChange}
-                          name="birthdate"/>
-                </div>
-                <Button
-                    variant="contained"
-                    color="default"
-                    startIcon={<DeleteIcon/>}
-                    onClick={() => setPersonSalud(!personSalud)}
-                >
-                   Personal De Salud?
-                </Button>
-
-                {personSalud ?
-                    datosPersonalSalud() :
-                    console.log('Probando')}
-                <input className="form-button" type="submit"
-                       value="Registrar" id="create-account"
-                      />
-
-             </form>
-       </div>
-
-       </div>
+          </div>
        </>
    );
 };

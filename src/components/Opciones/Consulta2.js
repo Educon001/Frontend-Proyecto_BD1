@@ -83,12 +83,6 @@ function Consulta2() {
                          contagiados con el virus luego de ser vacunados.
                       </Typography>
 
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-                      </Typography>
-
-
                       <br/>
 
                    </CardContent>

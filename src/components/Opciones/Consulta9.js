@@ -77,26 +77,11 @@ function Consulta9() {
                    <CardContent>
                       <Typography gutterBottom variant="h3"
                                   component="div">
-                         Consulta 1
+                         Nombre y ubicacion (nombre del municipio) de los
+                         centros de
+                         salud con mas personas de sexo masculino vacunadas con
+                         tipo "ARNm"
                       </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         <Button
-                             variant="contained"
-                             color="primary"
-                             className="button"
-                             startIcon={<BorderColorSharpIcon/>}
-                             onClick={handleOpen}
-
-                         >
-                            Agregar
-                         </Button>
-                      </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-                      </Typography>
-
 
                       <br/>
 

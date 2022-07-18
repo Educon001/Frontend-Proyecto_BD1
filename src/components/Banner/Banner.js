@@ -37,8 +37,8 @@ const Banner = () => {
                 marginRight: 20,
              }} className="hr"></div>
              <header className="showcase">
-                <h2>Covi Shield</h2>
-                <p>Es la mejor organizacion de todo el mundo</p>
+                <h2>Covid Shield</h2>
+                <p>Estamos para protegerte</p>
                 <a href="#" className="btn">
                    Leer más>> <i className="fas fa-chevron-right"></i>
                 </a>
@@ -76,7 +76,7 @@ const Banner = () => {
              <section class="cards-banner">
                 <div class="content">
                    <h2>Tu salud es la de todos</h2>
-                   <p>Cuidate, vacunate al centro de salud mas cercano </p>
+                   <p>Vacunate en el centro de salud mas cercano </p>
                    <a href="#" class="btn">Leer mas>></a>
                 </div>
 

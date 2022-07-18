@@ -1,5 +1,6 @@
-import swet from 'sweetalert'
+import swet from 'sweetalert';
 import ErrorIcon from '@mui/icons-material/Error';
+
 export function formatDate(date) {
    var d = new Date(date),
        month = '' + (d.getMonth() + 1),
@@ -25,32 +26,31 @@ export async function eliminarFila(aux) {
          },
       });
       console.log('Success: ', response.status);
-      if(response.status==400){
+      if (response.status == 400) {
          swet({
-            title: "Warning",
-            text: "No se puede eliminar este registro",
-            icon: "warning",
+            title: 'Warning',
+            text: 'No se puede eliminar este registro',
+            icon: 'warning',
             dangerMode: true,
-         })
-      }else if (200){
+         });
+      } else if (200) {
          swet({
-            title: "Eliminado",
-            text: "El Registro fue eliminado exitosamente",
-            icon: "success",
+            title: 'Eliminado',
+            text: 'El Registro fue eliminado exitosamente',
+            icon: 'success',
             dangerMode: true,
-         })
+         });
 
       }
 
-
    } catch (e) {
-      swet('Error al conectar '+<ErrorIcon/>)
+      swet('Error al conectar ' + <ErrorIcon/>);
 
       console.error(e);
    }
 }
 
-export async function modificarFila(aux,body) {
+export async function modificarFila(aux, body) {
 
    let url = 'http://localhost:4000/' + aux;
    try {
@@ -62,26 +62,25 @@ export async function modificarFila(aux,body) {
          body: JSON.stringify(body),
       });
       console.log('Success: ', response.status);
-      if(response.status==400){
+      if (response.status == 400) {
          swet({
-            title: "Warning",
-            text: "No se pudo modificar el registro",
-            icon: "warning",
+            title: 'Warning',
+            text: 'No se pudo modificar el registro',
+            icon: 'warning',
             dangerMode: true,
-         })
-      }else if (200){
+         });
+      } else if (200) {
          swet({
-            title: "Actualizado",
-            text: "El Registro fue actualizado exitosamente",
-            icon: "success",
+            title: 'Actualizado',
+            text: 'El Registro fue actualizado exitosamente',
+            icon: 'success',
             successMode: true,
-         })
+         });
 
       }
 
-
    } catch (e) {
-      swet('Error al conectar '+<ErrorIcon/>)
+      swet('Error al conectar ' + <ErrorIcon/>);
 
       console.error(e);
    }

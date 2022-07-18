@@ -23,6 +23,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
+import PersonIcon from '@mui/icons-material/Person';
+import AddIcon from '@mui/icons-material/Add';
 
 const Navbar = () => {
 
@@ -44,7 +46,7 @@ const Navbar = () => {
              </Link>
              <ul className="nav-menu">
                 <li>
-                   <a href="/personas">Persona</a>
+                   <a href="/personas">Persona </a>
                 </li>
                 <li>
                    <a href="/personalSalud">Personal de Salud</a>

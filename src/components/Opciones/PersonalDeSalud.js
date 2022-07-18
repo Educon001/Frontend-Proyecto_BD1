@@ -19,7 +19,9 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas';
 import * as funciones from '../General/Functions';
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
    position: 'absolute',
@@ -33,12 +35,12 @@ const style = {
 
 function PersonalSalud() {
    const [modifi, setModifi] = useState({});
-   const [modificable, setModificable]=useState(
+   const [modificable, setModificable] = useState(
        {
 
-          email:'',
-          type:'',
-       })
+          email: '',
+          type: '',
+       });
 
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
@@ -58,28 +60,29 @@ function PersonalSalud() {
       showData();
    }, [aux]);
 
-   const eliminar=async(dat)=>{
+   const eliminar = async (dat) => {
 
-      let result=await funciones.eliminarFila('personas/ps/'+dat.id)
-      return result
-   }
+      let result = await funciones.eliminarFila('personas/ps/' + dat.id);
+      return result;
+   };
 
    const modificar = async (dat) => {
-      let result = await funciones.modificarFila('personas/ps/'+dat.id,modificable)
-      return result
-   }
+      let result = await funciones.modificarFila('personas/ps/' + dat.id,
+          modificable);
+      return result;
+   };
 
-   const handleChangeModifi=(e)=>{
-      e.preventDefault()
+   const handleChangeModifi = (e) => {
+      e.preventDefault();
 
-      if (e.target.value!=null && e.target.value!='') {
+      if (e.target.value != null && e.target.value != '') {
          setModificable({
                 ...modificable,
                 [e.target.name]: e.target.value,
-             }
-         )
+             },
+         );
       }
-   }
+   };
    return (
        <>
           <div className="diseno">
@@ -110,13 +113,6 @@ function PersonalSalud() {
                          Personal de Salud
                       </Typography>
 
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         Filtros
-
-                      </Typography>
-
-
                       <br/>
 
                    </CardContent>
@@ -145,26 +141,33 @@ function PersonalSalud() {
                                    <th>{persona['lastname']}</th>
                                    <th>{persona['sex']}</th>
                                    <th>{funciones.formatDate(
-                                              persona['birthdate'])}
+                                       persona['birthdate'])}
                                    </th>
 
                                    <th>
-                                      { persona['highrisk'] ?
-                                              'Si' :
-                                              'No'}
+                                      {persona['highrisk'] ?
+                                          'Si' :
+                                          'No'}
                                    </th>
 
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="email" spellCheck="false"
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="text" id="email"
+                                                 spellCheck="false"
                                                  placeholder={persona['email']}
-                                                 name="email"/> : persona['email']
+                                                 name="email"/> :
+                                          persona['email']
 
-                                              }
+                                      }
                                    </th>
                                    <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="type" spellCheck="false"
+                                      {modifi != null && modifi.id ==
+                                      persona.id ?
+                                          <input onChange={handleChangeModifi}
+                                                 type="text" id="type"
+                                                 spellCheck="false"
                                                  placeholder={persona['type']}
                                                  name="type"/> : persona['type']
 
@@ -172,13 +175,15 @@ function PersonalSalud() {
                                    </th>
 
                                    <th className="acciones">
-                                      {modifi!=null && modifi.id==persona.id ? <>
+                                      {modifi != null && modifi.id ==
+                                      persona.id ? <>
                                          <Button
                                              variant="contained"
                                              color="primary"
                                              className="button"
-                                             startIcon={<CloudUploadIcon/>}
-                                             onClick={() => modificar(modificable)}
+                                             startIcon={<CheckIcon/>}
+                                             onClick={() => modificar(
+                                                 modificable)}
                                          >
                                             Aceptar
                                          </Button>
@@ -187,12 +192,11 @@ function PersonalSalud() {
                                              variant="contained"
                                              color="secondary"
                                              className="button"
-                                             startIcon={<DeleteIcon/>}
+                                             startIcon={<CloseIcon/>}
                                              onClick={() => setModifi({
 
-                                                email:'',
-                                                type:'',
-
+                                                email: '',
+                                                type: '',
 
                                              })}
                                          >
@@ -203,10 +207,10 @@ function PersonalSalud() {
                                              variant="contained"
                                              color="primary"
                                              className="button"
-                                             startIcon={<CloudUploadIcon/>}
+                                             startIcon={<BorderColorSharpIcon/>}
                                              onClick={() => {
                                                 setModifi(persona);
-                                                setModificable(persona)
+                                                setModificable(persona);
                                              }}
                                          >
                                             Update
