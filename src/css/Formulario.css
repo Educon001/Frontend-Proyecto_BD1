@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.formulario {
+    flex-wrap: wrap;
+    display: flex;
+    overflow-y: scroll;
+}
+
+.formulario .form .form-header .form-tittle {
+    font-weight: normal;
+    font-family: sans-serif;
+    color: #29B696;
+    text-align: center;
+    padding: 14px 0;
+}
+
+.formulario .form .form-header .form-tittle span{
+    color: #000000;
+}
+
+.formulario .form{
+    background: rgba(0,0,0,.6);
+    width: 100%;
+    max-width: 650px;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+
+}
+
+.formulario .form .form-label{
+    display: block;
+    color: #29B696;
+    font-size: 20px;
+    font-family: Roboto;
+    position: relative;
+
+}
+
+.formulario .form .form-input, .form-textarea{
+    background: rgba(0,0,0,.7);
+    border: none;
+    outline: none;
+    border-bottom: 4px solid #29B696;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    font-size: 18px;
+    color: white;
+    font-family: Roboto;
+}
+
+
+
+.formulario .form .form-textarea{
+    resize: vertical;
+    max-height: 150px;
+    min-height: 50px;
+}
+
+.contenededor .form .form-button{
+    width: 100px;
+    font-family: Roboto;
+    outline: #29B696;
+    font-size: 16px;
+    border: none;
+    color: black;
+    padding: 15px 0;
+    cursor: pointer;
+}
+.form-button{
+    width: 100px;
+    font-family: Roboto;
+    outline: #29B696;
+    font-size: 16px;
+    border: none;
+    color: black;
+    padding: 15px 0;
+    cursor: pointer;
+}
+

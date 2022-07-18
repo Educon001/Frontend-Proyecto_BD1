@@ -44,54 +44,39 @@ const Banner = () => {
                 </a>
              </header>
              <div className="news-cards">
-                <div>
+                <div className="cards">
                    <img src={imagen1} alt="imagen 1"/>
                    <h3>Personas</h3>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Veniam
-                      dolore fugit esse corporis nesciunt minima
-                      doloremque modi mollitia rerum</p>
+                   <p>Lista de todas las personas registradas</p>
                    <a href="#">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
-                <div>
+                <div className="cards">
                    <img src={imagen2} alt="imagen 1"/>
                    <h3>Personal de Salud</h3>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Veniam
-                      dolore fugit esse corporis nesciunt minima
-                      doloremque modi mollitia rerum</p>
+                   <p>Lista de todas el personal de salud registrado</p>
                    <a href="#">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
-                <div>
+                <div className="cards">
                    <img src={imagen3} alt="imagen 2"/>
                    <h3>Centros de salud</h3>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Veniam
-                      dolore fugit esse corporis nesciunt minima
-                      doloremque modi mollitia rerum</p>
+                   <p>Lista de todos los centros de salud registrados</p>
                    <a href="#">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
-                <div>
+                <div className="cards">
                    <img src={imagen4} alt="imagen 3"/>
                    <h3>Reportes</h3>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Veniam
-                      dolore fugit esse corporis nesciunt minima
-                      doloremque modi mollitia rerum</p>
+                   <p>Lista de todos los centros de reportes</p>
                    <a href="#">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
              </div>
              <section class="cards-banner">
                 <div class="content">
-                   <h2>¿Ya mencioné que tu mamá fue mia?</h2>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Veniam
-                      dolore fugit esse corporis nesciunt minima
-                      doloremque modi mollitia rerum</p>
+                   <h2>Tu salud es la de todos</h2>
+                   <p>Cuidate, vacunate al centro de salud mas cercano </p>
                    <a href="#" class="btn">Leer mas>></a>
                 </div>
 

@@ -19,14 +19,17 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas';
 import * as funciones from '../General/Functions';
+import '../../css/Formulario.css';
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+
 
 const style = {
    position: 'absolute',
    top: '50%',
    left: '50%',
    transform: 'translate(-50%, -50%)',
-   width: 800,
+   width: 550,
+   overflow: 'auto',
    bgcolor: 'rgba(255,255,255,0)',
    p: 4,
 };
@@ -90,7 +93,7 @@ function Personas() {
    }
    return (
        <>
-          <div className="diseno">
+          <div>
              <Modal
                  open={open}
                  onClose={handleClose}
