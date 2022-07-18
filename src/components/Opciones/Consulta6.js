@@ -98,7 +98,6 @@ function Consulta6() {
                                 <tr className="tableHeader">
                                     <th>Variante</th>
                                     <th>Numero de Contagios</th>
-                                    <th>Acciones</th>
 
                                 </tr>
                                 {datos.map((dato) => {
@@ -107,26 +106,6 @@ function Consulta6() {
                                             <th>{dato['variante']}</th>
                                             <th>{dato['n_contagios']}</th>
 
-                                            <th className='acciones'>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    className='button'
-                                                    startIcon={<BorderColorSharpIcon/>}
-                                                >
-                                                    Update
-                                                </Button>
-
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    className='button'
-                                                    startIcon={<DeleteIcon/>}
-
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </th>
                                         </tr>
 
                                     )

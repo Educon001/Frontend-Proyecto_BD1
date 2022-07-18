@@ -98,7 +98,6 @@ function Consulta9() {
                                 <tr className="tableHeader">
                                     <th>Centro de Salud</th>
                                     <th>Municipio</th>
-                                    <th>Acciones</th>
 
                                 </tr>
                                 {datos.map((dato) => {
@@ -107,26 +106,6 @@ function Consulta9() {
                                             <th>{dato['centro_salud']}</th>
                                             <th>{dato['municipio']}</th>
 
-                                            <th className='acciones'>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    className='button'
-                                                    startIcon={<BorderColorSharpIcon/>}
-                                                >
-                                                    Update
-                                                </Button>
-
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    className='button'
-                                                    startIcon={<DeleteIcon/>}
-
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </th>
                                         </tr>
 
                                     )

@@ -98,8 +98,7 @@ function Consulta7() {
                                 <tr className="tableHeader">
                                     <th>Centro de Salud</th>
                                     <th>Tipo</th>
-                                    <th>Cantidad de Pacientes Vacunados</th>
-                                    <th>Acciones</th>
+                                    <th>Cantidad de Pacientes/Vacunados</th>
 
                                 </tr>
                                 {datos.map((dato) => {
@@ -108,29 +107,7 @@ function Consulta7() {
                                             <th>{dato['name']}</th>
                                             <th>{dato['tipo']}</th>
                                             <th>{dato['cant_pacientes_vacunados']}</th>
-
-
-
-                                            <th className='acciones'>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    className='button'
-                                                    startIcon={<BorderColorSharpIcon/>}
-                                                >
-                                                    Update
-                                                </Button>
-
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    className='button'
-                                                    startIcon={<DeleteIcon/>}
-
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </th>
+                                            
                                         </tr>
 
                                     )

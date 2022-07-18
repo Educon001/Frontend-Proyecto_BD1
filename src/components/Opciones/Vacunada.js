@@ -12,6 +12,7 @@ import paciente2 from '../../imagenes/paciente2.jpg'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas'
+import * as funciones from '../General/Functions';
 
 const style = {
     position: 'absolute',
@@ -45,19 +46,7 @@ function Vacunada() {
         showData()
     }, [aux])
 
-    function formatDate(date) {
-        var d = new Date(date),
-            month = '' + (d.getMonth() + 1),
-            day = '' + d.getDate(),
-            year = d.getFullYear();
 
-        if (month.length < 2)
-            month = '0' + month;
-        if (day.length < 2)
-            day = '0' + day;
-
-        return [year, month, day].join('-');
-    }
     return (
         <>
         <div className='diseno'>
@@ -126,7 +115,7 @@ function Vacunada() {
                                         <th>{persona['codevacuna']}</th>
                                         <th>{persona['codecentrov']}</th>
                                         <th>{persona['idpersonal']}</th>
-                                        <th>{formatDate(persona['datevacuna'])}</th>
+                                        <th>{funciones.formatDate(persona['datevacuna'])}</th>
                                         <th>{persona['dosis']}</th>
 
                                         <th className='acciones'>

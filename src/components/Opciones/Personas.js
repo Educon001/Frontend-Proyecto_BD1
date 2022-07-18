@@ -12,6 +12,7 @@ import paciente2 from '../../imagenes/paciente2.jpg'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas'
+import * as funciones from '../General/Functions';
 
 const style = {
     position: 'absolute',
@@ -112,7 +113,7 @@ function Personas() {
                                         <th>{persona['name']}</th>
                                         <th>{persona['lastname']}</th>
                                         <th>{persona['sex']}</th>
-                                        <th>{persona['birthdate']}</th>
+                                        <th>{funciones.formatDate(persona['birthdate'])}</th>
                                         <th>{persona['highrisk']?'Si':'No'}</th>
                                         <th className='acciones'>
                                             <Button

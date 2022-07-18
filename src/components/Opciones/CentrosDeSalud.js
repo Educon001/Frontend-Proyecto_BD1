@@ -12,6 +12,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import FormularioCentroSalud from "../Formularios/CentroDeSalud";
 import BorderColorSharpIcon from "@material-ui/icons/BorderColorSharp";
+import * as funciones from '../General/Functions';
 
 const style = {
     position: 'absolute',
@@ -127,7 +128,7 @@ function CentroDeSalud() {
                                         <th>{ dato['address'] }</th>
                                         <th>{ dato['id_medico'] }</th>
                                         <th>{ dato['code_municipio'] }</th>
-                                        <th>{ dato['manager_date'] }</th>
+                                        <th>{ funciones.formatDate(dato['manager_date'])}</th>
 
                                         <th className='acciones'>
                                             <Button
