@@ -19,39 +19,33 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas';
 import * as funciones from '../General/Functions';
-import '../../css/Formulario.css';
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-
 
 const style = {
    position: 'absolute',
    top: '50%',
    left: '50%',
    transform: 'translate(-50%, -50%)',
-   width: 550,
-   overflow: 'auto',
+   width: 800,
    bgcolor: 'rgba(255,255,255,0)',
    p: 4,
 };
 
-function Personas() {
+function PersonalSalud() {
    const [modifi, setModifi] = useState({});
    const [modificable, setModificable]=useState(
        {
-          name: '',
-          lastname: '',
-          sex: '',
-          birthdate: '',
-          highrisk: '',
 
-
+          email:'',
+          type:'',
        })
+
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
    const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
-   let url = 'http://localhost:4000/personas';
+   let url = 'http://localhost:4000/personas/ps';
    const showData = async () => {
       const response = await fetch(url);
       const data = await response.json();
@@ -66,18 +60,13 @@ function Personas() {
 
    const eliminar=async(dat)=>{
 
-      let result=await funciones.eliminarFila('personas/'+dat.id)
+      let result=await funciones.eliminarFila('personas/ps/'+dat.id)
       return result
    }
 
-
    const modificar = async (dat) => {
-      let result = await funciones.modificarFila('personas/'+dat.id,modificable)
+      let result = await funciones.modificarFila('personas/ps/'+dat.id,modificable)
       return result
-
-
-
-
    }
 
    const handleChangeModifi=(e)=>{
@@ -93,7 +82,8 @@ function Personas() {
    }
    return (
        <>
-          <div>
+          <div className="diseno">
+
              <Modal
                  open={open}
                  onClose={handleClose}
@@ -117,21 +107,9 @@ function Personas() {
                    <CardContent>
                       <Typography gutterBottom variant="h3"
                                   component="div">
-                         Personas
+                         Personal de Salud
                       </Typography>
-                      <Typography gutterBottom variant="h4"
-                                  component="div">
-                         <Button
-                             variant="contained"
-                             color="primary"
-                             className="button"
-                             startIcon={<BorderColorSharpIcon/>}
-                             onClick={handleOpen}
 
-                         >
-                            Agregar
-                         </Button>
-                      </Typography>
                       <Typography gutterBottom variant="h4"
                                   component="div">
                          Filtros
@@ -154,6 +132,8 @@ function Personas() {
                             <th>Sexo</th>
                             <th>Fecha de Nacimiento</th>
                             <th>Alto Riesgo</th>
+                            <th>Correo</th>
+                            <th>Tipo</th>
                             <th>Acciones</th>
 
                          </tr>
@@ -161,43 +141,34 @@ function Personas() {
                             return (
                                 <tr>
                                    <th>{persona['id']}</th>
-                                   <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="name" spellCheck="false"
-                                                 placeholder={persona['name']}
-                                                 name="name"/> : persona['name']}
-                                   </th>
-                                   <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="lastname" spellCheck="false"
-                                                 placeholder={persona['lastname']}
-                                                 name="lastname"/> : persona['lastname']}
-                                   </th>
-                                   <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="sex" spellCheck="false"
-                                                 placeholder={persona['sex']}
-                                                 name="sex"/> : persona['sex']}
-                                   </th>
-
-                                   <th>
-                                      {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi} type="date" id="birthdate" min="1900-01-01"
-                                                 max="now"placeholder="MM/DD/YYYY" onFocus={persona['birthdate']}
-                                                 name="birthdate"/> : funciones.formatDate(
+                                   <th>{persona['name']}</th>
+                                   <th>{persona['lastname']}</th>
+                                   <th>{persona['sex']}</th>
+                                   <th>{funciones.formatDate(
                                               persona['birthdate'])}
                                    </th>
 
-
+                                   <th>
+                                      { persona['highrisk'] ?
+                                              'Si' :
+                                              'No'}
+                                   </th>
 
                                    <th>
                                       {modifi!=null && modifi.id==persona.id  ?
-                                          <input onChange={handleChangeModifi}  type="text" id="highrisk" spellCheck="false"
-                                                 placeholder={persona['highrisk']? 'Si' :
-                                                     'No'}
-                                                 name="highrisk"/> : persona['highrisk'] ?
-                                              'Si' :
-                                              'No'}
+                                          <input onChange={handleChangeModifi}  type="text" id="email" spellCheck="false"
+                                                 placeholder={persona['email']}
+                                                 name="email"/> : persona['email']
+
+                                              }
+                                   </th>
+                                   <th>
+                                      {modifi!=null && modifi.id==persona.id  ?
+                                          <input onChange={handleChangeModifi}  type="text" id="type" spellCheck="false"
+                                                 placeholder={persona['type']}
+                                                 name="type"/> : persona['type']
+
+                                      }
                                    </th>
 
                                    <th className="acciones">
@@ -218,11 +189,9 @@ function Personas() {
                                              className="button"
                                              startIcon={<DeleteIcon/>}
                                              onClick={() => setModifi({
-                                                name: '',
-                                                lastname: '',
-                                                sex: '',
-                                                birthdate: '',
-                                                highrisk: '',
+
+                                                email:'',
+                                                type:'',
 
 
                                              })}
@@ -270,4 +239,4 @@ function Personas() {
        </>);
 }
 
-export default Personas;
+export default PersonalSalud;
