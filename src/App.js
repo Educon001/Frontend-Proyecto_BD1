@@ -12,11 +12,12 @@ import Navbar from './components/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
 import Vacuna from './components/Opciones/Vacuna'
 import Vacunada from './components/Opciones/Vacunada'
-import Consulta9 from './../src/components/Opciones/Consulta9'
 import Consulta2 from './../src/components/Opciones/Consulta2'
 import Consulta6 from './../src/components/Opciones/Consulta6'
 import Consulta7 from './../src/components/Opciones/Consulta7'
 import Consulta8 from './../src/components/Opciones/Consulta8'
+import Consulta9 from './../src/components/Opciones/Consulta9'
+
 
 
 

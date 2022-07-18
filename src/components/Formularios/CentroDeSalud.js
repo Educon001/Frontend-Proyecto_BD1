@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Typography} from "@material-ui/core";
 
-const Personas = () => {
+const CentroDeSalud = () => {
     const [aux,setAux]=useState()
     const [centroSalud, setCentroSalud] = useState({
         name: '',
@@ -96,4 +96,4 @@ const Personas = () => {
     );
 };
 
-export default Personas;
+export default CentroDeSalud;
