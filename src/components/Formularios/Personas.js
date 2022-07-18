@@ -3,6 +3,7 @@ import {Typography} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import '../../css/Formularios.css';
+import '../../css/Formulario.css';
 
 const Personas = () => {
 
@@ -96,22 +97,22 @@ const Personas = () => {
       return (
           <>
              <br/>
-             <div>
-                <label htmlFor="email">Email</label>
+             <div className="form-header">
+                <label className="form-label" htmlFor="email">Email</label>
                 <input type="email" id="email" spellCheck="false"
                        placeholder="Escriba su correo"
                        onChange={handleInputChange2}
                        name="email"/>
              </div>
              <br/>
-             <div onChange={handleInputChange2}>
-                <h4>Profesion</h4>
-                <input type="radio" value="Asistente medico"
+             <div className="form-header" onChange={handleInputChange2}>
+                <h4 className="form-label">Profesion</h4>
+                <input className="form-radio" type="radio" value="Asistente medico"
                        name="type"/> Asistente
                 medico
-                <input type="radio" value="Enfermeria"
+                <input className="form-radio" type="radio" value="Enfermeria"
                        name="type"/> Enfermeria
-                <input type="radio" value="Medico" name="type"/> Medico
+                <input className="form-radio" type="radio" value="Medico" name="type"/> Medico
              </div>
           </>
       );
@@ -119,81 +120,75 @@ const Personas = () => {
 
    return (
        <>
+          <div className="body">
+             <meta name='viewport' content=' width=device-width, initial-scale=0.1, maximum-scale=1, user-scalable=1'  />
 
-
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-             <h3>Registro De Personas</h3>
-             <form id="reg-form" onSubmit={cargarDatos}>
-                <div>
-                   <label style={{color: 'black'}} htmlFor="cedula">Cedula:
+            <div className="formulario">
+             <form className="form" id="reg-form" onSubmit={cargarDatos}>
+                <div className="form-header">
+                   <h1 className="form-tittle">R<span>egistro de persona</span></h1>
+                </div>
+                <div className="form-header">
+                   <label className="form-label" htmlFor="cedula">Cedula:
                       ㅤ</label>
-                   <input type="text" id="cedula" spellCheck="false"
+                   <input input className="form-input"  type="text" id="cedula" spellCheck="false"
                           placeholder="Escriba su Cedula"
                           onChange={handleInputChange} name="id"/>
                 </div>
-                <br/>
-                <div>
-                   <label htmlFor="Name">Nombre: ㅤ</label>
-                   <input type="text" id="name" spellCheck="false"
+                <div className="form-header">
+                   <label className="form-label" htmlFor="Name">Nombre: ㅤ</label>
+                   <input input className="form-input" type="text" id="name" spellCheck="false"
                           placeholder="Escriba su nombre"
                           onChange={handleInputChange} name="name"/>
                 </div>
-                <br/>
-                <div>
-                   <label htmlFor="Name">Apellido: ㅤ</label>
-                   <input type="text" id="LastName" spellCheck="false"
+                <div className="form-header">
+                   <label className="form-label" htmlFor="Name">Apellido: ㅤ</label>
+                   <input input className="form-input" type="text" id="LastName" spellCheck="false"
                           placeholder="Escriba su Apellido"
                           onChange={handleInputChange} name="lastname"/>
                 </div>
-                <br/>
-                <div onChange={handleInputChange}>
-                   <h4>Sexo </h4>
+                <div className="form-header" onChange={handleInputChange} >
+                   <h4 className="form-label">Sexo </h4>
                    <input type="radio" value="M" name="sex"/> Male
                    <br/>
                    <input type="radio" value="F" name="sex"/> Female
                    <br/>
                    <input type="radio" value="N/A" name="sex"/> Other
                 </div>
-                <br/>
-                <div onChange={handleInputChange}>
-                   <h4>Alto riesgo</h4>
+                <div className="form-header" onChange={handleInputChange}>
+                   <h4 className="form-label">Alto riesgo</h4>
 
                    <input type="radio" value="true" name="highrisk"/> True
                    <input type="radio" value="false"
                           name="highrisk"/> False
 
                 </div>
-                <br/>
-                <div>
-                   <h4>Fecha de Nacimiento</h4>
-                   <input type="date" id="fechaNac" min="1900-01-01"
+                <div className="form-header">
+                   <h4 className="form-label">Fecha de Nacimiento</h4>
+                   <input className="form-input" type="date" id="fechaNac" min="1900-01-01"
                           max="2018-12-31" onChange={handleInputChange}
                           name="birthdate"/>
                 </div>
-                <br/>
                 <Button
                     variant="contained"
                     color="default"
-                    className="button"
                     startIcon={<DeleteIcon/>}
                     onClick={() => setPersonSalud(!personSalud)}
                 >
                    Personal De Salud?
                 </Button>
-                <br/>
 
                 {personSalud ?
                     datosPersonalSalud() :
                     console.log('Probando')}
-
-                <br/>
-                <input type="submit"
+                <input className="form-button" type="submit"
                        value="Registrar" id="create-account"
-                       className="button"/>
+                      />
 
              </form>
-          </Typography>
+       </div>
 
+       </div>
        </>
    );
 };
