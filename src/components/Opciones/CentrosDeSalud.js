@@ -37,6 +37,8 @@ function CentroDeSalud() {
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
    const [aux, setAux] = useState(false);
+   const [aux2, setAux2] = useState();
+
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
    const showData = async () => {
@@ -44,13 +46,13 @@ function CentroDeSalud() {
       const response = await fetch(url);
       const data = await response.json();
       data.map((dato) => {
-         dato.tipo = 'Vacunacion';
+         dato.tipo = 'cv';
       });
       let url2 = 'http://localhost:4000/ch';
       const response2 = await fetch(url2);
       const data2 = await response2.json();
       data2.map((dato) => {
-         dato.tipo = 'Hospitalizacion';
+         dato.tipo = 'ch';
       });
       const dataCompleta = data2.concat(data);
 
@@ -59,9 +61,17 @@ function CentroDeSalud() {
 
    };
 
+
    useEffect(() => {
       showData();
    }, [aux]);
+
+   const eliminar=async(dat)=>{
+
+      let result=await funciones.eliminarFila(dat.tipo+'/'+dat.code)
+      return result
+   }
+
 
    return (
        <>
@@ -133,7 +143,7 @@ function CentroDeSalud() {
                              <tr>
                                 <th>{dato['code']}</th>
                                 <th>{dato['name']}</th>
-                                <th>{dato['tipo']}</th>
+                                <th>{dato['tipo']=='cv'?'Vacunacion':'Hospitalizacion'}</th>
                                 <th>{dato['address']}</th>
                                 <th>{dato['id_medico']}</th>
                                 <th>{dato['code_municipio']}</th>
@@ -155,7 +165,7 @@ function CentroDeSalud() {
                                        color="secondary"
                                        className="button"
                                        startIcon={<DeleteIcon/>}
-
+                                       onClick={()=>eliminar(dato)}
                                    >
                                       Delete
                                    </Button>

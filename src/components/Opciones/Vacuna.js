@@ -18,6 +18,7 @@ import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Formulario from './../Formularios/Vacunas';
+import * as funciones from "../General/Functions";
 
 const style = {
    position: 'absolute',
@@ -51,6 +52,11 @@ function Vacuna() {
       showData();
    }, [aux]);
 
+   const eliminar=async(dat)=>{
+
+      let result=await funciones.eliminarFila('vacuna/'+dat.code)
+      return result
+   }
    return (
        <>
           <div className="diseno">
@@ -143,7 +149,7 @@ function Vacuna() {
                                           color="secondary"
                                           className="button"
                                           startIcon={<DeleteIcon/>}
-
+                                          onClick={()=>eliminar(dato)}
                                       >
                                          Delete
                                       </Button>

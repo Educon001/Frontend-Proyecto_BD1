@@ -52,6 +52,11 @@ function Vacunada() {
       showData();
    }, [aux]);
 
+   const eliminar=async(dat)=>{
+
+      let result=await funciones.eliminarFila('vacunada/'+dat.idpersona+'/'+dat.codevacuna+'/'+dat.codecentrov+'/'+dat.idpersonal+'/'+dat.datevacuna)
+      return result
+   }
    return (
        <>
           <div className="diseno">
@@ -145,7 +150,7 @@ function Vacunada() {
                                           color="secondary"
                                           className="button"
                                           startIcon={<DeleteIcon/>}
-
+                                          onClick={()=>eliminar(persona)}
                                       >
                                          Delete
                                       </Button>

@@ -26,9 +26,7 @@ const style = {
    left: '50%',
    transform: 'translate(-50%, -50%)',
    width: 800,
-   bgcolor: 'background.paper',
-   border: '2px solid #000',
-   boxShadow: 24,
+   bgcolor: 'rgba(255,255,255,0)',
    p: 4,
 };
 
@@ -52,6 +50,11 @@ function Personas() {
       showData();
    }, [aux]);
 
+   const eliminar=async(dat)=>{
+
+      let result=await funciones.eliminarFila('personas/'+dat.id)
+      return result
+   }
    return (
        <>
           <div className="diseno">
@@ -145,8 +148,9 @@ function Personas() {
                                           color="secondary"
                                           className="button"
                                           startIcon={<DeleteIcon/>}
-
+                                          onClick={()=>eliminar(persona)}
                                       >
+
                                          Delete
                                       </Button>
                                    </th>
