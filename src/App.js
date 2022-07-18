@@ -17,7 +17,7 @@ import Consulta6 from './../src/components/Opciones/Consulta6';
 import Consulta7 from './../src/components/Opciones/Consulta7';
 import Consulta8 from './../src/components/Opciones/Consulta8';
 import Consulta9 from './../src/components/Opciones/Consulta9';
-
+import PersonalSalud from './../src/components/Opciones/PersonalDeSalud'
 function App() {
 
    return (
@@ -29,6 +29,7 @@ function App() {
 
              <Route index element={<HomePage/>}/>
              <Route path="/personas" element={<Personas/>}/>
+             <Route path="/personalSalud" element={<PersonalSalud/>}/>
              <Route path="/cs" element={<CentrosDeSalud/>}/>
              <Route path="/vacunas" element={<Vacuna/>}/>
              <Route path="/vacunados" element={<Vacunada/>}/>

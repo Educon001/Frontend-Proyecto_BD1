@@ -47,6 +47,9 @@ const Navbar = () => {
                    <a href="/personas">Persona</a>
                 </li>
                 <li>
+                   <a href="/personalSalud">Personal de Salud</a>
+                </li>
+                <li>
                    <a href="/cs">Centros de salud</a>
                 </li>
                 <li>
