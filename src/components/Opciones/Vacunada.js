@@ -17,7 +17,7 @@ import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import FormularioPersona from './../Formularios/Personas';
+import Formulario  from './../Formularios/Vacunada';
 import * as funciones from '../General/Functions';
 
 const style = {
@@ -64,7 +64,7 @@ function Vacunada() {
              >
                 <Box sx={style}>
 
-                   <FormularioPersona cerrarAbrir={() => setAux(!aux)}/>
+                   <Formulario cerrarAbrir={() => setAux(!aux)}/>
 
                 </Box>
              </Modal>
