@@ -84,7 +84,7 @@ const Personas = () => {
                     <div>
                         <h4>Fecha de Asignacion</h4>
                         <input type="date" id="manager_date" min="1900-01-01"
-                               max="2018-12-31" onChange={handleInputChange} name='manager_date'/>
+                               max="now" onChange={handleInputChange} name='manager_date'/>
                     </div>
                     <input type="submit"
                            value="Create Account" id="create-account"

@@ -88,7 +88,6 @@ function Consulta8() {
                                     <th>Variante</th>
                                     <th>Sintoma</th>
                                     <th>Vacuna mas efectiva</th>
-                                    <th>Acciones</th>
 
                                 </tr>
                                 {datos.map((dato) => {
@@ -98,28 +97,6 @@ function Consulta8() {
                                             <th>{dato['sintoma']}</th>
                                             <th>{dato['vacuna_mas_efectiva']}</th>
 
-
-
-                                            <th className='acciones'>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    className='button'
-                                                    startIcon={<BorderColorSharpIcon/>}
-                                                >
-                                                    Update
-                                                </Button>
-
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    className='button'
-                                                    startIcon={<DeleteIcon/>}
-
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </th>
                                         </tr>
 
                                     )

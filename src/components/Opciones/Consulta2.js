@@ -88,7 +88,6 @@ function Consulta2() {
                                 <tr className="tableHeader">
                                     <th>Centro de Salud</th>
                                     <th>Porcentaje</th>
-                                    <th>Acciones</th>
 
                                 </tr>
                                 {datos.map((dato) => {
@@ -97,26 +96,6 @@ function Consulta2() {
                                             <th>{dato['name']}</th>
                                             <th>{dato['percentage']}</th>
 
-                                            <th className='acciones'>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    className='button'
-                                                    startIcon={<BorderColorSharpIcon/>}
-                                                >
-                                                    Update
-                                                </Button>
-
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    className='button'
-                                                    startIcon={<DeleteIcon/>}
-
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </th>
                                         </tr>
 
                                     )
