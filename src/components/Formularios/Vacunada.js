@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Typography} from '@material-ui/core';
 import '../../css/Formulario.css';
+import swet from 'sweetalert';
 
 const Vacunas = () => {
    const [vacuna, setvacuna] = useState({
@@ -36,6 +37,22 @@ const Vacunas = () => {
          });
          const data = await response.json();
          console.log('Success: ', data);
+         console.log('Success: ', response.status);
+         if (response.status == 400) {
+            swet({
+               title: 'Warning',
+               text: 'No se ha podido registrar Vacunacion',
+               icon: 'warning',
+               dangerMode: true,
+            });
+         } else if (200) {
+            swet({
+               title: 'Registrado',
+               text: 'La vacunacion fue registrada exitosamente',
+               icon: 'success',
+               dangerMode: true,
+            }).then(()=>window.location.reload())
+         }
          return data;
       } catch (e) {
          console.error(e);

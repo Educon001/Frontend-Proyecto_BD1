@@ -5,6 +5,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import '../../css/Formularios.css';
 import '../../css/Formulario.css';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import swet from 'sweetalert';
 
 const Personas = () => {
    const [personSalud, setPersonSalud] = useState(false);
@@ -59,12 +60,52 @@ const Personas = () => {
          const data = await response.json();
          const newPS = {id_persona: persona.id};
          console.log(newPS);
-         if (personSalud == true) {
-            setPS(newPS);
-            console.log(PS);
-            await cargarDatos2();
-         }
          console.log('Success: ', data);
+         console.log('Success: ', response.status);
+         if (response.status == 400) {
+            swet({
+               title: 'Warning',
+               text: 'No se ha podido registrar persona',
+               icon: 'warning',
+               dangerMode: true,
+            });
+         } else if (200){
+
+          if (!personSalud) {
+             swet({
+                title: 'Registrado',
+                text: 'La persona fue registrada exitosamente',
+                icon: 'success',
+                dangerMode: true,
+             }).then(()=>window.location.reload())
+          }
+             if (personSalud == true) {
+                setPS(newPS);
+                console.log(PS);
+                const respuesta = await cargarDatos2();
+                if (respuesta == 400){
+                   await fetch(url+'/'+persona.id, {
+                      method: 'DELETE',
+                      headers: {
+                         'Content-Type': 'application/json',
+                      }
+                   });
+                   swet({
+                      title: 'Warning',
+                      text: 'No se ha podido registrar personal de salud',
+                      icon: 'warning',
+                      dangerMode: true,
+                   });
+                }else if (200){
+                   swet({
+                      title: 'Registrado',
+                      text: 'El personal de salud fue registrado exitosamente',
+                      icon: 'success',
+                      dangerMode: true,
+                   }).then(()=>window.location.reload())
+                }
+             }
+          }
          return data;
       } catch (e) {
          console.error(e);
@@ -85,7 +126,8 @@ const Personas = () => {
          });
          const data = await response.json();
          console.log('Success: ', data);
-         return data;
+         console.log('Success: ', response.status);
+         return response.status;
       } catch (e) {
          console.error(e);
       }

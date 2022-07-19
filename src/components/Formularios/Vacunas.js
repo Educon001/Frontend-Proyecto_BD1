@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Typography} from '@material-ui/core';
+import swet from 'sweetalert';
 
 const Vacunas = () => {
    const [vacuna, setvacuna] = useState({
@@ -35,6 +36,22 @@ const Vacunas = () => {
          });
          const data = await response.json();
          console.log('Success: ', data);
+         console.log('Success: ', response.status);
+         if (response.status == 400) {
+            swet({
+               title: 'Warning',
+               text: 'No se ha podido registrar vacuna',
+               icon: 'warning',
+               dangerMode: true,
+            });
+         } else if (200) {
+            swet({
+               title: 'Registrado',
+               text: 'La vacuna fue registrada exitosamente',
+               icon: 'success',
+               dangerMode: true,
+            }).then(()=>window.location.reload())
+         }
          return data;
       } catch (e) {
          console.error(e);

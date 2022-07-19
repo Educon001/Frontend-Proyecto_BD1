@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {Typography} from '@material-ui/core';
+import swet from 'sweetalert';
 
 const CentroDeSalud = () => {
-   const [aux, setAux] = useState();
+   const [aux, setAux] = useState("ch");
    const [centroSalud, setCentroSalud] = useState({
       name: '',
       address: '',
@@ -39,6 +40,22 @@ const CentroDeSalud = () => {
          });
          const data = await response.json();
          console.log('Success: ', data);
+         console.log('Success: ', response.status);
+         if (response.status == 400) {
+            swet({
+               title: 'Warning',
+               text: 'No se ha podido registrar Centro de Salud',
+               icon: 'warning',
+               dangerMode: true,
+            });
+         } else if (200) {
+            swet({
+               title: 'Registrado',
+               text: 'El Centro de Salud fue registrada exitosamente',
+               icon: 'success',
+               dangerMode: true,
+            }).then(()=>window.location.reload())
+         }
          return data;
       } catch (e) {
          console.error(e);
@@ -67,9 +84,9 @@ const CentroDeSalud = () => {
 
                    <div className="form-header" onChange={handleTipo}>
                       <h4 className="form-label">Tipo</h4>
-                      <input type="radio" value="ch" name="Tipo"/> Hospitalizacion
+                      <input type="radio" value="ch" name="tipo" /> Hospitalizacion
                       <br/>
-                      <input type="radio" value="cv" name="Tipo"/> Vacunacion
+                      <input type="radio" value="cv" name="tipo"/> Vacunacion
                       <br/>
                    </div>
 

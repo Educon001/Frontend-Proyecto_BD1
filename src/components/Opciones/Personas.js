@@ -219,8 +219,10 @@ function Personas() {
                                              color="primary"
                                              className="button"
                                              startIcon={<CheckIcon/>}
-                                             onClick={() => modificar(
-                                                 modificable)}
+                                             onClick={() =>
+                                                modificar(modificable)
+
+                                             }
                                          >
                                             Aceptar
                                          </Button>

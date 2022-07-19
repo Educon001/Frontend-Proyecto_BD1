@@ -39,7 +39,7 @@ export async function eliminarFila(aux) {
             text: 'El Registro fue eliminado exitosamente',
             icon: 'success',
             dangerMode: true,
-         });
+         }).then(()=>window.location.reload())
 
       }
 
@@ -75,7 +75,7 @@ export async function modificarFila(aux, body) {
             text: 'El Registro fue actualizado exitosamente',
             icon: 'success',
             successMode: true,
-         });
+         }).then(()=>window.location.reload())
 
       }
 
