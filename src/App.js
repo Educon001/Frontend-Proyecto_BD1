@@ -19,6 +19,8 @@ import Consulta9 from './../src/components/Opciones/Consulta9';
 import PersonalSalud from './../src/components/Opciones/PersonalDeSalud';
 import Municipios from './components/Opciones/Municipio'
 import Estado from './components/Opciones/Estado'
+import Pais from './components/Opciones/Pais'
+
 
 function App() {
 
@@ -37,6 +39,7 @@ function App() {
              <Route path="/vacunados" element={<Vacunada/>}/>
              <Route path="/municipios" element={<Municipios/>}/>
              <Route path="/estado" element={<Estado/>}/>
+             <Route path="/pais" element={<Pais/>}/>
              <Route path="/consulta2" element={<Consulta2/>}/>
              <Route path="/consulta6" element={<Consulta6/>}/>
              <Route path="/consulta7" element={<Consulta7/>}/>

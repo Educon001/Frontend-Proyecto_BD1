@@ -17,12 +17,13 @@ import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/Estados';
 import * as funciones from '../General/Functions';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import Formulario from './../Formularios/Pais';
+
 
 const style = {
     position: 'absolute',
@@ -34,7 +35,7 @@ const style = {
     p: 4,
 };
 
-function Estado() {
+function Pais() {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -42,7 +43,7 @@ function Estado() {
     const imagenes = [paciente, paciente2];
     const [datos, setDatos] = useState([]);
     const showData = async () => {
-        let result = await funciones.getDates('estado',setDatos)
+        let result = await funciones.getDates('pais',setDatos)
 
     };
     const [aux, setAux] = useState(false);
@@ -54,7 +55,7 @@ function Estado() {
 
     const eliminar = async (dat) => {
 
-        let result = await funciones.eliminarFila('estado/' + dat.code);
+        let result = await funciones.eliminarFila('pais/' + dat.code);
         return result;
     };
 
@@ -68,7 +69,7 @@ function Estado() {
         });
 
     const modificar = async (dat) => {
-        let result = await funciones.modificarFila('estado/' + dat.code,
+        let result = await funciones.modificarFila('pais/' + dat.code,
             modificable);
         return result;
     };
@@ -111,7 +112,7 @@ function Estado() {
                         <CardContent>
                             <Typography gutterBottom variant="h3"
                                         component="div">
-                                Estados
+                                Paises
                             </Typography>
                             <Typography gutterBottom variant="h4"
                                         component="div">
@@ -138,7 +139,6 @@ function Estado() {
                                 <tr className="tableHeader">
                                     <th>Codigo</th>
                                     <th>Nombre</th>
-                                    <th>Codigo Pais</th>
                                     <th>Acciones</th>
 
                                 </tr>
@@ -156,7 +156,6 @@ function Estado() {
                                                            name="name"/> :
                                                     dato['name']}
                                             </th>
-                                            <th>{dato['codepais']}</th>
 
 
                                             <th className="acciones">
@@ -230,4 +229,4 @@ function Estado() {
         ;
 }
 
-export default Estado;
+export default Pais;
