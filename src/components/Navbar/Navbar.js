@@ -38,6 +38,15 @@ const Navbar = () => {
       setAnchorEl(null);
    };
 
+   const [anchorEl2, setAnchorEl2] = React.useState(null);
+   const open2= Boolean(anchorEl2);
+   const handleClick2 = (event) => {
+      setAnchorEl2(event.currentTarget);
+   };
+   const handleClose2 = () => {
+      setAnchorEl2(null);
+   };
+
    const displayDesktop = () => (
        <Toolbar className={classes.toolbar}>
           <nav className="nav-main">
@@ -60,9 +69,34 @@ const Navbar = () => {
                 <li>
                    <a href="/vacunados">Vacunacion</a>
                 </li>
-                <li>
-                   <a href="/municipios">Municipio </a>
+
+
+
+                {/*--------------------Localizacion-----------------------------------------------------------*/}
+                <Menu
+                    id="fade-menu"
+                    MenuListProps={{
+                       'aria-labelledby': 'fade-button',
+                    }}
+                    anchorEl={anchorEl2}
+                    open={open2}
+                    onClose={handleClose2}
+                    TransitionComponent={Fade}
+                >
+                   <li><MenuItem onClick={handleClose2}><a
+                       href="/pais">Pais</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose2}><a
+                       href="/estado">Estado</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose2}><a
+                       href="/municipios">Municipio</a></MenuItem></li>
+
+
+                </Menu>
+                <li onClick={handleClick2}>
+                   <a href="#">Localizacion</a>
                 </li>
+
+                {/*-------------------------Reportes------------------------------------------------------*/}
 
                 <Menu
                     id="fade-menu"
@@ -94,6 +128,8 @@ const Navbar = () => {
                 <li onClick={handleClick}>
                    <a href="#">Reporte</a>
                 </li>
+                {/*-------------------------------------------------------------------------------*/}
+
              </ul>
              <ul className="nav-menu-right">
                 <li>
