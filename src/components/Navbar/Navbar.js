@@ -60,6 +60,9 @@ const Navbar = () => {
                 <li>
                    <a href="/vacunados">Vacunacion</a>
                 </li>
+                <li>
+                   <a href="/municipios">Municipio </a>
+                </li>
 
                 <Menu
                     id="fade-menu"

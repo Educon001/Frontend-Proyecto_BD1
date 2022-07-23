@@ -38,37 +38,28 @@ function CentroDeSalud() {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const [aux, setAux] = useState(false);
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
+   const [data1,setData1]=useState([]);
+   const [data2,setData2]=useState([]);
+   const dataCompleta=[]
+
 
    const showData = async () => {
-      let url = 'http://localhost:4000/cv';
-      const response = await fetch(url);
-      const data = await response.json();
-      data.map((dato) => {
-         dato.tipo = 'cv';
-      });
-      let url2 = 'http://localhost:4000/ch';
-      const response2 = await fetch(url2);
-      const data2 = await response2.json();
-      data2.map((dato) => {
-         dato.tipo = 'ch';
-      });
-      const dataCompleta = data2.concat(data);
-
-      setDatos(dataCompleta);
-      console.log(dataCompleta);
+      let result = await funciones.getDates('cv',setData1)
+      let result2 = await funciones.getDates('ch',setData2)
 
    };
+   const [aux, setAux] = useState(false);
 
-   useEffect(() => {
+   useEffect(()=>{
       showData();
-   }, [aux]);
 
-   const eliminar = async (dat) => {
+   },[])
 
-      let result = await funciones.eliminarFila(dat.tipo + '/' + dat.code);
+   const eliminar = async (dat,tipo) => {
+
+      let result = await funciones.eliminarFila(tipo + '/' + dat.code);
       return result;
    };
 
@@ -82,8 +73,8 @@ function CentroDeSalud() {
           manager_date: '',
 
        });
-   const modificar = async (dat) => {
-      let result = await funciones.modificarFila(dat.tipo + '/' + dat.code,
+   const modificar = async (dat,tipo) => {
+      let result = await funciones.modificarFila(tipo + '/' + dat.code,
           modificable);
       return result;
 
@@ -110,7 +101,7 @@ function CentroDeSalud() {
           >
              <Box sx={style}>
 
-                <FormularioCentroSalud cerrarAbrir={() => setAux(!aux)}/>
+                <FormularioCentroSalud />
 
              </Box>
           </Modal>
@@ -160,7 +151,127 @@ function CentroDeSalud() {
                          <th>Accion</th>
 
                       </tr>
-                      {datos.map((dato) => {
+
+                      {data1.map((dato) => {
+                             return (
+                                 <tr>
+                                    <th>{dato['code']}</th>
+                                    <th>
+                                       {modifi != null && modifi.code == dato.code ?
+                                           <input onChange={handleChangeModifi}
+                                                  type="text" id="name"
+                                                  spellCheck="false"
+                                                  placeholder={dato['name']}
+                                                  name="name"/> : dato['name']}
+                                    </th>
+                                    <th>Centro de Vacunacion</th>
+
+                                    <th>
+                                       {modifi != null && modifi.code == dato.code ?
+                                           <input onChange={handleChangeModifi}
+                                                  type="text" id="address"
+                                                  spellCheck="false"
+                                                  placeholder={dato['address']}
+                                                  name="address"/> :
+                                           dato['address']}
+                                    </th>
+                                    <th>
+                                       {modifi != null && modifi.code == dato.code ?
+                                           <input onChange={handleChangeModifi}
+                                                  type="text" id="id_medico"
+                                                  spellCheck="false"
+                                                  placeholder={dato['id_medico']}
+                                                  name="id_medico"/> :
+                                           dato['id_medico']}
+                                    </th>
+                                    <th>
+                                       {modifi != null && modifi.code == dato.code ?
+                                           <input onChange={handleChangeModifi}
+                                                  type="text" id="code_municipio"
+                                                  spellCheck="false"
+                                                  placeholder={dato['code_municipio']}
+                                                  name="code_municipio"/> :
+                                           dato['code_municipio']}
+                                    </th>
+                                    <th>
+                                       {modifi != null && modifi.code == dato.code ?
+                                           <input onChange={handleChangeModifi}
+                                                  type="date" id="manager_date"
+                                                  min="1900-01-01"
+                                                  max="now" placeholder="MM/DD/YYYY"
+                                                  onFocus={dato['manager_date']}
+                                                  name="manager_date"/> :
+                                           funciones.formatDate(
+                                               dato['manager_date'])}
+                                    </th>
+
+
+                                    <th className="acciones">
+                                       {modifi != null && modifi.code == dato.code ?
+                                           <>
+                                              <Button
+                                                  variant="contained"
+                                                  color="primary"
+                                                  className="button"
+                                                  startIcon={<CheckIcon/>}
+                                                  onClick={() => modificar(
+                                                      modificable,'cv')}
+                                              >
+                                                 Aceptar
+                                              </Button>
+
+                                              <Button
+                                                  variant="contained"
+                                                  color="secondary"
+                                                  className="button"
+                                                  startIcon={<CloseIcon/>}
+                                                  onClick={() => setModifi({
+                                                     name: '',
+                                                     address: '',
+                                                     id_medico: '',
+                                                     code_municipio: '',
+                                                     manager_date: '',
+
+                                                  })}
+                                              >
+                                                 Cancelar
+                                              </Button>
+                                           </> :
+                                           <>
+                                              <Button
+                                                  variant="contained"
+                                                  color="primary"
+                                                  className="button"
+                                                  startIcon={<BorderColorSharpIcon/>}
+                                                  onClick={() => {
+                                                     setModifi(dato);
+                                                     setModificable(dato);
+                                                  }}
+                                              >
+                                                 Update
+                                              </Button>
+
+                                              <Button
+                                                  variant="contained"
+                                                  color="secondary"
+                                                  className="button"
+                                                  startIcon={<DeleteIcon/>}
+                                                  onClick={() => eliminar(dato,'ch')}
+                                              >
+                                                 Delete
+                                              </Button></>}
+
+                                    </th>
+                                 </tr>
+
+                             );
+
+                          }
+                      )
+
+                      }
+
+                      {data2.map((dato) => {
                          return (
                              <tr>
                                 <th>{dato['code']}</th>
@@ -172,11 +283,7 @@ function CentroDeSalud() {
                                               placeholder={dato['name']}
                                               name="name"/> : dato['name']}
                                 </th>
-
-                                <th>{dato['tipo'] == 'cv' ?
-                                    'Vacunacion' :
-                                    'Hospitalizacion'}</th>
-
+                                <th>Centro de Hospitalizacion</th>
                                 <th>
                                    {modifi != null && modifi.code == dato.code ?
                                        <input onChange={handleChangeModifi}
@@ -186,6 +293,7 @@ function CentroDeSalud() {
                                               name="address"/> :
                                        dato['address']}
                                 </th>
+
                                 <th>
                                    {modifi != null && modifi.code == dato.code ?
                                        <input onChange={handleChangeModifi}
@@ -226,7 +334,7 @@ function CentroDeSalud() {
                                               className="button"
                                               startIcon={<CheckIcon/>}
                                               onClick={() => modificar(
-                                                  modificable)}
+                                                  modificable,'ch')}
                                           >
                                              Aceptar
                                           </Button>
@@ -267,7 +375,7 @@ function CentroDeSalud() {
                                               color="secondary"
                                               className="button"
                                               startIcon={<DeleteIcon/>}
-                                              onClick={() => eliminar(dato)}
+                                              onClick={() => eliminar(dato,'cv')}
                                           >
                                              Delete
                                           </Button></>}
@@ -277,7 +385,9 @@ function CentroDeSalud() {
 
                          );
 
-                      })
+                      }
+                      )
+
                       }
 
 

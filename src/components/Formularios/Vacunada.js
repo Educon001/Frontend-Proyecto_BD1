@@ -1,9 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Typography} from '@material-ui/core';
 import '../../css/Formulario.css';
 import swet from 'sweetalert';
+import ComboBoxPersonas from './../ComboBox/ComboBoxP'
+import ComboBoxPS from './../ComboBox/ComboBoxPS'
+import ComboBoxV from './../ComboBox/ComboBoxV'
+import ComboBoxCV from './../ComboBox/ComboBoxCV'
 
 const Vacunas = () => {
+   const [cedulaV,setCedulav]=useState(null)
+   const [cedulaPS,setCedulaPS]=useState(null)
+   const [codeVacuna, setCodeVacuna]=useState(null)
+   const [codeCV,setCodeCV]=useState(null)
    const [vacuna, setvacuna] = useState({
       idpersona: '',
       codevacuna: '',
@@ -58,7 +66,54 @@ const Vacunas = () => {
          console.error(e);
       }
    }
+   useEffect(
+       ()=>{
+          setvacuna({
+             ...vacuna,
+             idpersona:cedulaV,
 
+          });
+          console.log(vacuna)
+
+       },[cedulaV]
+   )
+
+   useEffect(
+       ()=>{
+          setvacuna({
+             ...vacuna,
+             idpersonal:cedulaPS,
+
+          });
+          console.log(vacuna)
+
+
+       },[cedulaPS]
+   )
+   useEffect(
+       ()=>{
+          setvacuna({
+             ...vacuna,
+             codevacuna:codeVacuna,
+
+          });
+          console.log(vacuna)
+
+
+       },[codeVacuna]
+   )
+    useEffect(
+        ()=>{
+            setvacuna({
+                ...vacuna,
+                codecv:codeCV,
+
+            });
+            console.log(vacuna)
+
+
+        },[codeCV]
+    )
    return (
        <>
           <div className="body">
@@ -68,43 +123,41 @@ const Vacunas = () => {
                       <h1 className="form-tittle">R<span>egistro de vacunación</span>
                       </h1>
                    </div>
-                   <div className="form-header">
-                      <label className="form-label" htmlFor="idpersona">Cedula
-                         Vacunado</label>
-                      <input className="form-input" type="text" id="name"
-                             spellCheck="false"
-                             placeholder="Escriba cédula"
-                             onChange={handleInputChange} name="idpersona"/>
-                   </div>
+                    <div className="form-header">
+                        <label className="form-label" htmlFor="cedulavacunado">Cedula Vacunado</label>
+                        <div><ComboBoxPersonas aux='personas' setData={setCedulav}/></div>
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div className="form-header">
+                        <label className="form-label" htmlFor="codevacuna">Codigo
+                            Vacuna</label>
+                        <div><ComboBoxV  setData={setCodeVacuna}/></div>
 
 
-                   <div className="form-header">
-                      <label className="form-label" htmlFor="codevacuna">Codigo
-                         Vacuna</label>
-                      <input className="form-input" type="text" id="codevacuna"
-                             spellCheck="false"
-                             placeholder="Escriba Codigo de Vacuna"
-                             onChange={handleInputChange}
-                             name="codevacuna"/>
-                   </div>
+                    </div>
+
                    <div className="form-header">
                       <label className="form-label" htmlFor="codecentrov">Codigo
                          centro de vacunacion</label>
-                      <input className="form-input" type="text" id="codecentrov"
-                             spellCheck="false"
-                             placeholder="Escriba codigo del centro de vacunacion"
-                             onChange={handleInputChange} name="codecv"/>
+                       <div><ComboBoxCV  setData={setCodeCV}/></div>
+
                    </div>
 
+                  <br/>
+                    <div className="form-header">
+                        <label className="form-label" htmlFor="codevacuna">Cedula Personal de Salud</label>
+                        <div>
+                            <ComboBoxPS setData={setCedulaPS}/>
+                        </div>
 
-                   <div className="form-header">
-                      <label className="form-label" htmlFor="idpersonal">Cedula
-                         Personal Salud</label>
-                      <input className="form-input" type="text" id="idpersonal"
-                             spellCheck="false"
-                             placeholder="Escriba Escriba cedula del Personal"
-                             onChange={handleInputChange} name="idpersonal"/>
-                   </div>
+                    </div>
+
+
+
+
                    <div className="form-header">
                       <h4 className="form-label">Fecha de Vacunacion</h4>
                       <input className="form-input" type="date" id="datevacuna"

@@ -18,6 +18,7 @@ import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import FormularioPersona from './../Formularios/Personas';
+import * as funciones from './../General/Functions'
 
 const style = {
    position: 'absolute',
@@ -38,12 +39,9 @@ function Consulta9() {
    const handleClose = () => setOpen(false);
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
-   let url = 'http://localhost:4000/reportes/9';
    const showData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-      setDatos(data);
+      let result = await funciones.getDates('reportes/9',setDatos)
+
    };
    const [aux, setAux] = useState(false);
 

@@ -47,17 +47,15 @@ function PersonalSalud() {
    const handleClose = () => setOpen(false);
    const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
-   let url = 'http://localhost:4000/personas/ps';
    const showData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-      setPersonas(data);
+      let result = await funciones.getDates('personas/ps',setPersonas)
+
    };
    const [aux, setAux] = useState(false);
 
    useEffect(() => {
       showData();
+      console.log(personas)
    }, [aux]);
 
    const eliminar = async (dat) => {

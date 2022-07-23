@@ -41,17 +41,15 @@ function Vacuna() {
    const handleClose = () => setOpen(false);
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
-   let url = 'http://localhost:4000/vacuna';
    const showData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-      setDatos(data);
+      let result = await funciones.getDates('vacuna',setDatos)
+
    };
    const [aux, setAux] = useState(false);
 
    useEffect(() => {
       showData();
+      console.log(datos)
    }, [aux]);
 
    const eliminar = async (dat) => {

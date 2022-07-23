@@ -179,6 +179,7 @@ const Personas = () => {
                              placeholder="Escriba su Cedula"
                              onChange={handleInputChange} name="id"/>
                    </div>
+                  
                    <div className="form-header">
                       <label className="form-label" htmlFor="Name">Nombre:
                          ㅤ</label>

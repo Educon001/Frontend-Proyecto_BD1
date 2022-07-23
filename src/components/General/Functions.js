@@ -15,8 +15,24 @@ export function formatDate(date) {
    return [year, month, day].join('-');
 }
 
-export async function eliminarFila(aux) {
+export async function getDates(aux,funcion){
+   let url = 'http://localhost:4000/' + aux;
+   try {
+      const response = await fetch(url);
+      const data = await response.json();
+      funcion(data)
+      console.log(data)
+   }catch (e){
+      swet('Error al conectar ' + <ErrorIcon/>);
 
+      console.error(e);
+
+   }
+
+
+}
+
+async function eliminar(aux){
    let url = 'http://localhost:4000/' + aux;
    try {
       const response = await fetch(url, {
@@ -47,8 +63,30 @@ export async function eliminarFila(aux) {
       swet('Error al conectar ' + <ErrorIcon/>);
 
       console.error(e);
-   }
+   };
 }
+
+export async function eliminarFila(aux) {
+   swet({
+      title: 'Warning',
+      text: '¿Seguro desea eliminar este registro?',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+   }).then((willDelete) => {if (willDelete) {
+      eliminar(aux)
+   } else {
+      swet({
+         title: 'Eliminacion Cancelada',
+         text: 'No se elimino el registro',
+         icon: 'warning',
+         buttons: true,
+         dangerMode: true,
+      })      }})
+   
+}
+
+
 
 export async function modificarFila(aux, body) {
 
