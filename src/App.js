@@ -20,7 +20,8 @@ import PersonalSalud from './../src/components/Opciones/PersonalDeSalud';
 import Municipios from './components/Opciones/Municipio'
 import Estado from './components/Opciones/Estado'
 import Pais from './components/Opciones/Pais'
-
+import Tratamiento from './components/Opciones/Tratamiento'
+import Medicamento from './components/Opciones/Medicamento'
 
 function App() {
 
@@ -40,6 +41,10 @@ function App() {
              <Route path="/municipios" element={<Municipios/>}/>
              <Route path="/estado" element={<Estado/>}/>
              <Route path="/pais" element={<Pais/>}/>
+             <Route path="/tratamientos" element={<Tratamiento/>}/>
+             <Route path="/medicamentos" element={<Medicamento/>}/>
+
+
              <Route path="/consulta2" element={<Consulta2/>}/>
              <Route path="/consulta6" element={<Consulta6/>}/>
              <Route path="/consulta7" element={<Consulta7/>}/>

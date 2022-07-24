@@ -69,6 +69,13 @@ const Navbar = () => {
                 <li>
                    <a href="/vacunados">Vacunacion</a>
                 </li>
+                <li>
+                   <a href="/tratamientos">Tratamiento</a>
+                </li>
+                <li>
+                   <a href="/medicamentos">Medicamento</a>
+                </li>
+
 
 
 
