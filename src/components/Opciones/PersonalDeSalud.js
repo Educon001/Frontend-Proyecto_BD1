@@ -119,118 +119,122 @@ function PersonalSalud() {
                 <div>
                    <div className="contenedorTabla">
                       <table>
-                         <tr className="tableHeader">
-                            <th>Cedula</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Sexo</th>
-                            <th>Fecha de Nacimiento</th>
-                            <th>Alto Riesgo</th>
-                            <th>Correo</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
+                         <thead>
+                            <tr className="tableHeader">
+                               <th>Cedula</th>
+                               <th>Nombre</th>
+                               <th>Apellido</th>
+                               <th>Sexo</th>
+                               <th>Fecha de Nacimiento</th>
+                               <th>Alto Riesgo</th>
+                               <th>Correo</th>
+                               <th>Tipo</th>
+                               <th>Acciones</th>
 
-                         </tr>
-                         {personas.map((persona) => {
-                            return (
-                                <tr>
-                                   <th>{persona['id']}</th>
-                                   <th>{persona['name']}</th>
-                                   <th>{persona['lastname']}</th>
-                                   <th>{persona['sex']}</th>
-                                   <th>{funciones.formatDate(
-                                       persona['birthdate'])}
-                                   </th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            {personas.map((persona) => {
+                               return (
+                                   <tr>
+                                      <th>{persona['id']}</th>
+                                      <th>{persona['name']}</th>
+                                      <th>{persona['lastname']}</th>
+                                      <th>{persona['sex']}</th>
+                                      <th>{funciones.formatDate(
+                                          persona['birthdate'])}
+                                      </th>
 
-                                   <th>
-                                      {persona['highrisk'] ?
-                                          'Si' :
-                                          'No'}
-                                   </th>
+                                      <th>
+                                         {persona['highrisk'] ?
+                                             'Si' :
+                                             'No'}
+                                      </th>
 
-                                   <th>
-                                      {modifi != null && modifi.id ==
-                                      persona.id ?
-                                          <input onChange={handleChangeModifi}
-                                                 type="text" id="email"
-                                                 spellCheck="false"
-                                                 placeholder={persona['email']}
-                                                 name="email"/> :
-                                          persona['email']
+                                      <th>
+                                         {modifi != null && modifi.id ==
+                                         persona.id ?
+                                             <input onChange={handleChangeModifi}
+                                                    type="text" id="email"
+                                                    spellCheck="false"
+                                                    placeholder={persona['email']}
+                                                    name="email"/> :
+                                             persona['email']
 
-                                      }
-                                   </th>
-                                   <th>
-                                      {modifi != null && modifi.id ==
-                                      persona.id ?
-                                          <input onChange={handleChangeModifi}
-                                                 type="text" id="type"
-                                                 spellCheck="false"
-                                                 placeholder={persona['type']}
-                                                 name="type"/> : persona['type']
+                                         }
+                                      </th>
+                                      <th>
+                                         {modifi != null && modifi.id ==
+                                         persona.id ?
+                                             <input onChange={handleChangeModifi}
+                                                    type="text" id="type"
+                                                    spellCheck="false"
+                                                    placeholder={persona['type']}
+                                                    name="type"/> : persona['type']
 
-                                      }
-                                   </th>
+                                         }
+                                      </th>
 
-                                   <th className="acciones">
-                                      {modifi != null && modifi.id ==
-                                      persona.id ? <>
-                                         <Button
-                                             variant="contained"
-                                             color="primary"
-                                             className="button"
-                                             startIcon={<CheckIcon/>}
-                                             onClick={() => modificar(
-                                                 modificable)}
-                                         >
-                                            Aceptar
-                                         </Button>
+                                      <th className="acciones">
+                                         {modifi != null && modifi.id ==
+                                         persona.id ? <>
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                className="button"
+                                                startIcon={<CheckIcon/>}
+                                                onClick={() => modificar(
+                                                    modificable)}
+                                            >
+                                               Aceptar
+                                            </Button>
 
-                                         <Button
-                                             variant="contained"
-                                             color="secondary"
-                                             className="button"
-                                             startIcon={<CloseIcon/>}
-                                             onClick={() => setModifi({
+                                            <Button
+                                                variant="contained"
+                                                color="secondary"
+                                                className="button"
+                                                startIcon={<CloseIcon/>}
+                                                onClick={() => setModifi({
 
-                                                email: '',
-                                                type: '',
+                                                   email: '',
+                                                   type: '',
 
-                                             })}
-                                         >
-                                            Cancelar
-                                         </Button>
-                                      </> : <>
-                                         <Button
-                                             variant="contained"
-                                             color="primary"
-                                             className="button"
-                                             startIcon={<BorderColorSharpIcon/>}
-                                             onClick={() => {
-                                                setModifi(persona);
-                                                setModificable(persona);
-                                             }}
-                                         >
-                                            Update
-                                         </Button>
+                                                })}
+                                            >
+                                               Cancelar
+                                            </Button>
+                                         </> : <>
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                className="button"
+                                                startIcon={<BorderColorSharpIcon/>}
+                                                onClick={() => {
+                                                   setModifi(persona);
+                                                   setModificable(persona);
+                                                }}
+                                            >
+                                               Update
+                                            </Button>
 
-                                         <Button
-                                             variant="contained"
-                                             color="secondary"
-                                             className="button"
-                                             startIcon={<DeleteIcon/>}
-                                             onClick={() => eliminar(persona)}
-                                         >
-                                            Delete
-                                         </Button></>}
+                                            <Button
+                                                variant="contained"
+                                                color="secondary"
+                                                className="button"
+                                                startIcon={<DeleteIcon/>}
+                                                onClick={() => eliminar(persona)}
+                                            >
+                                               Delete
+                                            </Button></>}
 
-                                   </th>
-                                </tr>
+                                      </th>
+                                   </tr>
 
-                            );
+                               );
 
-                         })
-                         }
+                            })
+                            }
+                         </tbody>
 
 
                       </table>

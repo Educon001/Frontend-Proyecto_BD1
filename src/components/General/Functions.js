@@ -117,6 +117,9 @@ export async function modificarFila(aux, body) {
 
       }
 
+      console.log(body)
+      console.log(aux)
+
    } catch (e) {
       swet('Error al conectar ' + <ErrorIcon/>);
 

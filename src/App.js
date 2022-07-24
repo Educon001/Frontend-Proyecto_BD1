@@ -1,5 +1,5 @@
 //React
-import React, {useContext} from 'react';
+import React from 'react';
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 //Pages
@@ -22,7 +22,7 @@ import Estado from './components/Opciones/Estado'
 import Pais from './components/Opciones/Pais'
 import Tratamiento from './components/Opciones/Tratamiento'
 import Medicamento from './components/Opciones/Medicamento'
-
+import Variante from './components/Opciones/Variante'
 function App() {
 
    return (
@@ -43,7 +43,7 @@ function App() {
              <Route path="/pais" element={<Pais/>}/>
              <Route path="/tratamientos" element={<Tratamiento/>}/>
              <Route path="/medicamentos" element={<Medicamento/>}/>
-
+             <Route path="/variante" element={<Variante/>}/>
 
              <Route path="/consulta2" element={<Consulta2/>}/>
              <Route path="/consulta6" element={<Consulta6/>}/>
