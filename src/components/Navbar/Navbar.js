@@ -116,20 +116,15 @@ const Navbar = () => {
                     TransitionComponent={Fade}
                 >
                    <li><MenuItem onClick={handleClose}><a
-                       href="/consulta2">Consulta
-                      2</a></MenuItem></li>
+                       href="/consulta2">Contagios post-vacunacion</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
-                       href="/consulta6">Consulta
-                      6</a></MenuItem></li>
+                       href="/consulta6">Top 3 variantes</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
-                       href="/consulta7">Consulta
-                      7</a></MenuItem></li>
+                       href="/consulta7">Cantidad de atendidos por CS</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
-                       href="/consulta8">Consulta
-                      8</a></MenuItem></li>
+                       href="/consulta8">Sintomas y vacuna por variante</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
-                       href="/consulta9">Consulta
-                      9</a></MenuItem></li>
+                       href="/consulta9">Vacunaciones de poblacion especifica</a></MenuItem></li>
 
                 </Menu>
                 <li onClick={handleClick}>
