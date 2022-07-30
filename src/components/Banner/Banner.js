@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../css/Banner.css';
+import MenuItem from '@mui/material/MenuItem';
 import Logo from '../../imagenes/Logo.jpeg';
 import PrincipalImg from '../../imagenes/pexels-gustavo-fring-3983399.jpg';
 import imagen1 from '../../imagenes/pexels-anna-shvets-3902881.jpg';
@@ -9,6 +10,10 @@ import imagen4 from '../../imagenes/pexels-lukas-590016.jpg';
 import imagenfacebook from '../../imagenes/facebook.png';
 import imagenInstagram from '../../imagenes/instagram.png';
 import imagenTwiter from '../../imagenes/twitter (1).png';
+import imagenMedicamento from '../../imagenes/Medicamentos.jpg';
+import imagenVirus from '../../imagenes/Virus.jpg';
+import imagenVacuna from '../../imagenes/Vacuna1.jpg';
+import imagenContagio from '../../imagenes/Contagio11.jpg';
 
 import SearchRounded from '@material-ui/icons/SearchRounded';
 import {
@@ -48,28 +53,28 @@ const Banner = () => {
                    <img src={imagen1} alt="imagen 1"/>
                    <h3>Personas</h3>
                    <p>Lista de todas las personas registradas</p>
-                   <a href="#">Leer más>><i
+                   <a href="/personas">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
                 <div className="cards">
-                   <img src={imagen2} alt="imagen 1"/>
-                   <h3>Personal de Salud</h3>
-                   <p>Lista de todas el personal de salud registrado</p>
-                   <a href="#">Leer más>><i
-                       className="fas fa-angle-double-right"></i></a>
-                </div>
-                <div className="cards">
-                   <img src={imagen3} alt="imagen 2"/>
+                   <img src={imagen3} alt="imagen 1"/>
                    <h3>Centros de salud</h3>
                    <p>Lista de todos los centros de salud registrados</p>
-                   <a href="#">Leer más>><i
+                   <a href="/cs">Leer más>><i
+                       className="fas fa-angle-double-right"></i></a>
+                </div>
+                <div className="cards">
+                   <img src={imagen2} alt="imagen 2"/>
+                   <h3>Personal de Salud</h3>
+                   <p>Lista de todos el personal de salud registrado</p>
+                   <a href="/personalSalud">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
                 <div className="cards">
                    <img src={imagen4} alt="imagen 3"/>
                    <h3>Reportes</h3>
                    <p>Lista de todos los centros de reportes</p>
-                   <a href="#">Leer más>><i
+                   <a href="/consulta2">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
              </div>
@@ -77,20 +82,56 @@ const Banner = () => {
                 <div class="content">
                    <h2>Tu salud es la de todos</h2>
                    <p>Vacunate en el centro de salud mas cercano </p>
-                   <a href="#" class="btn">Leer mas>></a>
+                   <a href="/vacunados" class="btn">Leer mas>></a>
                 </div>
-
+             </section>
+             <div className="news-cards">
+                <div className="cards">
+                   <img src={imagenMedicamento} alt="imagen medicamento"/>
+                   <h3>Medicamentos</h3>
+                   <p>Lista de todas las personas registradas</p>
+                   <a href="/medicamentos">Leer más>><i
+                       className="fas fa-angle-double-right"></i></a>
+                </div>
+                <div className="cards">
+                   <img src={imagenVacuna} alt="imagen vacuna"/>
+                   <h3>Vacunas</h3>
+                   <p>Lista de todas el personal de salud registrado</p>
+                   <a href="/vacunas">Leer más>><i
+                       className="fas fa-angle-double-right"></i></a>
+                </div>
+                <div className="cards">
+                   <img src={imagenVirus} alt="imagen Virus"/>
+                   <h3>Virus/Variante</h3>
+                   <p>Lista de todos los centros de salud registrados</p>
+                   <a href="#">Leer más>><i
+                       className="fas fa-angle-double-right"></i></a>
+                </div>
+                <div className="cards">
+                   <img src={imagenContagio} alt="imagen Contagio"/>
+                   <h3>Contagios</h3>
+                   <p>Lista de todos los centros de reportes</p>
+                   <a href="#">Leer más>><i
+                       className="fas fa-angle-double-right"></i></a>
+                </div>
+             </div>
+             <section className="cards-banner2">
+                <div className="content">
+                   <h2>¿Me sigue o no me sigue toadavia?</h2>
+                   <p>Que estas esperando? Vacunate coño e tu madre </p>
+                   <a href="#/tratamientos" className="btn">Leer mas>></a>
+                </div>
              </section>
              <section className="social">
                 <p>Follow CovidShield</p>
                 <div className="links">
-                   <a href="#"><img src={imagenfacebook} alt="logoF"
+                   <a href="https://www.facebook.com/camisasstyker1/"><img src={imagenfacebook} alt="logoF"
                                     className="facebook-icon"/>
                    </a>
-                   <a href="#"><img src={imagenInstagram} alt="logoI"
+                   <a href="https://www.instagram.com/camisas_styker/"><img src={imagenInstagram} alt="logoI"
                                     className="instagram-icon"/>
                    </a>
-                   <a href="#"><img src={imagenTwiter} alt="logoT"
+                   <a href="https://bit.ly/2XSTtid"><img src={imagenTwiter} alt="logoT"
                                     className="twiter-icon"/>
                    </a>
 
@@ -213,9 +254,7 @@ const Banner = () => {
           </div>
           <footer className="footer">
              <h3>Covid Shield© 2022</h3>
-
           </footer>
-
        </div>
    );
 
