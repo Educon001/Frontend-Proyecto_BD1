@@ -23,7 +23,9 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import Formulario from './../Formularios/TratamientoF';
-
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
 
 const style = {
     position: 'absolute',
@@ -83,6 +85,17 @@ function Tratamiento() {
             );
         }
     };
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open2= Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose2 = () => {
+        setAnchorEl(null);
+    };
+
+
 
     return (
         <>
@@ -208,7 +221,23 @@ function Tratamiento() {
                                                         onClick={() => eliminar(dato)}
                                                     >
                                                         Delete
-                                                    </Button></>}
+                                                    </Button>
+                                                    <Button
+                                                        variant="contained"
+                                                        color="success"
+                                                        className="button"
+                                                        startIcon={<BorderColorSharpIcon/>}
+                                                        onClick={() =>
+                                                            handleClick
+                                                        }
+                                                    >
+                                                        Opciones
+
+
+                                                    </Button>
+
+
+                                                </>}
                                             </th>
                                         </tr>
 

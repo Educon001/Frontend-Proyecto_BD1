@@ -23,6 +23,7 @@ import Pais from './components/Opciones/Pais'
 import Tratamiento from './components/Opciones/Tratamiento'
 import Medicamento from './components/Opciones/Medicamento'
 import Variante from './components/Opciones/Variante'
+import Pacientes from './components/Opciones/Pacientes'
 function App() {
 
    return (
@@ -34,6 +35,7 @@ function App() {
 
              <Route index element={<HomePage/>}/>
              <Route path="/personas" element={<Personas/>}/>
+             <Route path="/pacientes" element={<Pacientes/>}/>
              <Route path="/personalSalud" element={<PersonalSalud/>}/>
              <Route path="/cs" element={<CentrosDeSalud/>}/>
              <Route path="/vacunas" element={<Vacuna/>}/>

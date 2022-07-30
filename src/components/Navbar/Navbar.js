@@ -46,6 +46,14 @@ const Navbar = () => {
    const handleClose2 = () => {
       setAnchorEl2(null);
    };
+   const [anchorEl3, setAnchorEl3] = React.useState(null);
+   const open3= Boolean(anchorEl3);
+   const handleClick3 = (event) => {
+      setAnchorEl3(event.currentTarget);
+   };
+   const handleClose3 = () => {
+      setAnchorEl3(null);
+   };
 
    const displayDesktop = () => (
        <Toolbar className={classes.toolbar}>
@@ -54,12 +62,8 @@ const Navbar = () => {
                 <img src={logo} className={classes.logo} alt="logo"/>
              </Link>
              <ul className="nav-menu">
-                <li>
-                   <a href="/personas">Persona </a>
-                </li>
-                <li>
-                   <a href="/personalSalud">Personal de Salud</a>
-                </li>
+
+
                 <li>
                    <a href="/cs">Centros de salud</a>
                 </li>
@@ -76,8 +80,32 @@ const Navbar = () => {
                    <a href="/medicamentos">Medicamento</a>
                 </li>
 
+                
+                
+                {/*--------------------Personas-----------------------------------------------------------*/}
+
+                <Menu
+                    id="fade-menu"
+                    MenuListProps={{
+                       'aria-labelledby': 'fade-button',
+                    }}
+                    anchorEl={anchorEl3}
+                    open={open3}
+                    onClose={handleClose3}
+                    TransitionComponent={Fade}
+                >
+                   <li><MenuItem onClick={handleClose3}><a
+                       href="/personas">Personas en general</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose3}><a
+                       href="/personalSalud">Personal de Salud</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose3}><a
+                       href="/pacientes">Pacientes</a></MenuItem></li>
 
 
+                </Menu>
+                <li onClick={handleClick3}>
+                   <a href="#">Personas</a>
+                </li>
 
                 {/*--------------------Localizacion-----------------------------------------------------------*/}
                 <Menu
