@@ -35,12 +35,6 @@ const Banner = () => {
 
        <div className="body">
           <div className="container">
-
-             <div style={{
-                borderTop: '2px solid #5ce7d4 ',
-                marginLeft: 20,
-                marginRight: 20,
-             }} className="hr"></div>
              <header className="showcase">
                 <h2>Covid Shield</h2>
                 <p>Estamos para protegerte</p>
@@ -73,7 +67,7 @@ const Banner = () => {
                 <div className="cards">
                    <img src={imagen4} alt="imagen 3"/>
                    <h3>Reportes</h3>
-                   <p>Lista de todos los centros de reportes</p>
+                   <p>Reportes, cifras, porcentajes y eficacia</p>
                    <a href="/consulta2">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
@@ -89,28 +83,28 @@ const Banner = () => {
                 <div className="cards">
                    <img src={imagenMedicamento} alt="imagen medicamento"/>
                    <h3>Medicamentos</h3>
-                   <p>Lista de todas las personas registradas</p>
+                   <p>Lista de todas los medicamentos registrados</p>
                    <a href="/medicamentos">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
                 <div className="cards">
                    <img src={imagenVacuna} alt="imagen vacuna"/>
                    <h3>Vacunas</h3>
-                   <p>Lista de todas el personal de salud registrado</p>
+                   <p>Lista de todas las vacunas registradas</p>
                    <a href="/vacunas">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
                 <div className="cards">
                    <img src={imagenVirus} alt="imagen Virus"/>
                    <h3>Virus/Variante</h3>
-                   <p>Lista de todos los centros de salud registrados</p>
+                   <p>Lista de todos los virus registrados</p>
                    <a href="#">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
                 <div className="cards">
                    <img src={imagenContagio} alt="imagen Contagio"/>
                    <h3>Contagios</h3>
-                   <p>Lista de todos los centros de reportes</p>
+                   <p>Lista de todos los contagiados registrados</p>
                    <a href="#">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
@@ -134,8 +128,6 @@ const Banner = () => {
                    <a href="https://bit.ly/2XSTtid"><img src={imagenTwiter} alt="logoT"
                                     className="twiter-icon"/>
                    </a>
-
-
                 </div>
              </section>
 

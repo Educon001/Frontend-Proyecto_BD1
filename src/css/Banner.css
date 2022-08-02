@@ -73,7 +73,10 @@ ul{
 /* Showcase*/
 
 .hr{
-    margin: 10px 0;
+    height: 10px;
+    background: white;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
 }
 
 
@@ -132,6 +135,7 @@ ul{
 .news-cards img{
     width: 100%;
     height: 180px;
+    border: 5px solid white;
 }
 
 .news-cards h3{
@@ -152,6 +156,7 @@ ul{
     font-weight: bold;
     font-size: 20px;
 }
+
 
 .news-cards a:hover{
     text-decoration: underline;
