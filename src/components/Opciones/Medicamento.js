@@ -105,7 +105,7 @@ function Medicamento() {
              <div style={{
                 display: 'block',
                 paddingInline: '100px',
-             }/*paddingInline: '15px'*/}>
+               }/*paddingInline: '15px'*/}>
                 <Card sx={{width: '100% '}}>
 
                    <CardContent>
