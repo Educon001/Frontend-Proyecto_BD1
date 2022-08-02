@@ -26,6 +26,8 @@ import Formulario from './../Formularios/TratamientoF';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
+import Consiste from './../Relaciones/Consiste';
+import {Link} from "react-router-dom";
 
 const style = {
     position: 'absolute',
@@ -37,6 +39,8 @@ const style = {
     p: 4,
 };
 
+
+
 function Tratamiento() {
 
     const [open, setOpen] = React.useState(false);
@@ -44,6 +48,13 @@ function Tratamiento() {
     const handleClose = () => setOpen(false);
     const imagenes = [paciente, paciente2];
     const [datos, setDatos] = useState([]);
+
+    const [open3, setOpen3] = React.useState(false);
+    const [idTratamiento,setIdTratamiento]=useState()
+    const handleOpen3 = () => setOpen3(true);
+    const handleClose3 = () => setOpen3(false);
+
+
     const showData = async () => {
         let result = await funciones.getDates('tratamiento',setDatos)
 
@@ -113,11 +124,13 @@ function Tratamiento() {
 
                     </Box>
                 </Modal>
+
+
                 <br/>
                 <div style={{
                     display: 'block',
                     paddingInline: '100px',
-                }/*paddingInline: '15px'*/}>
+                    }/*paddingInline: '15px'*/}>
                     <Card sx={{width: '100% '}}>
 
                         <CardContent>
@@ -222,20 +235,22 @@ function Tratamiento() {
                                                     >
                                                         Delete
                                                     </Button>
-                                                    <Button
-                                                        variant="contained"
-                                                        color="success"
-                                                        className="button"
-                                                        startIcon={<BorderColorSharpIcon/>}
-                                                        onClick={() =>
-                                                            handleClick
-                                                        }
-                                                    >
-                                                        Opciones
+
+                                                    <Link to={`/consiste/`+dato.code}>
+                                                        <Button
+                                                            variant="contained"
+                                                            color="success"
+                                                            className="button"
+                                                            startIcon={<BorderColorSharpIcon/>}
 
 
-                                                    </Button>
 
+                                                        >
+                                                            Medicamentos
+
+
+                                                        </Button>
+                                                    </Link>
 
                                                 </>}
                                             </th>

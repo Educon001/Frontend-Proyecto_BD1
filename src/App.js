@@ -24,6 +24,7 @@ import Tratamiento from './components/Opciones/Tratamiento'
 import Medicamento from './components/Opciones/Medicamento'
 import Variante from './components/Opciones/Variante'
 import Pacientes from './components/Opciones/Pacientes'
+import Consiste from './components/Relaciones/Consiste'
 function App() {
 
    return (
@@ -46,7 +47,12 @@ function App() {
              <Route path="/tratamientos" element={<Tratamiento/>}/>
              <Route path="/medicamentos" element={<Medicamento/>}/>
              <Route path="/variante" element={<Variante/>}/>
-
+             {/* ------------RELACIONES-------------- */}
+               
+             <Route path="/consiste/:id" element={<Consiste/>} />
+             
+             
+             
              <Route path="/consulta2" element={<Consulta2/>}/>
              <Route path="/consulta6" element={<Consulta6/>}/>
              <Route path="/consulta7" element={<Consulta7/>}/>

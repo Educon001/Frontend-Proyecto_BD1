@@ -89,7 +89,9 @@ export async function eliminarFila(aux) {
 
 
 export async function modificarFila(aux, body) {
-
+   console.log('URL : '+aux)
+   console.log('Probando : ')
+   console.log(body)
    let url = 'http://localhost:4000/' + aux;
    try {
       const response = await fetch(url, {
