@@ -16,13 +16,12 @@ import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/MedicamentosF';
+import Formulario from './../Formularios/ConsisteF';
 import * as funciones from '../General/Functions';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
-
 const style = {
     position: 'absolute',
     top: '50%',
@@ -49,7 +48,7 @@ function Consiste() {
     }, [aux]);
     const eliminar = async (dat) => {
 
-        let result = await funciones.eliminarFila('consiste/'+dat.codemedicamento);
+        let result = await funciones.eliminarFila('consiste/'+idTratamiento+'/'+ dat.codemedicamento);
         return result;
     };
 
@@ -152,10 +151,7 @@ function Consiste() {
 
                             </tr>
                             {datos.map((dato) => {
-
-
-
-
+                                
                                 return (
                                     <tr>
                                         <th>{dato['codemedicamento']}</th>
