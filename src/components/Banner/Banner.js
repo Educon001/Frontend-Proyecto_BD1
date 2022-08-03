@@ -38,7 +38,7 @@ const Banner = () => {
              <header className="showcase">
                 <h2>Covid Shield</h2>
                 <p>Estamos para protegerte</p>
-                <a href="#" className="btn">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="btn">
                    Leer más>> <i className="fas fa-chevron-right"></i>
                 </a>
              </header>
