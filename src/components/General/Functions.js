@@ -15,7 +15,7 @@ export function formatDate(date) {
    return [year, month, day].join('-');
 }
 
-export async function getDates(aux,funcion){
+export async function getDatos(aux, funcion){
    let url = 'http://localhost:4000/' + aux;
    try {
       const response = await fetch(url);

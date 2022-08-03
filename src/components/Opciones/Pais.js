@@ -43,7 +43,7 @@ function Pais() {
     const imagenes = [paciente, paciente2];
     const [datos, setDatos] = useState([]);
     const showData = async () => {
-        let result = await funciones.getDates('pais',setDatos)
+        let result = await funciones.getDatos('pais',setDatos)
 
     };
     const [aux, setAux] = useState(false);

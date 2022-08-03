@@ -7,13 +7,13 @@ import * as funciones from '../General/Functions';
 export default function ComboBox(props) {
     const [datos, setDatos] = useState([]);
     const [value,setValue]=useState({
-        code: ''
+        code: '',
         codeestado: null,
         name: ""
     })
 
     const showData = async () => {
-        let result = await funciones.getDates('municipio',setDatos)
+        let result = await funciones.getDatos('municipio',setDatos)
     };
     useEffect(()=>showData(),[])
     useEffect(()=> {

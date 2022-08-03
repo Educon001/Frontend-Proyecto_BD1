@@ -25,6 +25,7 @@ import Medicamento from './components/Opciones/Medicamento'
 import Variante from './components/Opciones/Variante'
 import Pacientes from './components/Opciones/Pacientes'
 import Consiste from './components/Relaciones/Consiste'
+import Eficacia from "./components/Relaciones/Eficacia"
 function App() {
 
    return (
@@ -50,6 +51,7 @@ function App() {
              {/* ------------RELACIONES-------------- */}
                
              <Route path="/consiste/:id" element={<Consiste/>} />
+             <Route path="/eficacia/:id" element={<Eficacia/>} />
              
              
              

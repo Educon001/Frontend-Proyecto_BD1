@@ -46,8 +46,8 @@ function CentroDeSalud() {
 
 
    const showData = async () => {
-      let result = await funciones.getDates('cv',setData1)
-      let result2 = await funciones.getDates('ch',setData2)
+      let result = await funciones.getDatos('cv',setData1)
+      let result2 = await funciones.getDatos('ch',setData2)
 
    };
    const [aux, setAux] = useState(false);

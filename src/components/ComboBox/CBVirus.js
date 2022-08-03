@@ -15,16 +15,13 @@ export default function ComboBox(props) {
     const [datos, setDatos] = useState([]);
     const [value,setValue]=useState({
         denom_oms:'',
-        linaje: null,
-        origin_year: null,
-        origin_month:null,
+
         clasification:'',
-        Code_pais:null,
 
     })
 
     const showData = async () => {
-        let result = await funciones.getDates('variante',setDatos)
+         await funciones.getDatos('variante',setDatos)
     };
     useEffect(()=>showData(),[])
     useEffect(()=> {
@@ -46,7 +43,7 @@ export default function ComboBox(props) {
             options={datos}
             getOptionLabel={(option) => option.denom_oms+' - '+option.clasification}
 
-            renderInput={(params) => <TextField sx={{ borderBottom: 4,borderColor:'#29B696' }} id="filled-basic" label="Filled success" variant="filled" color="success" {...params} label="Estado al que pertenece" />}
+            renderInput={(params) => <TextField sx={{ borderBottom: 4,borderColor:'#29B696' }} id="filled-basic" label="Filled success" variant="filled" color="success" {...params} label="Virus" />}
             value={value}
             onChange={(event,newValue)=>setValue(newValue)}
         />

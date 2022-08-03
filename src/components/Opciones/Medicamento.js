@@ -42,7 +42,7 @@ function Medicamento() {
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDates('medicamento',setDatos)
+      let result = await funciones.getDatos('medicamento',setDatos)
 
    };
    const [aux, setAux] = useState(false);

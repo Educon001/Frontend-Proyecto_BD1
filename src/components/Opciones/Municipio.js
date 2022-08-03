@@ -42,7 +42,7 @@ function Municipio() {
     const imagenes = [paciente, paciente2];
     const [datos, setDatos] = useState([]);
     const showData = async () => {
-        let result = await funciones.getDates('municipio',setDatos)
+        let result = await funciones.getDatos('municipio',setDatos)
 
     };
     const [aux, setAux] = useState(false);

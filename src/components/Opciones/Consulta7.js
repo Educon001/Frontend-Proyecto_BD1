@@ -40,7 +40,7 @@ function Consulta7() {
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDates('reportes/7',setDatos)
+      let result = await funciones.getDatos('reportes/7',setDatos)
 
    };
    const [aux, setAux] = useState(false);

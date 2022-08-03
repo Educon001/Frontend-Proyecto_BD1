@@ -52,7 +52,7 @@ function Personas() {
    const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDates('personas',setPersonas)
+      let result = await funciones.getDatos('personas',setPersonas)
    };
    const [aux, setAux] = useState(false);
 

@@ -16,7 +16,7 @@ export default function ComboBox(props) {
     })
 
     const showData = async () => {
-        let result = await funciones.getDates('cv',setDatos)
+        let result = await funciones.getDatos('cv',setDatos)
     };
     useEffect(()=>showData(),[])
     useEffect(()=> {

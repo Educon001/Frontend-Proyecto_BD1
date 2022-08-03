@@ -22,6 +22,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import VaccinesIcon from '@mui/icons-material/Vaccines';
 import Formulario from './../Formularios/TratamientoF';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -56,7 +57,7 @@ function Tratamiento() {
 
 
     const showData = async () => {
-        let result = await funciones.getDates('tratamiento',setDatos)
+        let result = await funciones.getDatos('tratamiento',setDatos)
 
     };
     const [aux, setAux] = useState(false);
@@ -241,7 +242,7 @@ function Tratamiento() {
                                                             variant="contained"
                                                             color="success"
                                                             className="button"
-                                                            startIcon={<BorderColorSharpIcon/>}
+                                                            startIcon={<VaccinesIcon/>}
 
 
 

@@ -16,7 +16,7 @@ import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/ConsisteF';
+import Formulario from './../Formularios/EficaciaF';
 import * as funciones from '../General/Functions';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
@@ -33,12 +33,11 @@ const style = {
 };
 
 
-function Consiste() {
-    let idTratamiento=window.location.href.split('/')[window.location.href.split('/').length-1]
+function Eficacia() {
+    let idVacuna=window.location.href.split('/')[window.location.href.split('/').length-1]
     const [datos, setDatos] = useState([]);
     const showData = async () => {
-       await funciones.getDatos('consiste/'+idTratamiento,setDatos)
-
+        await funciones.getDatos('eficacia/'+idVacuna,setDatos)
 
     };
     const [aux, setAux] = useState(false);
@@ -49,21 +48,18 @@ function Consiste() {
     }, [aux]);
     const eliminar = async (dat) => {
 
-        let result = await funciones.eliminarFila('consiste/'+idTratamiento+'/'+ dat.codemedicamento);
+        let result = await funciones.eliminarFila('eficacia/'+dat.denom_oms+'/'+idVacuna);
         return result;
     };
 
     const [modifi, setModifi] = useState({});
     const [modificable, setModificable] = useState(
         {
-
-            cantdays: '',
-            dosis: '',
-            frecuency: '',
+            percentage: '',
         });
 
     const modificar = async (dat) => {
-        let result = await funciones.modificarFila('consiste/' +idTratamiento+'/'+dat.codemedicamento,
+        let result = await funciones.modificarFila('eficacia/' +dat.denom_oms+'/'+idVacuna,
             modificable);
         return result;
     };
@@ -115,7 +111,7 @@ function Consiste() {
                         <CardContent>
                             <Typography gutterBottom variant="h3"
                                         component="div">
-                                Medicamentos del tratamiento {idTratamiento}
+                                Eficacia de la vacuna {idVacuna}
                             </Typography>
                             <Typography gutterBottom variant="h4"
                                         component="div">
@@ -140,14 +136,10 @@ function Consiste() {
                         <table>
                             <tr className="tableHeader">
 
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Component</th>
-                                <th>Cantidad de Dias</th>
-
-                                <th>Dosis</th>
-                                <th>frecuency</th>
-
+                                <th>Denominacion OMS</th>
+                                <th>Clasificacion</th>
+                                <th>Linaje</th>
+                                <th>Porcentaje de eficacia</th>
                                 <th>Acciones</th>
 
                             </tr>
@@ -155,43 +147,23 @@ function Consiste() {
                                 
                                 return (
                                     <tr>
-                                        <th>{dato['codemedicamento']}</th>
-                                        <th>{dato['name']}</th>
-                                        <th>{dato['component']}</th>
+                                        <th>{dato['denom_oms']}</th>
+                                        <th>{dato['clasification']}</th>
+                                        <th>{dato['linaje']}</th>
                                         <th>
-                                            {modifi != null && modifi.codemedicamento ==
-                                            dato.codemedicamento ?
+                                            {modifi != null && modifi.denom_oms ==
+                                            dato.denom_oms ?
                                                 <input onChange={handleChangeModifi}
-                                                       type="text" id="cantdays"
+                                                       type="text" id="percentage"
                                                        spellCheck="false"
-                                                       placeholder={dato['cantdays']}
-                                                       name="cantdays"/> :
-                                                dato['cantdays']}
-                                        </th>
-                                        <th>
-                                            {modifi != null && modifi.codemedicamento ==
-                                            dato.codemedicamento ?
-                                                <input onChange={handleChangeModifi}
-                                                       type="text" id="dosis"
-                                                       spellCheck="false"
-                                                       placeholder={dato['dosis']}
-                                                       name="dosis"/> :
-                                                dato['dosis']}
-                                        </th>
-                                        <th>
-                                            {modifi != null && modifi.codemedicamento ==
-                                            dato.codemedicamento ?
-                                                <input onChange={handleChangeModifi}
-                                                       type="text" id="frecuency"
-                                                       spellCheck="false"
-                                                       placeholder={dato['frecuency']}
-                                                       name="frecuency"/> :
-                                                dato['frecuency']}
+                                                       placeholder={dato['percentage']}
+                                                       name="percentage"/> :
+                                                dato['percentage']}
                                         </th>
 
                                         <th className="acciones">
-                                            {modifi != null && modifi.codemedicamento ==
-                                            dato.codemedicamento ? <>
+                                            {modifi != null && modifi.denom_oms ==
+                                            dato.denom_oms ? <>
                                                 <Button
                                                     variant="contained"
                                                     color="primary"
@@ -272,4 +244,4 @@ function Consiste() {
     );
 }
 
-export default Consiste;
+export default Eficacia;

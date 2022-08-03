@@ -42,7 +42,7 @@ function Vacunada() {
    const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDates('vacunada',setPersonas)
+      let result = await funciones.getDatos('vacunada',setPersonas)
 
    };
    const [aux, setAux] = useState(false);

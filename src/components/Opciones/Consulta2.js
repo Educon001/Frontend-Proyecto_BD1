@@ -41,7 +41,7 @@ function Consulta2() {
    const [datos, setDatos] = useState([]);
    let url = 'http://localhost:4000/reportes/2';
    const showData = async () => {
-     let result = await funciones.getDates('reportes/2',setDatos)
+     let result = await funciones.getDatos('reportes/2',setDatos)
    };
    const [aux, setAux] = useState(false);
 

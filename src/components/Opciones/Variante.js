@@ -42,7 +42,7 @@ function Variante() {
     const imagenes = [paciente, paciente2];
     const [datos, setDatos] = useState([]);
     const showData = async () => {
-        let result = await funciones.getDates('variante',setDatos)
+        let result = await funciones.getDatos('variante',setDatos)
 
     };
     const [aux, setAux] = useState(false);

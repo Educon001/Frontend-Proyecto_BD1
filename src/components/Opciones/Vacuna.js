@@ -19,10 +19,11 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Formulario from './../Formularios/Vacunas';
 import * as funciones from '../General/Functions';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import PercentIcon from '@mui/icons-material/Percent';
+import {Link} from "react-router-dom";
 
 const style = {
    position: 'absolute',
@@ -42,7 +43,7 @@ function Vacuna() {
    const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDates('vacuna',setDatos)
+      let result = await funciones.getDatos('vacuna',setDatos)
 
    };
    const [aux, setAux] = useState(false);
@@ -253,7 +254,25 @@ function Vacuna() {
                                              onClick={() => eliminar(dato)}
                                          >
                                             Delete
-                                         </Button></>}
+                                         </Button>
+
+                                         <Link to={`/eficacia/`+dato.code}>
+                                            <Button
+                                                variant="contained"
+                                                color="success"
+                                                className="button"
+                                                startIcon={<PercentIcon/>}
+
+
+
+                                            >
+                                               Eficacia
+
+
+                                            </Button>
+                                         </Link>
+
+                                      </>}
                                    </th>
                                 </tr>
 
