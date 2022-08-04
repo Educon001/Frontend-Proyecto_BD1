@@ -111,7 +111,7 @@ const Banner = () => {
              </div>
              <section className="cards-banner2">
                 <div className="content">
-                   <h2>¿Me sigue o no me sigue toadavia?</h2>
+                   <h2> </h2>
                    <p>Que estas esperando? Vacunate coño e tu madre </p>
                    <a href="#/tratamientos" className="btn">Leer mas>></a>
                 </div>

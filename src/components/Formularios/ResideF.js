@@ -45,7 +45,7 @@ const ResideF = () => {
       } else if (200) {
         swet({
           title: 'Registrado',
-          text: 'El reside fue agregado exitosamente',
+          text: 'La resdencia agregado exitosamente',
           icon: 'success',
           dangerMode: true,
         }).then(()=>window.location.reload())

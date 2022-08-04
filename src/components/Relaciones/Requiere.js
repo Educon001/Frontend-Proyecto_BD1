@@ -13,7 +13,7 @@ import '../../css/Personas.css';
 import '../../css/Tablas.css';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/ConsisteF';
+import Formulario from './../Formularios/RequiereF';
 import * as funciones from '../General/Functions';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';

@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import swet from 'sweetalert';
-import CB from './../ComboBox/ComboBoxE'
+import CBTratamiento from './../ComboBox/CBTratamiento'
 
+const RequiereF = () => {
 
-const ResideF = () => {
+/*CodeTratamiento INT,
+  IdPaciente VARCHAR(10),
+  Date COVID_DATE,
+  Estado VARCHAR(10),*/
 
-/*CodeProvincia SMALLINT,
-    IdPersona VARCHAR(10),
-    DateReside DATE_RANGE,*/
-
+  const [tratamiento,setTratamiento]=useState(null)
   const [provincia,setProvincia]=useState(null)
+
   const [dato, setDatos] = useState({
-    idpersona: window.location.href.split('/')[window.location.href.split('/').length-1],
-    codeprovincia:null,
-    datereside:null,
+    idpaciente: window.location.href.split('/')[window.location.href.split('/').length-1],
+    codetratamiento:null,
+    date:null,
+    estado:null
 
   });
 
@@ -22,7 +25,7 @@ const ResideF = () => {
   async function cargarDatos(e) {
     e.preventDefault();
     console.log(dato);
-    let url = 'http://localhost:4000/reside';
+    let url = 'http://localhost:4000/requiere';
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -45,7 +48,7 @@ const ResideF = () => {
       } else if (200) {
         swet({
           title: 'Registrado',
-          text: 'El reside fue agregado exitosamente',
+          text: 'El tratamiento fue asignado exitosamente',
           icon: 'success',
           dangerMode: true,
         }).then(()=>window.location.reload())
@@ -56,19 +59,33 @@ const ResideF = () => {
     }
   }
 
+
+
   useEffect(
       ()=>{
         setDatos({
           ...dato,
-          codeprovincia:provincia,
+          codetratamiento:tratamiento,
 
         });
         console.log(dato)
 
 
-      },[provincia]
+      },[tratamiento]
   )
 
+  useEffect(
+      ()=>{
+        setDatos({
+          ...dato,
+          estado:provincia,
+
+        });
+        console.log(provincia)
+
+
+      },[provincia]
+  )
   const handleInputChange = (e) => {
 
     setDatos({
@@ -85,27 +102,38 @@ const ResideF = () => {
             <form className="form" id="reg-form" onSubmit={cargarDatos}>
               <div className="form-header">
                 <h1 className="form-tittle"
-                    className="form-tittle">A<span>signacion de residencia</span>
+                    className="form-tittle">A<span>signacion de tratamiento</span>
                 </h1>
               </div>
 
               <br/>
-
               <div className="form-header">
-                <label className="form-label" htmlFor="provincia">Provincia</label>
-                <div><CB setData={setProvincia}/></div>
+                <label className="form-label" htmlFor="tratamiento">Tratamiento</label>
+                <div><CBTratamiento setData={setTratamiento}/></div>
               </div>
+
               <br/>
               <br/>
 
               <div className="form-header">
-                <h4 className="form-label">Fecha de residencia</h4>
-                <input className="form-input" type="date" id="datereside"
+                <h4 className="form-label">Fecha de tratamiento</h4>
+                <input className="form-input" type="date" id="date"
                        min="1900-01-01"
                        max="2022-08-31" onChange={handleInputChange}
-                       name="datereside"/>
+                       name="date"/>
               </div>
               <br/>
+              <br/>
+
+              <div className="form-header" onChange={handleInputChange}>
+              <h4 className="form-label">Estado</h4>
+              <p>
+                <input type="radio" value="En curso" name="estado"/>En curso
+                &emsp; &ensp;
+                <input type="radio" value="Finalizado" name="estado"/> Finalizado
+
+              </p>
+          </div>
               <br/>
               <input className="form-input" type="submit"
                      value="Registrar" id="create-account"
@@ -118,4 +146,4 @@ const ResideF = () => {
   );
 };
 
-export default ResideF;
+export default RequiereF;
