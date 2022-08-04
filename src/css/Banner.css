@@ -17,6 +17,7 @@
     color: #fff;
 }
 
+
 .container{
 
     width: 90%;
@@ -224,15 +225,19 @@ ul{
 }
 
 .cards-banner2 h2{
+    background-color: rgba(114, 157, 183, 0.2);
     font-size: 45px;
     font-family: "Sitka Banner";
     font-weight: bold;
+    color: #0c0000;
 
 }
 .cards-banner2 p{
+    background-color: rgba(114, 157, 183, 0.2);
     font-size: 35px;
     font-family: "Sitka Banner";
     font-weight: bold;
+    color: #000000;
 }
 /* social*/
 
@@ -253,7 +258,7 @@ ul{
 }
 
 .social p{
-    color: black;
+    color: #bdd2ee;
     text-align: center;
     font-size: 30px;
     margin-bottom: 20px;

@@ -126,7 +126,7 @@ const CentroDeSaludF = () => {
                              onChange={handleInputChange} name="address"/>
                    </div>
                    <div className="form-header">
-                      <label className="form-label" htmlFor="codigomunicipio">Codigo Municipio</label>
+                      <label className="form-label" htmlFor="codigomunicipio">Codigo Medico</label>
                       <div><CBMedico setData={setMedico}/></div>
                    </div>
                    <div className="form-header">

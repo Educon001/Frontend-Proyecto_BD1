@@ -390,7 +390,8 @@ function CentroDeSalud() {
                 </div>
              </div>
           </div>
-       </>);
+       </>
+);
 }
 
 export default CentroDeSalud;

@@ -31,7 +31,7 @@ export default function ComboBox(props) {
             options={datos}
             getOptionLabel={(option) => option.code+' - '+option.description}
 
-            renderInput={(params) => <TextField sx={{ borderBottom: 4,borderColor:'#29B696' }} id="filled-basic" label="Filled success" variant="filled" color="success" {...params} label="Centro de Vacunacion" />}
+            renderInput={(params) => <TextField sx={{ borderBottom: 4,borderColor:'#29B696' }} id="filled-basic" label="Filled success" variant="filled" color="success" {...params} label="Tratamiento" />}
             value={value}
             onChange={(event,newValue)=>setValue(newValue)}
         />

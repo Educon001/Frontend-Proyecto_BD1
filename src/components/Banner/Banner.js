@@ -68,7 +68,7 @@ const Banner = () => {
                    <img src={imagen4} alt="imagen 3"/>
                    <h3>Reportes</h3>
                    <p>Reportes, cifras, porcentajes y eficacia</p>
-                   <a href="/consulta2">Leer más>><i
+                   <a href="/consulta1">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
              </div>
@@ -105,15 +105,14 @@ const Banner = () => {
                    <img src={imagenContagio} alt="imagen Contagio"/>
                    <h3>Contagios</h3>
                    <p>Lista de todos los contagiados registrados</p>
-                   <a href="#">Leer más>><i
+                   <a href="/consulta2">Leer más>><i
                        className="fas fa-angle-double-right"></i></a>
                 </div>
              </div>
              <section className="cards-banner2">
                 <div className="content">
-                   <h2> </h2>
-                   <p>Que estas esperando? Vacunate coño e tu madre </p>
-                   <a href="#/tratamientos" className="btn">Leer mas>></a>
+                   <h2>Conoce los tratamientos de nuestros medicos especializados</h2>
+                   <a href="/tratamientos" className="btn">Leer mas>></a>
                 </div>
              </section>
              <section className="social">
