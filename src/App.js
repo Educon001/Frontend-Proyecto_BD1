@@ -11,7 +11,13 @@ import Navbar from './components/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
 import Vacuna from './components/Opciones/Vacuna';
 import Vacunada from './components/Opciones/Vacunada';
+import Sintoma from './components/Opciones/Sintoma';
+
+import Consulta1 from './../src/components/Opciones/Consulta1';
 import Consulta2 from './../src/components/Opciones/Consulta2';
+import Consulta3 from './components/Opciones/Consulta3';
+import Consulta4 from './components/Opciones/Consulta4';
+import Consulta5 from './components/Opciones/Consulta5';
 import Consulta6 from './../src/components/Opciones/Consulta6';
 import Consulta7 from './../src/components/Opciones/Consulta7';
 import Consulta8 from './../src/components/Opciones/Consulta8';
@@ -31,6 +37,11 @@ import Tiene from './components/Relaciones/Tiene';
 import Presenta from './components/Relaciones/Presenta';
 import Reside from './components/Relaciones/Reside';
 import Hospitalizado from './components/Relaciones/Hospitalizado';
+import Contagio from './components/Relaciones/Contagio';
+import Requiere from './components/Relaciones/Requiere';
+
+
+
 
 function App() {
 
@@ -54,6 +65,7 @@ function App() {
           <Route path="/tratamientos" element={<Tratamiento/>}/>
           <Route path="/medicamentos" element={<Medicamento/>}/>
           <Route path="/variante" element={<Variante/>}/>
+          <Route path="/sintoma" element={<Sintoma/>}/>
           {/* ------------RELACIONES-------------- */}
 
           <Route path="/consiste/:id" element={<Consiste/>}/>
@@ -63,10 +75,16 @@ function App() {
           <Route path="/presenta/:id" element={<Presenta/>}/>
           <Route path="/reside/:id" element={<Reside/>}/>
           <Route path="/hospitalizado/:id" element={<Hospitalizado/>}/>
+          <Route path="/contagio/:id" element={<Contagio/>}/>
+          <Route path="/requiere/:id" element={<Requiere/>}/>
 
 
 
+          <Route path="/consulta1" element={<Consulta1/>}/>
           <Route path="/consulta2" element={<Consulta2/>}/>
+          <Route path="/consulta3" element={<Consulta3/>}/>
+          <Route path="/consulta4" element={<Consulta4/>}/>
+          <Route path="/consulta5" element={<Consulta5/>}/>
           <Route path="/consulta6" element={<Consulta6/>}/>
           <Route path="/consulta7" element={<Consulta7/>}/>
           <Route path="/consulta8" element={<Consulta8/>}/>

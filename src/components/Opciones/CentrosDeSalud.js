@@ -2,21 +2,17 @@ import React, {useState, useEffect} from 'react';
 import {
    Card,
    CardContent,
-   CardMedia,
    Typography,
-   Grid,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
 import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import FormularioCentroSalud from '../Formularios/CentroDeSalud';
+import FormularioCentroSalud from '../Formularios/CentroDeSaludF';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import * as funciones from '../General/Functions';
 import CheckIcon from '@mui/icons-material/Check';
@@ -42,7 +38,6 @@ function CentroDeSalud() {
    const [datos, setDatos] = useState([]);
    const [data1,setData1]=useState([]);
    const [data2,setData2]=useState([]);
-   const dataCompleta=[]
 
 
    const showData = async () => {
@@ -256,7 +251,7 @@ function CentroDeSalud() {
                                                   color="secondary"
                                                   className="button"
                                                   startIcon={<DeleteIcon/>}
-                                                  onClick={() => eliminar(dato,'ch')}
+                                                  onClick={() => eliminar(dato,'cv')}
                                               >
                                                  Delete
                                               </Button></>}
@@ -375,7 +370,7 @@ function CentroDeSalud() {
                                               color="secondary"
                                               className="button"
                                               startIcon={<DeleteIcon/>}
-                                              onClick={() => eliminar(dato,'cv')}
+                                              onClick={() => eliminar(dato,'ch')}
                                           >
                                              Delete
                                           </Button></>}

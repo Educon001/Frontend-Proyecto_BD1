@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
-import {Typography} from '@material-ui/core';
+import React, {useEffect, useState} from 'react';
 import swet from 'sweetalert';
+import CBM from './../ComboBox/ComboBoxM'
+import CBMedico from './../ComboBox/CBMedico'
 
-const CentroDeSalud = () => {
+
+const CentroDeSaludF = () => {
    const [aux, setAux] = useState("ch");
+   const [medico,setMedico]=useState()
+   const [municipio,setMunicipio]=useState()
    const [centroSalud, setCentroSalud] = useState({
       name: '',
       address: '',
@@ -61,7 +65,30 @@ const CentroDeSalud = () => {
          console.error(e);
       }
    }
+   useEffect(
+       ()=>{
+          setCentroSalud({
+             ...centroSalud,
+             code_municipio:municipio,
 
+          });
+          console.log(municipio)
+
+
+       },[municipio]
+   )
+   useEffect(
+       ()=>{
+          setCentroSalud({
+             ...centroSalud,
+             id_medico:medico,
+
+          });
+          console.log(medico)
+
+
+       },[medico]
+   )
    return (
        <>
           <div className="body">
@@ -99,24 +126,12 @@ const CentroDeSalud = () => {
                              onChange={handleInputChange} name="address"/>
                    </div>
                    <div className="form-header">
-                      <label className="form-label" htmlFor="id_medico">Cedula
-                         del Medico
-                         Encargado</label>
-                      <input className="form-input"
-                             type="text" id="id_medico" spellCheck="false"
-                             placeholder="Escriba la cedula del Medico"
-                             onChange={handleInputChange} name="id_medico"/>
+                      <label className="form-label" htmlFor="codigomunicipio">Codigo Municipio</label>
+                      <div><CBMedico setData={setMedico}/></div>
                    </div>
                    <div className="form-header">
-                      <label className="form-label" htmlFor="code_municipio">Codigo
-                         del
-                         municipio</label>
-                      <input className="form-input"
-                             type="text" id="code_municipio"
-                             spellCheck="false"
-                             placeholder="Codigo Municipio"
-                             onChange={handleInputChange}
-                             name="code_municipio"/>
+                      <label className="form-label" htmlFor="codigomunicipio">Codigo Municipio</label>
+                      <div><CBM setData={setMunicipio}/></div>
                    </div>
                    <div className="form-header">
                       <h4 className="form-label">Fecha de Asignacion</h4>
@@ -135,4 +150,4 @@ const CentroDeSalud = () => {
    );
 };
 
-export default CentroDeSalud;
+export default CentroDeSaludF;

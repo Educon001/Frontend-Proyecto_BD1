@@ -3,18 +3,13 @@ import React, {useState, useEffect} from 'react';
 import {
     Card,
     CardContent,
-    CardMedia,
     Typography,
-    Grid,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
-import paciente from '../../imagenes/paciente.jpg';
-import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Formulario from './../Formularios/VariantesF';
@@ -36,25 +31,24 @@ const style = {
 };
 
 function Variante() {
-
+    const [fecha,setFecha]=useState()
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const imagenes = [paciente, paciente2];
     const [datos, setDatos] = useState([]);
     const showData = async () => {
-        let result = await funciones.getDatos('variante',setDatos)
+         await funciones.getDatos('variante',setDatos)
 
     };
-    const [aux, setAux] = useState(false);
 
     useEffect(() => {
         showData();
         console.log(datos)
-    }, [aux]);
+    }, []);
 
     const eliminar = async (dat) => {
-
+        console.log('PROBANDOOOOOOO')
+        console.log(dat.denom_oms)
         let result = await funciones.eliminarFila('variante/' + dat.denom_oms);
         return result;
     };
@@ -79,7 +73,7 @@ function Variante() {
         e.preventDefault();
         if (e.target.value != null && e.target.value != '') {
             let anio=e.target.value.substring(0,5)
-            let mes=e.target.value.substring(6,8)
+            let mes=e.target.value.substring(5,8)
             setModificable({
                     ...modificable,
                     origin_year:anio,
@@ -100,6 +94,8 @@ function Variante() {
             );
         }
     };
+
+
 
     return (
         <>
@@ -182,9 +178,8 @@ function Variante() {
                                                     <input onChange={separarFecha}
                                                            type='month' id="fechaOrigen"
                                                            spellCheck="false"
-                                                           value={dato.origin_month-dato.origin_year}
-                                                           placeholder={dato['origin_year']+'/'+dato['origin_month']}
-                                                           name="origin_month"/> :
+                                                           name="origin_date"/>:
+
                                                     dato['origin_year']+'/'+dato['origin_month']}
                                             </th>
                                             <th>

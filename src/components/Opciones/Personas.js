@@ -3,15 +3,12 @@ import React, {useState, useEffect} from 'react';
 import {
    Card,
    CardContent,
-   CardMedia,
    Typography,
-   Grid,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
 import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
@@ -24,7 +21,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import VillaIcon from '@mui/icons-material/Villa';
-import AccessibleIcon from '@mui/icons-material/Accessible';
+import CoronavirusIcon from '@mui/icons-material/Coronavirus';
 import {Link} from 'react-router-dom';
 
 const style = {
@@ -52,16 +49,14 @@ function Personas() {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDatos('personas',setPersonas)
+       await funciones.getDatos('personas',setPersonas)
    };
-   const [aux, setAux] = useState(false);
 
    useEffect(() => {
       showData();
-   }, [aux]);
+   }, []);
 
    const eliminar = async (dat) => {
 
@@ -151,7 +146,7 @@ function Personas() {
                                 <tr>
                                    <th>{persona['id']}</th>
                                    <th>
-                                      {modifi != null && modifi.id ==
+                                      {modifi != null && modifi.id ===
                                       persona.id ?
                                           <input onChange={handleChangeModifi}
                                                  type="text" id="name"
@@ -161,7 +156,7 @@ function Personas() {
                                           persona['name']}
                                    </th>
                                    <th>
-                                      {modifi != null && modifi.id ==
+                                      {modifi != null && modifi.id ===
                                       persona.id ?
                                           <input onChange={handleChangeModifi}
                                                  type="text" id="lastname"
@@ -171,7 +166,7 @@ function Personas() {
                                           persona['lastname']}
                                    </th>
                                    <th>
-                                      {modifi != null && modifi.id ==
+                                      {modifi != null && modifi.id ===
                                       persona.id ?
                                           <input onChange={handleChangeModifi}
                                                  type="text" id="sex"
@@ -181,7 +176,7 @@ function Personas() {
                                    </th>
 
                                    <th>
-                                      {modifi != null && modifi.id ==
+                                      {modifi != null && modifi.id ===
                                       persona.id ?
                                           <input onChange={handleChangeModifi}
                                                  type="date" id="birthdate"
@@ -271,10 +266,22 @@ function Personas() {
                                                 variant="contained"
                                                 color="success"
                                                 className="button"
-                                                startIcon={<AccessibleIcon/>}
+                                                startIcon={<VillaIcon/>}
 
                                             >
-                                               Reside
+                                               Residencia
+
+                                            </Button>
+                                         </Link>
+                                         <Link to={`/contagio/`+persona.id}>
+                                            <Button
+                                                variant="contained"
+                                                color="warning"
+                                                className="button"
+                                                startIcon={<CoronavirusIcon/>}
+
+                                            >
+                                               Contagios
 
                                             </Button>
                                          </Link>

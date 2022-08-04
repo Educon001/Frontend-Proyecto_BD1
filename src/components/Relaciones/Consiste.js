@@ -2,23 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {
     Card,
     CardContent,
-    CardMedia,
     Typography,
-    Grid,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
-import paciente from '../../imagenes/paciente.jpg';
-import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Formulario from './../Formularios/ConsisteF';
 import * as funciones from '../General/Functions';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -41,12 +35,11 @@ function Consiste() {
 
 
     };
-    const [aux, setAux] = useState(false);
 
     useEffect(() => {
         showData();
         console.log(datos)
-    }, [aux]);
+    }, []);
     const eliminar = async (dat) => {
 
         let result = await funciones.eliminarFila('consiste/'+idTratamiento+'/'+ dat.codemedicamento);
@@ -159,7 +152,7 @@ function Consiste() {
                                         <th>{dato['name']}</th>
                                         <th>{dato['component']}</th>
                                         <th>
-                                            {modifi != null && modifi.codemedicamento ==
+                                            {modifi != null && modifi.codemedicamento ===
                                             dato.codemedicamento ?
                                                 <input onChange={handleChangeModifi}
                                                        type="text" id="cantdays"
@@ -169,7 +162,7 @@ function Consiste() {
                                                 dato['cantdays']}
                                         </th>
                                         <th>
-                                            {modifi != null && modifi.codemedicamento ==
+                                            {modifi != null && modifi.codemedicamento ===
                                             dato.codemedicamento ?
                                                 <input onChange={handleChangeModifi}
                                                        type="text" id="dosis"
@@ -179,7 +172,7 @@ function Consiste() {
                                                 dato['dosis']}
                                         </th>
                                         <th>
-                                            {modifi != null && modifi.codemedicamento ==
+                                            {modifi != null && modifi.codemedicamento ===
                                             dato.codemedicamento ?
                                                 <input onChange={handleChangeModifi}
                                                        type="text" id="frecuency"
@@ -190,7 +183,7 @@ function Consiste() {
                                         </th>
 
                                         <th className="acciones">
-                                            {modifi != null && modifi.codemedicamento ==
+                                            {modifi != null && modifi.codemedicamento ===
                                             dato.codemedicamento ? <>
                                                 <Button
                                                     variant="contained"

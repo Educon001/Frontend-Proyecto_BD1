@@ -11,12 +11,11 @@ import '../../css/Personas.css';
 import '../../css/Tablas.css';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/HospitalizadoF';
+import Formulario from './../Formularios/ContagioF';
 import * as funciones from '../General/Functions';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -27,39 +26,38 @@ const style = {
   p: 4,
 };
 
-function Hospitalizado() {
-  let idPaciente = window.location.href.split('/')[window.location.href.split(
-      '/').length - 1];
+
+function Consiste() {
+  let idContagio=window.location.href.split('/')[window.location.href.split('/').length-1]
   const [datos, setDatos] = useState([]);
   const showData = async () => {
-    await funciones.getDatos('hospitalizado/' + idPaciente, setDatos);
+    await funciones.getDatos('contagio/'+idContagio,setDatos)
+
 
   };
-  const [aux, setAux] = useState(false);
 
   useEffect(() => {
     showData();
-    console.log(datos);
-  }, [aux]);
+    console.log(datos)
+  }, []);
   const eliminar = async (dat) => {
 
-    let result = await funciones.eliminarFila(
-        'hospitalizado/' + idPaciente + '/' + dat.codecentroh + '/' +
-        dat.datehospitalizado);
+    let result = await funciones.eliminarFila('contagio/' +idContagio+'/'+dat.denom_oms+'/'+dat.datecontagio);
     return result;
   };
 
   const [modifi, setModifi] = useState({});
   const [modificable, setModificable] = useState(
       {
-        codecentroh: '',
+
+        denom_oms:'',
+        datecontagio:'',
+        resttime:'',
+        casahospitalizado:''
       });
 
   const modificar = async (dat) => {
-    let result = await funciones.modificarFila(
-        'hospitalizado/' + idPaciente + '/' + modifi.codecentroh + '/' +
-        dat.datehospitalizado,
-        modificable);
+    let result = await funciones.modificarFila('contagio/' +idContagio+'/'+dat.denom_oms+'/'+dat.datecontagio, modificable);
     return result;
   };
 
@@ -71,7 +69,7 @@ function Hospitalizado() {
             ...modificable,
             [e.target.name]: e.target.value,
           },
-          console.log(modificable),
+          console.log(modificable)
       );
     }
   };
@@ -80,9 +78,9 @@ function Hospitalizado() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  function tabla() {
+  function tabla(){
 
-    return (
+    return(
         <div>
           <div className="diseno">
             <Modal
@@ -110,7 +108,7 @@ function Hospitalizado() {
                 <CardContent>
                   <Typography gutterBottom variant="h3"
                               component="div">
-                    Hospitalizaciones del paciente {idPaciente}
+                    Contagios de {idContagio}
                   </Typography>
                   <Typography gutterBottom variant="h4"
                               component="div">
@@ -135,9 +133,11 @@ function Hospitalizado() {
                 <table>
                   <tr className="tableHeader">
 
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Fecha de hospitalizacion</th>
+                    <th>Denominacion OMS</th>
+                    <th>Fecha Contagio</th>
+                    <th>Tiempo de Reposo</th>
+                    <th>Lugar de Reposo</th>
+
 
                     <th>Acciones</th>
 
@@ -146,22 +146,37 @@ function Hospitalizado() {
 
                     return (
                         <tr>
-                          <th>{modifi != null && modifi.codecentroh ===
-                          dato.codecentroh && modifi.datehospitalizado ===
-                          dato.datehospitalizado?
-                              <input onChange={handleChangeModifi}
-                                     type="text" id="codecentroh"
-                                     spellCheck="false"
-                                     placeholder={dato['codecentroh']}
-                                     name="codecentroh"/> :
-                              dato['codecentroh']}</th>
-                          <th>{dato['name']}</th>
-                          <th>{funciones.formatDate(dato['datehospitalizado'])}</th>
+                          <th>{dato['denom_oms']}</th>
+                          <th>{funciones.formatDate(dato['datecontagio'])}</th>
+
+
+                          <th>
+                            {modifi != null && modifi.denom_oms ==
+                            dato.denom_oms ?
+                                <input onChange={handleChangeModifi}
+                                       type="text" id="resttime"
+                                       spellCheck="false"
+                                       placeholder={dato['resttime']}
+                                       name="resttime"/> :
+                                dato['resttime']+' días'}
+                          </th>
+                          <th>
+                            {modifi != null && modifi.denom_oms ==
+                            dato.denom_oms ?
+                                <input onChange={handleChangeModifi}
+                                       type="text" id="casahospitalizado"
+                                       spellCheck="false"
+                                       placeholder={dato['casahospitalizado']}
+                                       name="casahospitalizado"/> :
+                                dato['casahospitalizado']==null ? <>N/A</>: dato['casahospitalizado']==true?<>Hospital</>:<>En casa</>
+
+                            }
+                          </th>
+
 
                           <th className="acciones">
-                            {modifi != null && modifi.codecentroh ===
-                            dato.codecentroh && modifi.datehospitalizado ===
-                            dato.datehospitalizado ? <>
+                            {modifi != null && modifi.denom_oms ==
+                            dato.denom_oms ? <>
                               <Button
                                   variant="contained"
                                   color="primary"
@@ -179,7 +194,9 @@ function Hospitalizado() {
                                   className="button"
                                   startIcon={<CloseIcon/>}
                                   onClick={() => setModifi({
-                                    codecentroh: '',
+                                    name: '',
+                                    component: '',
+                                    concentration: '',
                                   })}
                               >
                                 Cancelar
@@ -222,9 +239,11 @@ function Hospitalizado() {
           </div>
 
 
+
         </div>
-    );
+    )
   }
+
 
   return (
       <div style={{
@@ -238,4 +257,4 @@ function Hospitalizado() {
   );
 }
 
-export default Hospitalizado;
+export default Consiste;

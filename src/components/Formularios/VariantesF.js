@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Typography} from '@material-ui/core';
 import swet from 'sweetalert';
 import ComboBoxPais from './../ComboBox/ComboBoxPais'
 
@@ -77,7 +76,7 @@ const VarianteF = () => {
       e.preventDefault();
       if (e.target.value != null && e.target.value != '') {
          let anio=e.target.value.substring(0,5)
-         let mes=e.target.value.substring(6,8)
+         let mes=e.target.value.substring(5,8)
          setVariante({
                 ...variante,
                 origin_year:anio,
@@ -109,15 +108,16 @@ const VarianteF = () => {
                              onChange={handleInputChange} name="denom_oms"/>
                    </div>
 
-                   <div className="form-header">
-                      <label className="form-label"
-                             htmlFor="clasification">Clasificacion</label>
-                      <input className="form-input" type="text" id="clasification"
-                             spellCheck="false"
-                             placeholder="Escriba Clasificacion"
-                             onChange={handleInputChange} name="clasification"/>
+                   <div className="form-header" onChange={handleInputChange}>
+                      <h4 className="form-label">Clasificacion </h4>
+                      <p>
+                         <input type="radio" value="VOI" name="clasification"/> VOI
+                         &emsp; &ensp;
+                         <input type="radio" value="VUM" name="clasification"/> VUM
+                         &emsp; &ensp;
+                         <input type="radio" value="VOC" name="clasification"/> VOC
+                      </p>
                    </div>
-
 
 
                    <div className="form-header">
@@ -129,8 +129,7 @@ const VarianteF = () => {
                              onChange={handleInputChange} name="linaje"/>
                    </div>
 
-                   origin_month: null,
-                   origin_year: null,
+
                    <div className="form-header">
                       <label className="form-label"
                              htmlFor="linaje">Fecha Origen</label>
@@ -140,8 +139,7 @@ const VarianteF = () => {
                              name="origin_date"/>
                    </div>
 
-                   origin_month: null,
-                   origin_year: null,
+
                    <div className="form-header">
                       <label className="form-label" htmlFor="codigoestado">Codigo Pais</label>
                       <div><ComboBoxPais setData={setPais}/></div>

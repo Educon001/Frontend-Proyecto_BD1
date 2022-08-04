@@ -11,7 +11,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
 import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
@@ -23,7 +22,6 @@ import '../../css/Formulario.css';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
-import Checkbox from '@mui/material/Checkbox';
 import {Link} from 'react-router-dom';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 
@@ -52,16 +50,14 @@ function Personas() {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDatos('personas/paciente',setPersonas)
+      await funciones.getDatos('personas/paciente',setPersonas)
    };
-   const [aux, setAux] = useState(false);
 
    useEffect(() => {
       showData();
-   }, [aux]);
+   }, []);
 
    const eliminar = async (dat) => {
 
@@ -275,11 +271,22 @@ function Personas() {
                                             startIcon={<AccessibleIcon/>}
 
                                             >
-                                            Hospitalizado
+                                            Hospitalizciones
 
                                             </Button>
                                          </Link>
 
+                                         <Link to={`/requiere/`+persona.id}>
+                                         <Button
+                                         variant="contained"
+                                         color="success"
+                                         className="button"
+                                         startIcon={<AccessibleIcon/>}
+                                         >
+                                         Tratamientos
+
+                                         </Button>
+                                         </Link>
                                       </>
 
                                       }

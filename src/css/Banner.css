@@ -136,6 +136,7 @@ ul{
     width: 100%;
     height: 180px;
     border: 5px solid white;
+    border-radius: 10px;
 }
 
 .news-cards h3{
@@ -163,13 +164,13 @@ ul{
 }
 .cards p{
     font-size: 22px;
-    color: #003452;
+    color: #ffffff;
 
 }
 
 .cards h3{
     font-size: 30px;
-    color: white;
+    color: #ffffff;
 
 }
 

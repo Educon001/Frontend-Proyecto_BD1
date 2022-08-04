@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Typography} from '@material-ui/core';
 import swet from 'sweetalert';
-
-const Vacunas = () => {
+import CBPais from './../ComboBox/ComboBoxPais'
+import ComboBoxPais from '../ComboBox/ComboBoxPais';
+const VacunasF = () => {
    const [vacuna, setvacuna] = useState({
       name: '',
       lote: '',
@@ -57,7 +58,20 @@ const Vacunas = () => {
          console.error(e);
       }
    }
+   const [pais,setPais]=useState(null)
 
+   useEffect(
+       ()=>{
+          setvacuna({
+             ...vacuna,
+             code_pais:pais,
+
+          });
+          console.log(pais)
+
+
+       },[pais]
+   )
    return (
        <>
           <div className="body">
@@ -73,7 +87,7 @@ const Vacunas = () => {
                              htmlFor="Name">Nombre</label>
                       <input className="form-input" type="text" id="name"
                              spellCheck="false"
-                             placeholder="Escriba su nombre"
+                             placeholder="Nombre de Vacuna"
                              onChange={handleInputChange} name="name"/>
                    </div>
 
@@ -91,7 +105,7 @@ const Vacunas = () => {
                          de dosis</label>
                       <input className="form-input" type="text" id="cantdosis"
                              spellCheck="false"
-                             placeholder="Escriba cantidad dosis"
+                             placeholder="Cantidad de dosis recomendadas"
                              onChange={handleInputChange} name="cantdosis"/>
                    </div>
                    <div className="form-header" onChange={handleInputChange}>
@@ -113,12 +127,8 @@ const Vacunas = () => {
                              onChange={handleInputChange} name="laboratory"/>
                    </div>
                    <div className="form-header">
-                      <label className="form-label" htmlFor="code_pais">Codigo
-                         Pais</label>
-                      <input className="form-input" type="text" id="code_pais"
-                             spellCheck="false"
-                             placeholder="Escriba Codigo del Pais"
-                             onChange={handleInputChange} name="code_pais"/>
+                      <label className="form-label" htmlFor="codigopais">Codigo Pais</label>
+                      <div><ComboBoxPais setData={setPais}/></div>
                    </div>
 
 
@@ -133,4 +143,4 @@ const Vacunas = () => {
    );
 };
 
-export default Vacunas;
+export default VacunasF;

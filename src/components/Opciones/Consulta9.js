@@ -7,11 +7,7 @@ import {
    Typography,
    Grid,
 } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core/Button';
-import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
 import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
@@ -35,12 +31,10 @@ const style = {
 function Consulta9() {
 
    const [open, setOpen] = React.useState(false);
-   const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const imagenes = [paciente, paciente2];
    const [datos, setDatos] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDatos('reportes/9',setDatos)
+      await funciones.getDatos('reportes/9',setDatos)
 
    };
    const [aux, setAux] = useState(false);

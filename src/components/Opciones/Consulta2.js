@@ -3,15 +3,13 @@ import React, {useState, useEffect} from 'react';
 import {
    Card,
    CardContent,
-   CardMedia,
+
    Typography,
-   Grid,
+
 } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core/Button';
-import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
+
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
+
 import '../../css/Tablas.css';
 import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
@@ -35,13 +33,13 @@ const style = {
 function Consulta2() {
 
    const [open, setOpen] = React.useState(false);
-   const handleOpen = () => setOpen(true);
+
    const handleClose = () => setOpen(false);
-   const imagenes = [paciente, paciente2];
+
    const [datos, setDatos] = useState([]);
-   let url = 'http://localhost:4000/reportes/2';
+
    const showData = async () => {
-     let result = await funciones.getDatos('reportes/2',setDatos)
+      await funciones.getDatos('reportes/2',setDatos)
    };
    const [aux, setAux] = useState(false);
 
@@ -98,7 +96,7 @@ function Consulta2() {
                             return (
                                 <tr>
                                    <th>{dato['name']}</th>
-                                   <th>{dato['percentage']}</th>
+                                   <th>{dato['percentage'].toFixed(2)+'%'}</th>
 
                                 </tr>
 

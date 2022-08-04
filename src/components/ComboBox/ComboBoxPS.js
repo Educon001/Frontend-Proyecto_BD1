@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { palette } from '@mui/system';
 import * as funciones from '../General/Functions';
 
 export default function ComboBoxPS(props) {
@@ -34,7 +33,7 @@ export default function ComboBoxPS(props) {
 
         <Autocomplete
 
-            sx={{background:'#fff'}}
+            sx={{background:'#fff',height:'50%'}}
             id="combo-box-demo"
             options={datos}
             getOptionLabel={(option) => option.id+' - '+option.name+' '+option.lastname}

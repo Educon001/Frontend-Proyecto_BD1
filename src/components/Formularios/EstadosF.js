@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Typography} from '@material-ui/core';
 import swet from 'sweetalert';
 import ComboBoxPais from './../ComboBox/ComboBoxPais'
 
-const Estados = () => {
+const EstadosF = () => {
 
+    const [pais,setPais]=useState(null)
     const [estado, setEstado] = useState({
+        codepais: null,
         name: null
     });
 
@@ -21,7 +22,7 @@ const Estados = () => {
     async function cargarDatos(e) {
         e.preventDefault();
         console.log(estado);
-        let url = 'http://localhost:4000/pais';
+        let url = 'http://localhost:4000/estado';
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -55,8 +56,18 @@ const Estados = () => {
         }
     }
 
+    useEffect(
+        ()=>{
+            setEstado({
+                ...estado,
+                codepais:pais,
+
+            });
+            console.log(estado)
 
 
+        },[pais]
+    )
 
     return (
         <>
@@ -77,7 +88,10 @@ const Estados = () => {
                                    placeholder="Escriba nombre"
                                    onChange={handleInputChange} name="name"/>
                         </div>
-                       
+                        <div className="form-header">
+                            <label className="form-label" htmlFor="codigoestado">Codigo Pais</label>
+                            <div><ComboBoxPais setData={setPais}/></div>
+                        </div>
 
                         <input className="form-input" type="submit"
                                value="Registrar" id="create-account"
@@ -90,4 +104,4 @@ const Estados = () => {
     );
 };
 
-export default Estados;
+export default EstadosF;

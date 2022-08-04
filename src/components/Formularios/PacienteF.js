@@ -1,5 +1,4 @@
 import React, {useState,useEffect} from 'react';
-import {Typography} from '@material-ui/core';
 import '../../css/Formulario.css';
 import swet from 'sweetalert';
 import ComboBoxPersonas from './../ComboBox/ComboBoxP'

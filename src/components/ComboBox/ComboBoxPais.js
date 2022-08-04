@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { palette } from '@mui/system';
 import * as funciones from '../General/Functions';
 
 export default function ComboBox(props) {
@@ -36,7 +35,7 @@ export default function ComboBox(props) {
             options={datos}
             getOptionLabel={(option) => option.code+' - '+option.name}
 
-            renderInput={(params) => <TextField sx={{ borderBottom: 4,borderColor:'#29B696' }} id="filled-basic" label="Filled success" variant="filled" color="success" {...params} label="Pais al que pertenece" />}
+            renderInput={(params) => <TextField sx={{ borderBottom: 4,borderColor:'#29B696' }} id="filled-basic" label="Filled success" variant="filled" color="success" {...params} label="Pais" />}
             value={value}
             onChange={(event,newValue)=>setValue(newValue)}
         />

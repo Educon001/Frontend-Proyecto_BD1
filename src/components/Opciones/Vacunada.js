@@ -3,23 +3,17 @@ import React, {useState, useEffect} from 'react';
 import {
    Card,
    CardContent,
-   CardMedia,
    Typography,
-   Grid,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
-import paciente from '../../imagenes/paciente.jpg';
-import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/Vacunada';
+import Formulario from '../Formularios/VacunadaF';
 import * as funciones from '../General/Functions';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -39,10 +33,9 @@ function Vacunada() {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const imagenes = [paciente, paciente2];
    const [personas, setPersonas] = useState([]);
    const showData = async () => {
-      let result = await funciones.getDatos('vacunada',setPersonas)
+       await funciones.getDatos('vacunada',setPersonas)
 
    };
    const [aux, setAux] = useState(false);
@@ -156,12 +149,12 @@ function Vacunada() {
                                    <th>{persona['idpersonal']}</th>
                                    <th>{funciones.formatDate(
                                        persona['datevacuna'])}</th>
-                                   <th>{modifi != null && modifi.idpersona ==
+                                   <th>{modifi != null && modifi.idpersona ===
                                    persona.idpersona
-                                   && modifi.codevacuna == persona.codevacuna &&
-                                   modifi.codecentrov == persona.codecentrov
-                                   && modifi.idpersonal == persona.idpersonal &&
-                                   modifi.datevacuna == persona.datevacuna ?
+                                   && modifi.codevacuna === persona.codevacuna &&
+                                   modifi.codecentrov === persona.codecentrov
+                                   && modifi.idpersonal === persona.idpersonal &&
+                                   modifi.datevacuna === persona.datevacuna ?
                                        <input onChange={handleChangeModifi}
                                               type="text" id="dosis"
                                               spellCheck="false"
@@ -169,13 +162,13 @@ function Vacunada() {
                                               name="dosis"/> :
                                        persona['dosis']}</th>
                                    <th className="acciones">
-                                      {modifi != null && modifi.idpersona ==
+                                      {modifi != null && modifi.idpersona ===
                                       persona.idpersona
-                                      && modifi.codevacuna ==
+                                      && modifi.codevacuna ===
                                       persona.codevacuna &&
-                                      modifi.codecentrov == persona.codecentrov
-                                      && modifi.idpersonal ==
-                                      persona.idpersonal && modifi.datevacuna ==
+                                      modifi.codecentrov === persona.codecentrov
+                                      && modifi.idpersonal ===
+                                      persona.idpersonal && modifi.datevacuna ===
                                       persona.datevacuna ? <>
                                          <Button
                                              variant="contained"

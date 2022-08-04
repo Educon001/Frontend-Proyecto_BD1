@@ -1,20 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {Typography} from '@material-ui/core';
 import swet from 'sweetalert';
-import ComboBoxPais from './../ComboBox/ComboBoxPais'
+import ComboBoxE from './../ComboBox/ComboBoxE'
+const MunicipiosF = () => {
 
-const Estados = () => {
-
-    const [pais,setPais]=useState(null)
-    const [estado, setEstado] = useState({
-        codepais: null,
+    const [estado,setEstado]=useState(null)
+    const [municio, setMunicipio] = useState({
+        codeestado: null,
         name: null
     });
 
     const handleInputChange = (e) => {
 
-        setEstado({
-            ...estado,
+        setMunicipio({
+            ...municio,
             [e.target.name]: e.target.value,
 
         });
@@ -22,15 +20,15 @@ const Estados = () => {
 
     async function cargarDatos(e) {
         e.preventDefault();
-        console.log(estado);
-        let url = 'http://localhost:4000/estado';
+        console.log(municio);
+        let url = 'http://localhost:4000/municipio';
         try {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(estado),
+                body: JSON.stringify(municio),
 
             });
             const data = await response.json();
@@ -39,7 +37,7 @@ const Estados = () => {
             if (response.status == 400) {
                 swet({
                     title: 'Warning',
-                    text: 'No se ha podido registrar el estado',
+                    text: 'No se ha podido registrar el municipio',
                     icon: 'warning',
                     dangerMode: true,
                 });
@@ -59,15 +57,15 @@ const Estados = () => {
 
     useEffect(
         ()=>{
-            setEstado({
-                ...estado,
-                codepais:pais,
+            setMunicipio({
+                ...municio,
+                codeestado:estado,
 
             });
-            console.log(estado)
+            console.log(municio)
 
 
-        },[pais]
+        },[estado]
     )
 
     return (
@@ -77,7 +75,7 @@ const Estados = () => {
                     <form className="form" id="reg-form" onSubmit={cargarDatos}>
                         <div className="form-header">
                             <h1 className="form-tittle"
-                                className="form-tittle">R<span>egistro de Pais</span>
+                                className="form-tittle">R<span>egistro de Municipio</span>
                             </h1>
                         </div>
 
@@ -90,8 +88,8 @@ const Estados = () => {
                                    onChange={handleInputChange} name="name"/>
                         </div>
                         <div className="form-header">
-                            <label className="form-label" htmlFor="codigoestado">Codigo Pais</label>
-                            <div><ComboBoxPais setData={setPais}/></div>
+                            <label className="form-label" htmlFor="codigoestado">Codigo Estado</label>
+                            <div><ComboBoxE setData={setEstado}/></div>
                         </div>
 
                         <input className="form-input" type="submit"
@@ -105,4 +103,4 @@ const Estados = () => {
     );
 };
 
-export default Estados;
+export default MunicipiosF;

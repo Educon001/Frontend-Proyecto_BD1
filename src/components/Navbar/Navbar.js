@@ -1,30 +1,17 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {
    AppBar,
-   InputBase,
    makeStyles,
    Toolbar,
-   Typography,
-   Avatar,
-   IconButton,
-   Drawer,
-   List,
-   ListItem,
+
 } from '@material-ui/core';
 import logo from '../../imagenes/Logo.jpeg';
-import Search from '../Search/Search';
-import MenuIcon from '@material-ui/icons/Menu';
-import {amber} from '@mui/material/colors';
 import {Link} from 'react-router-dom';
-import Logo from '../../imagenes/Logo.jpeg';
 import SearchRounded from '@material-ui/icons/SearchRounded';
 import '../../css/Banner.css';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
-import PersonIcon from '@mui/icons-material/Person';
-import AddIcon from '@mui/icons-material/Add';
 
 const Navbar = () => {
 
@@ -69,6 +56,9 @@ const Navbar = () => {
                 </li>
                 <li>
                    <a href="/vacunas">Vacunas</a>
+                </li>
+                <li>
+                   <a href="/sintoma">Sintomas</a>
                 </li>
                 <li>
                    <a href="/variante">Variantes</a>
@@ -148,7 +138,15 @@ const Navbar = () => {
                     TransitionComponent={Fade}
                 >
                    <li><MenuItem onClick={handleClose}><a
+                       href="/consulta1">Pacientes con mas de 1 contagio por estado</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose}><a
                        href="/consulta2">Contagios post-vacunacion</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose}><a
+                       href="/consulta3">Eficacia de vacunas</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose}><a
+                       href="/consulta4">Tratamientos por paciente</a></MenuItem></li>
+                   <li><MenuItem onClick={handleClose}><a
+                       href="/consulta5">Paises con mas contagios por variante</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
                        href="/consulta6">Top 3 variantes</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
@@ -157,6 +155,7 @@ const Navbar = () => {
                        href="/consulta8">Sintomas y vacuna por variante</a></MenuItem></li>
                    <li><MenuItem onClick={handleClose}><a
                        href="/consulta9">Vacunaciones de poblacion especifica</a></MenuItem></li>
+
 
                 </Menu>
                 <li onClick={handleClick}>

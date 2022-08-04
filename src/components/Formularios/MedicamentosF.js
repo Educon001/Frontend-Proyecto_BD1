@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Typography} from '@material-ui/core';
+import React, { useState} from 'react';
 import swet from 'sweetalert';
 
 const MedicamentosF = () => {
@@ -89,7 +88,7 @@ const MedicamentosF = () => {
                         </div>
                         <div className="form-header">
                             <label className="form-label"
-                                   htmlFor="concentration">Componente</label>
+                                   htmlFor="concentration">Concentracion</label>
                             <input className="form-input" type="text" id="concentration"
                                    spellCheck="false"
                                    placeholder="Escriba concentracion"

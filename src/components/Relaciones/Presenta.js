@@ -2,23 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {
     Card,
     CardContent,
-    CardMedia,
     Typography,
-    Grid,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import BorderColorSharpIcon from '@material-ui/icons/BorderColorSharp';
 import '../../css/Personas.css';
-import {Carousel} from 'react-bootstrap';
 import '../../css/Tablas.css';
-import paciente from '../../imagenes/paciente.jpg';
-import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Formulario from './../Formularios/TieneF';
+import Formulario from './../Formularios/PresentaF';
 import * as funciones from '../General/Functions';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
@@ -41,12 +35,11 @@ function Presenta() {
         await funciones.getDatos('presenta/'+idVacuna,setDatos)
 
     };
-    const [aux, setAux] = useState(false);
 
     useEffect(() => {
         showData();
         console.log(datos)
-    }, [aux]);
+    }, []);
     const eliminar = async (dat) => {
 
         let result = await funciones.eliminarFila('presenta/'+idVacuna+'/'+ dat.codesintoma);
@@ -60,7 +53,7 @@ function Presenta() {
         });
 
     const modificar = async (dat) => {
-        let result = await funciones.modificarFila('presenta/' +idVacuna+'/'+dat.codemedicamento,
+        let result = await funciones.modificarFila('presenta/' +idVacuna+'/'+modifi.codesintoma,
             modificable);
         return result;
     };
@@ -112,7 +105,7 @@ function Presenta() {
                             <CardContent>
                                 <Typography gutterBottom variant="h3"
                                             component="div">
-                                    Síntomas de la Vacuna {idVacuna}
+                                    Efectos Secundarios de la Vacuna {idVacuna}
                                 </Typography>
                                 <Typography gutterBottom variant="h4"
                                             component="div">

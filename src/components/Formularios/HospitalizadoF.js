@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Typography} from '@material-ui/core';
 import swet from 'sweetalert';
 import CB from '../ComboBox/ComboBoxCH'
 
