@@ -71,6 +71,9 @@ const Navbar = () => {
                    <a href="/vacunas">Vacunas</a>
                 </li>
                 <li>
+                   <a href="/variante">Variantes</a>
+                </li>
+                <li>
                    <a href="/vacunados">Vacunacion</a>
                 </li>
                 <li>
@@ -79,6 +82,7 @@ const Navbar = () => {
                 <li>
                    <a href="/medicamentos">Medicamento</a>
                 </li>
+
 
                 
                 

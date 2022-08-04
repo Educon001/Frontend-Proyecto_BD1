@@ -22,6 +22,8 @@ import * as funciones from '../General/Functions';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import {Link} from 'react-router-dom';
 
 const style = {
    position: 'absolute',
@@ -225,7 +227,25 @@ function PersonalSalud() {
                                                 onClick={() => eliminar(persona)}
                                             >
                                                Delete
-                                            </Button></>}
+                                            </Button>
+
+                                            <Link to={`/asignado/`+persona.id}>
+                                               <Button
+                                                   variant="contained"
+                                                   color="success"
+                                                   className="button"
+                                                   startIcon={<LocalHospitalIcon/>}
+
+
+
+                                               >
+                                                  Centros de Salud
+
+
+                                               </Button>
+                                            </Link>
+
+                                         </>}
 
                                       </th>
                                    </tr>

@@ -19,10 +19,11 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Formulario from './../Formularios/VariantesF';
 import * as funciones from '../General/Functions';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import CoronavirusIcon from '@mui/icons-material/Coronavirus';
+import {Link} from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -251,7 +252,28 @@ function Variante() {
                                                         onClick={() => eliminar(dato)}
                                                     >
                                                         Delete
-                                                    </Button></>}
+                                                    </Button>
+
+                                                    <Link to={`/tiene/`+dato.denom_oms}>
+                                                        <Button
+                                                            variant="contained"
+                                                            color="success"
+                                                            className="button"
+                                                            startIcon={<CoronavirusIcon/>}
+
+                                                        >
+                                                            Sintomas
+
+
+                                                        </Button>
+                                                    </Link>
+
+
+
+                                                </>
+
+
+                                                }
                                             </th>
                                         </tr>
 

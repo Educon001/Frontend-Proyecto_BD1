@@ -17,13 +17,15 @@ import paciente from '../../imagenes/paciente.jpg';
 import paciente2 from '../../imagenes/paciente2.jpg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import FormularioPersona from './../Formularios/Personas';
+import FormularioPaciente from './../Formularios/PacienteF';
 import * as funciones from '../General/Functions';
 import '../../css/Formulario.css';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import Checkbox from '@mui/material/Checkbox';
+import {Link} from 'react-router-dom';
+import AccessibleIcon from '@mui/icons-material/Accessible';
 
 const style = {
    position: 'absolute',
@@ -63,12 +65,12 @@ function Personas() {
 
    const eliminar = async (dat) => {
 
-      let result = await funciones.eliminarFila('personas/' + dat.id);
+      let result = await funciones.eliminarFila('personas/paciente/' + dat.id);
       return result;
    };
 
    const modificar = async (dat) => {
-      let result = await funciones.modificarFila('personas/' + dat.id,
+      let result = await funciones.modificarFila('personas/'+ dat.id,
           modificable);
       return result;
 
@@ -97,7 +99,7 @@ function Personas() {
              >
                 <Box sx={style}>
 
-                   <FormularioPersona />
+                   <FormularioPaciente />
 
                 </Box>
              </Modal>
@@ -264,9 +266,19 @@ function Personas() {
                                          >
                                             Delete
                                          </Button>
-                                         <Button variant="contained" color="success">
-                                            Success
-                                         </Button>
+
+                                         <Link to={`/hospitalizado/`+persona.id}>
+                                            <Button
+                                            variant="contained"
+                                            color="success"
+                                            className="button"
+                                            startIcon={<AccessibleIcon/>}
+
+                                            >
+                                            Hospitalizado
+
+                                            </Button>
+                                         </Link>
 
                                       </>
 

@@ -23,6 +23,9 @@ import '../../css/Formulario.css';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
+import VillaIcon from '@mui/icons-material/Villa';
+import AccessibleIcon from '@mui/icons-material/Accessible';
+import {Link} from 'react-router-dom';
 
 const style = {
    position: 'absolute',
@@ -261,7 +264,21 @@ function Personas() {
                                              onClick={() => eliminar(persona)}
                                          >
                                             Delete
-                                         </Button></>}
+                                         </Button>
+
+                                         <Link to={`/reside/`+persona.id}>
+                                            <Button
+                                                variant="contained"
+                                                color="success"
+                                                className="button"
+                                                startIcon={<AccessibleIcon/>}
+
+                                            >
+                                               Reside
+
+                                            </Button>
+                                         </Link>
+                                      </>}
 
                                    </th>
                                 </tr>
